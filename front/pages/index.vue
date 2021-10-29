@@ -1,5 +1,6 @@
 <template>
   <div><HeaderHome /> <ProjectList /></div>
+  <!--<tutorial/>-->
 </template>
 
 <script lang="ts">
