@@ -1,7 +1,8 @@
-pipeline{  
+pipeline{ 
+    agent any 
   stages{
     stage('deploy to dev'){
-      agent any
+      
         when{
           branch 'dev'
         }
