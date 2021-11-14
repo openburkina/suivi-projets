@@ -25,6 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@plugins/vuetify'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -38,12 +39,14 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    'nuxt-material-design-icons'
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
