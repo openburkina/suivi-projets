@@ -207,6 +207,79 @@ class ProjectViewSet(GenericViewSet, ResponseViewMixin):
         serializer = ProjectListSerializer(queryset, many=True, context={'request': request})
         data = serializer.data
         return self.jp_response(s_code='HTTP_200_OK', data={'data': data, 'draw': draw})
+class Project1ViewSet(GenericViewSet, ResponseViewMixin):
+    queryset = Project.objects.all()
+    pagination_class = CustomOffsetPagination
+    serializer_class = ProjectDetailSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        """
+        Project details
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        try:
+            project = self.get_object()
+        except ObjectDoesNotExist:
+            return self.jp_error_response('HTTP_400_BAD_REQUEST', 'UNKNOWN_QUERY',
+                                          ['Project not found'])
+
+        else:
+            year = request.GET.get('year', '')
+            project_details = self.get_serializer(project, context={'request': request, 'year': year})
+
+        return self.jp_response(s_code='HTTP_200_OK', data=project_details.data)
+
+    def list(self, request, *args, **kwargs):
+        year = process_query_params(request.GET.get('year', None))
+        operating_units = process_query_params(request.GET.get('operating_units', None))
+        budget_type = request.GET.get('budget_type', None)
+        budget_sources = process_query_params(request.GET.get('budget_sources', None))
+        sectors = process_query_params(request.GET.get('sectors', None))
+        sdgs = process_query_params(request.GET.get('sdgs', None))
+        sdg_targets = process_query_params(request.GET.get('sdg_targets', None))
+        signature_solution = request.GET.get('signature_solution', '')
+        category = request.GET.get('category')
+        keyword = request.GET.get('keyword')
+        draw = request.GET.get('draw')
+        if not sdgs or (sdgs and check_sdg_year(year)) or (sdgs and not year):
+
+            search_query = get_project_full_text_search_query(year, operating_units, budget_sources,
+                                                              sectors, keyword, sdg_targets=sdg_targets,
+                                                              category=category, sdgs=sdgs, budget_type=budget_type,
+                                                              signature_solution=signature_solution)
+            project_ids = ProjectSearch.objects.filter(search_query).distinct('project_id') \
+                .values_list('project_id', flat=True)
+
+            funds_query = get_fund_split_many_query(years=year, budget_sources=budget_sources, budget_type=budget_type,
+                                                    operating_units=operating_units)
+            funds_mapping = DonorFundSplitUp.objects.filter(funds_query).values_list('id', flat=True)
+
+            queryset = Project.objects.filter(project_id__in=project_ids) \
+                .distinct() \
+                .values('project_id') \
+                .annotate(budget=Coalesce(Sum(Case(When(Q(donorfundsplitup__in=funds_mapping),
+                                                        then=F('donorfundsplitup__budget')),
+                                                   default=Value(0))), 0),
+                          expense=Coalesce(Sum(Case(When(Q(donorfundsplitup__in=funds_mapping),
+                                                         then=F('donorfundsplitup__expense')),
+                                                    default=Value(0))), 0),
+                          title=F('title'), description=F('description'),
+                          operating_unit__name=F('operating_unit__name')) \
+                .values('title', 'description', 'budget', 'expense', 'operating_unit__name', 'project_id') \
+                .order_by('-budget')
+        else:
+            queryset = []
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = ProjectListSerializer(page, many=True, context={'request': request})
+            data = serializer.data
+            return self.get_paginated_response(data)
+        serializer = ProjectListSerializer(queryset, many=True, context={'request': request})
+        data = serializer.data
+        return self.jp_response(s_code='HTTP_200_OK', data={'data': data, 'draw': draw})
 
 
 class ProjectBudgetUtilizationView(GenericAPIView, ResponseViewMixin):
