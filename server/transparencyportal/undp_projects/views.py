@@ -26,11 +26,6 @@ class ProjectListView(LoginRequiredMixin, SuccessMessageMixin, DetailView):
     fields = ["name"]
     success_message = _("Information")
 
-
-
-
-
-
     def get_success_url(self):
         return self.request.project.get_absolute_url()  # type: ignore [union-attr]
 
@@ -39,4 +34,30 @@ class ProjectListView(LoginRequiredMixin, SuccessMessageMixin, DetailView):
 
 
 project_list_view = ProjectListView.as_view()
+
+class Projet1ListView(ListView):
+
+    model = Project
+    paginate_by = 100  # if pagination is desired
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
+
+
+class Project1ListView(LoginRequiredMixin, SuccessMessageMixin, DetailView):
+
+    model = Project
+    fields = ["name"]
+    success_message = _("Information")
+
+    def get_success_url(self):
+        return self.request.project.get_absolute_url()  # type: ignore [union-attr]
+
+    def get_object(self):
+        return self.request.project
+
+
+project1_list_view = Project1ListView.as_view()
 

@@ -1,7 +1,6 @@
 from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
-
-from undp_projects.api_views import SectorAggregateView, ProjectViewSet, \
+from undp_projects.api_views import SectorAggregateView, ProjectViewSet,Project1ViewSet, \
     RecipientProfileView, MapLocationsView, RecipientThemeDetailsView, \
     ProjectSearchView, CountryResultsView, ProjectAggregateView, \
     RecipientDocumentsView, ProjectBudgetUtilizationView, ProjectBudgetSourcesView, ProjectDocumentsView, \
@@ -15,7 +14,8 @@ router = DefaultRouter()
 # router.register(r'', ProjectViewSet)
 project_list = ProjectViewSet.as_view({'get': 'list'})
 project_detail = ProjectViewSet.as_view({'get': 'retrieve'})
-
+project_list = Project1ViewSet.as_view({'get': 'list'})
+project_detail = Project1ViewSet.as_view({'get': 'retrieve'})
 urlpatterns = [
     url(r'^list', project_list, name='project-list'),
     url(r'^details/(?P<pk>\w+)', project_detail, name='project-details'),
