@@ -1,30 +1,10 @@
 <template>
-  <v-app>
-    <v-container fluid>
-      <HeaderComplete></HeaderComplete>
-      <Chips></Chips>
-      <br>
-        <v-data-table
-          dense
-          :headers="headers"
-          :items="bailleurs"
-          item-key="name"
-          class="elevation-1"
-        ></v-data-table>
-      <br>
-      <Footer></Footer>
-    </v-container>
-  </v-app>
+
+
 </template>
-<script lang="ts">
+<script>
 export default {
-  head() {
-    return {
-      title: 'Liste des bailleurs',
-    }
-  },
-  data: () => ({
-    bailleurs: 
+  data() {
     [
       {
         donor_name: 'United States of America',
@@ -132,18 +112,6 @@ export default {
         color: '#c8c607',
       },
     ]
-  ,
-    headers: [
-      {
-        text: 'Name',
-        align: 'start',
-        sortable: false,
-        value: 'donor_name',
-      },
-      { text: 'Budget', value: 'budget' },
-      { text: 'Expense', value: 'expense' },
-    ],
-  }),
-
+  },
 }
 </script>

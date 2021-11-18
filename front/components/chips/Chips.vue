@@ -1,11 +1,11 @@
 <template>
-    <v-app id="inspire" style="height:60px">
+    <v-app id="inspire" style="height:60px; margin: 3% 0 0 0">
     <v-combobox
       v-model="chips"
       :items="items"
       chips
       clearable
-      label="Filtre par projet"
+      label="Filtre par bailleur"
       multiple
       solo
     >
@@ -27,7 +27,7 @@
 export default {
    data () {
     return {
-      chips: [],
+      chips: ['European Union', 'Japan'],
       items: ['Terminer', 'En cours'],
     }
   },
