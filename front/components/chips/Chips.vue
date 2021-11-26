@@ -1,5 +1,5 @@
 <template>
-    <v-app id="inspire" style="height:60px; margin: 3% 0 0 0">
+    <v-app id="inspire" style="height:60px; margin: 3% 0 0 0; width:100%">
     <v-combobox
       v-model="chips"
       :items="items"

@@ -1,15 +1,20 @@
 <template>
   <v-app-bar color="primary" dark >
     <img :src="require('../../assets/images/logo.png')" style="margin-right: 10%; width:60px"/>
-    <router-link to="bailleur"
+    <router-link to="/bailleur"
       ><v-btn style="margin: 3px" text 
         >Bailleurs</v-btn
       ></router-link
     >
-    <router-link to="projectList"
+    <router-link to="/projectList"
       ><v-btn style="margin: 3px" text plain class="activeLien"
         >Projets</v-btn
       ></router-link
+    >
+    <a href="/projectList"
+      ><v-btn style="margin: 3px" text plain class="activeLien"
+        >Projets</v-btn
+      ></a
     >
   </v-app-bar>
 </template>
