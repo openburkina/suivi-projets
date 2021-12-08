@@ -207,6 +207,8 @@ class ProjectViewSet(GenericViewSet, ResponseViewMixin):
         serializer = ProjectListSerializer(queryset, many=True, context={'request': request})
         data = serializer.data
         return self.jp_response(s_code='HTTP_200_OK', data={'data': data, 'draw': draw})
+
+
 class Project1ViewSet(GenericViewSet, ResponseViewMixin):
     queryset = Project.objects.all()
     pagination_class = CustomOffsetPagination
