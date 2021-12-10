@@ -41,9 +41,10 @@
           </v-toolbar>
         </template>
           <template slot="items" slot-scope="props">
-          <td class="text-xs-center">{{props.index}}</td>
-          <td class="text-xs-center">{{props.item.name}}</td>
-          <td class="text-xs-center">{{props.item.description}}</td>
+          <td class="text-xs-center">{{props.id}}</td>
+          <td class="text-xs-center">{{props.item.project}}</td>
+          <td class="text-xs-center">{{props.item.budget}}</td>
+          <td class="text-xs-center">{{props.item.organisation}}</td>
         </template>
                   <template v-slot:item.actions="{ item }">
                     <v-icon
@@ -95,11 +96,12 @@
         headers: [
         { text: 'No.', value: 'id' },
           {
-            text: 'Name',
+            text: 'Projet',
             align: 'start',
-            value: 'name',
+            value: 'project',
           },
-          { text: 'Description', value: 'description' },
+          { text: 'Organisation', value: 'organisation' },
+          { text: 'Budget', value: 'budget' },
           { text: 'Actions', value: 'actions', sortable: false },
         ],
       }

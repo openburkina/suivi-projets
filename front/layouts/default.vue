@@ -36,28 +36,28 @@
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-title>Accueil</v-list-item-title>
           </v-list-item>
 
           <v-list-item to="projet">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Projects</v-list-item-title>
+            <v-list-item-title>Projets</v-list-item-title>
           </v-list-item>
           
           <v-list-item to="/donors">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Donors</v-list-item-title>
+            <v-list-item-title>Bailleurs</v-list-item-title>
           </v-list-item>
           
           <v-list-item to="/sustainable">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>SUSTAINABLE DEVELOPMENT GOALS</v-list-item-title>
+            <v-list-item-title>ODD</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -84,7 +84,7 @@
       />
       <div v-else>
         <v-btn to="/" text>
-          <span class="mr-2 white--text">Home</span>
+          <span class="mr-2 white--text">Accueil</span>
         </v-btn>
   
          <v-menu
@@ -102,7 +102,7 @@
             v-bind="attrs"
             v-on="on"
           >
-           Projects
+           Projets
           <v-icon class="ml-4"> mdi-chevron-down</v-icon>
           </v-btn>
         </template>
@@ -119,7 +119,7 @@
                   mdi-thumb-up-outline
                 </v-icon>
                 <span class="mx-2">
-                  Projects by Donnor
+                  Projets par Bailleur
                 </span>
                
               </v-btn>
@@ -132,7 +132,7 @@
               <v-icon class="mx-3">
                 mdi-thumb-up
               </v-icon>
-              <span class="mx-2"> Projects by Donnor Achieved </span>
+              <span class="mx-2"> Projets réalisés par Bailleur </span>
                 
               </v-btn>
 
@@ -147,13 +147,13 @@
       </v-menu>
 
         <v-btn text to="/donors">
-          <span class="mr-2  white--text">Donors</span>
+          <span class="mr-2  white--text">Bailleurs</span>
         </v-btn>
         <v-btn text to="/sustainable">
-          <span class="mr-2  white--text">SUSTAINABLE DEVELOPMENT GOALS</span>
+          <span class="mr-2  white--text">ODD</span>
         </v-btn>
         <v-btn text to="/approche">
-          <span class="mr-2  white--text">OUR APPROACHES</span>
+          <span class="mr-2  white--text">NOS APPROCHES</span>
         
         </v-btn>
             <v-menu
@@ -172,7 +172,7 @@
             v-bind="attrs"
             v-on="on"
           >
-           More
+           Pour Puls
           <v-icon class="ml-4"> mdi-chevron-down</v-icon>
           </v-btn>
         </template>
@@ -189,7 +189,7 @@
                   mdi-information-variant
                 </v-icon>
                 <span class="mx-2">
-                  About us
+                  À Propos
                 </span>
                
               </v-btn>
@@ -202,8 +202,8 @@
               <v-icon class="mx-3">
                 mdi-tray-arrow-down
               </v-icon>
-              <span class="mx-2"> Download </span>
-                
+              <span class="mx-2"> Télécharger </span>
+
               </v-btn>
             </div>
           </v-list-item-content>

@@ -4,7 +4,10 @@ from rest_framework.routers import DefaultRouter
 from undp_donors.api_views import DonorFundSplitUpView, RecipientBudgetSourcesView, \
     FundAggregateView, TopRecipientOfficesView, DonorsListView, DonorBudgetSourcesView, \
     DonorContribution, SankeyBudgetView, SankeyExpenseView, TopBudgetSourcesView, DonorCountryAggregate,\
-    DonorCountryFundModalityView
+    DonorCountryFundModalityView, DonorFundSplitUpViewSet
+
+donors_list = DonorFundSplitUpViewSet.as_view({'get': 'list'})
+donors_detail = DonorFundSplitUpViewSet.as_view({'get': 'retrieve'})
 
 urlpatterns = [
     url(r'^aggregate', DonorCountryAggregate.as_view()),
@@ -23,4 +26,9 @@ urlpatterns = [
     url(r'^sankey_budget', SankeyBudgetView.as_view(), name='sankey-budget'),
     url(r'^sankey_expense', SankeyExpenseView.as_view(), name='sankey-expense'),
 
+]
+
+app_name = "donors"
+urlpatterns = [
+    path("~fin_split_up/", DonorFundSplitUpView.as_view()),
 ]

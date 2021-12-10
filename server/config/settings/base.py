@@ -5,6 +5,7 @@ from pathlib import Path
 
 import environ
 
+
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # transparencyportal/
 APPS_DIR = ROOT_DIR / "transparencyportal"
@@ -128,6 +129,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # MIDDLEWARE
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
@@ -140,6 +144,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 # STATIC
@@ -283,10 +289,11 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.TokenAuthentication",
+        #"rest_framework.authentication.SessionAuthentication",
+        #"rest_framework.authentication.TokenAuthentication",
     ),
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_PERMISSION_CLASSES": (#"rest_framework.permissions.IsAuthenticated",
+         ),
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup

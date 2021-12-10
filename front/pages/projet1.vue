@@ -50,7 +50,7 @@
           <td class="text-xs-center">{{props.item.organisation}}</td> 
           <td class="text-xs-center">{{props.item.activity_status}}</td>
           <td class="text-xs-center">{{props.item.description}}</td> 
-         
+        
         </template>
                   <template v-slot:item.actions="{ item }">
                     <v-icon

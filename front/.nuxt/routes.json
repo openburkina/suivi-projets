@@ -2,78 +2,78 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/about.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/about.vue",
     "chunkName": "pages/about",
-    "_name": "_58d41c3f"
+    "_name": "_3f5e2109"
   },
   {
     "name": "approche",
     "path": "/approche",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/approche.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/approche.vue",
     "chunkName": "pages/approche",
-    "_name": "_42e8ce80"
+    "_name": "_5a4c1d76"
   },
   {
     "name": "donors",
     "path": "/donors",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/donors.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/donors.vue",
     "chunkName": "pages/donors",
-    "_name": "_fdfe7cea"
+    "_name": "_6bb75601"
   },
   {
     "name": "download",
     "path": "/download",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/download.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/download.vue",
     "chunkName": "pages/download",
-    "_name": "_5930a446"
+    "_name": "_7093f33c"
   },
   {
     "name": "error",
     "path": "/error",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/error.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/error.vue",
     "chunkName": "pages/error",
-    "_name": "_875bd58c"
+    "_name": "_ba47cbf8"
   },
   {
     "name": "projet",
     "path": "/projet",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/projet.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projet.vue",
     "chunkName": "pages/projet",
-    "_name": "_0aff0fec"
+    "_name": "_3591e700"
   },
   {
     "name": "projet1",
     "path": "/projet1",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/projet1.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projet1.vue",
     "chunkName": "pages/projet1",
-    "_name": "_55981b17"
+    "_name": "_7c97d53e"
   },
   {
     "name": "sustainable",
     "path": "/sustainable",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/sustainable.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/sustainable.vue",
     "chunkName": "pages/sustainable",
-    "_name": "_03ad132f"
+    "_name": "_9d624f0e"
   },
   {
     "name": "donor-add",
     "path": "/donor/add",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/donor/add.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/donor/add.vue",
     "chunkName": "pages/donor/add",
-    "_name": "_094aafaa"
+    "_name": "_435d8118"
   },
   {
     "name": "project-add",
     "path": "/project/add",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/project/add.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/project/add.vue",
     "chunkName": "pages/project/add",
-    "_name": "_5f386a46"
+    "_name": "_7e059027"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/home/wenaklabs/dev/vue_js/front-dev/pages/index.vue",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_788bf704"
+    "_name": "_5f15fbce"
   }
 ]

@@ -1,14 +1,14 @@
 <template>
 <div>
         <p class="white--text font-weight-bold mx-auto display-1 mt-15">
-        UNDP Transparency Portal
+        Portail de transparence du PNUD
         </p>
         <p class="white--text mx-auto">
-            In UNDP, we are committed to eradicating poverty, fighting climate change and reducing
+            Au PNUD, nous nous engageons à éradiquer la pauvreté, à lutter contre le changement climatique et à réduire
         </p>
         <p class="white--text mx-auto">
-            inequalities and exclusion around the world. Discover how, with the help of our partners, we work 
-            day to day to make this a reality.
+           inégalités et exclusions dans le monde. Découvrez comment, avec l'aide de nos partenaires, nous travaillons
+             jour après jour pour en faire une réalité.
         </p>
     <v-text-field
         placeholder="Search using Project,Donors, Recipients or Keyword"

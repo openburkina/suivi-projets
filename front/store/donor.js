@@ -25,10 +25,10 @@ export const state = ()=> ({
   export const actions = {
     getDonorsData({commit}, payload){
       return new Promise((resolve, reject)=> {
-        this.$axios.get('/v1/donor/budget_sources?year=2021').then((response)=> {
-          console.log(response.data.data)
+        this.$axios.get('/fin_split_up/').then((response)=> {
+          console.log(response.data)
         //  this.$axios.get('/donors').then((response)=> {
-          commit('SET_DONOR_DATA', response.data.data)
+          commit('SET_DONOR_DATA', response.data)
           resolve()
           // console.log(response.data)
         })
