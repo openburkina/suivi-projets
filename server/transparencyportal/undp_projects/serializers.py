@@ -54,6 +54,10 @@ class ProjectAggregateSerializer(serializers.Serializer):
     class Meta:
         fields = ('year', 'countries', 'budget', 'expense', 'donors', 'projects', 'outputs')
 
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields  = '__all__'
 
 class ProjectDetailSerializer(serializers.ModelSerializer):
     operating_unit = CountrySerializer()
