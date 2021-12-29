@@ -1,10 +1,9 @@
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 from undp_projects.models import Project
-from master_tables.models import Organisation
 from .serializers import ProjectSerializer
 from .serializers import Project1Serializer,ProjectTSerializer, ProjectRSerializer
 
@@ -20,6 +19,7 @@ class ProjectViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, Gener
     def me(self, request):
         serializer = ProjectSerializer(request.project, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
+
 
 class Project1ViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
 

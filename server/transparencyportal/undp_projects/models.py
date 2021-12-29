@@ -5,7 +5,7 @@ from django.contrib.postgres.indexes import GinIndex
 
 
 class Project(models.Model):
-    project_id = models.CharField(max_length=100, db_index=True, primary_key=True)
+    project_id = models.CharField(max_length=100,db_index=True, primary_key=True)
     title = models.TextField(blank=True, null=True)
     organisation = models.ForeignKey(Organisation, blank=True, null=True, on_delete=models.DO_NOTHING)
     description = models.CharField(max_length=600, blank=True, null=True)
