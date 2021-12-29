@@ -36,34 +36,32 @@
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Accueil</v-list-item-title>
+            <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
 
           <v-list-item to="projet">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Projets</v-list-item-title>
+            <v-list-item-title>Projects</v-list-item-title>
           </v-list-item>
           
           <v-list-item to="/donors">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Bailleurs</v-list-item-title>
+            <v-list-item-title>Donors</v-list-item-title>
           </v-list-item>
           
           <v-list-item to="/sustainable">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>ODD</v-list-item-title>
+            <v-list-item-title>SUSTAINABLE DEVELOPMENT GOALS</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-
-
     <v-app-bar
       app
       fixed
@@ -86,67 +84,10 @@
         <v-btn to="/" text>
           <span class="mr-2 white--text">Accueil</span>
         </v-btn>
-  
-         <v-menu
-        bottom
-        origin="center center"
-        transition="fab-transition"
-        nudge-bottom="30"
-        open-on-hover :close-on-content-click="false"
-      >
 
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-          text
-          class="white--text"
-            v-bind="attrs"
-            v-on="on"
-          >
-           Projets
-          <v-icon class="ml-4"> mdi-chevron-down</v-icon>
-          </v-btn>
-        </template>
-        <v-card>
-          <v-list-item-content class="justify-center">
-            <div class="mx-auto text-center">
-             
-              <v-btn
-                depressed
-                text
-                to="/projet"
-              >
-                <v-icon class="mx-3">
-                  mdi-thumb-up-outline
-                </v-icon>
-                <span class="mx-2">
-                  Projets par Bailleur
-                </span>
-               
-              </v-btn>
-              <v-divider class="my-3"></v-divider>
-              <v-btn
-                depressed
-                text
-                to="/projet1"
-              >
-              <v-icon class="mx-3">
-                mdi-thumb-up
-              </v-icon>
-              <span class="mx-2"> Projets réalisés par Bailleur </span>
-                
-              </v-btn>
+         <Menu-projects/>
 
-
-
-
-
-            </div>
-          </v-list-item-content>
-        </v-card>
-
-      </v-menu>
-
-        <v-btn text to="/donors">
+        <v-btn text to="/backers">
           <span class="mr-2  white--text">Bailleurs</span>
         </v-btn>
         <v-btn text to="/sustainable">
@@ -154,70 +95,16 @@
         </v-btn>
         <v-btn text to="/approche">
           <span class="mr-2  white--text">NOS APPROCHES</span>
-        
         </v-btn>
-            <v-menu
-        bottom
-        origin="center center"
-        transition="fab-transition"
-        nudge-bottom="30"
-        open-on-hover :close-on-content-click="false"
-      >
-
-      
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-          text
-          class="white--text"
-            v-bind="attrs"
-            v-on="on"
-          >
-           Pour Puls
-          <v-icon class="ml-4"> mdi-chevron-down</v-icon>
-          </v-btn>
-        </template>
-        <v-card>
-          <v-list-item-content class="justify-center">
-            <div class="mx-auto text-center">
-             
-              <v-btn
-                depressed
-                text
-                to="/about"
-              >
-                <v-icon class="mx-3">
-                  mdi-information-variant
-                </v-icon>
-                <span class="mx-2">
-                  À Propos
-                </span>
-               
-              </v-btn>
-              <v-divider class="my-3"></v-divider>
-              <v-btn
-                depressed
-                text
-                to="/download"
-              >
-              <v-icon class="mx-3">
-                mdi-tray-arrow-down
-              </v-icon>
-              <span class="mx-2"> Télécharger </span>
-
-              </v-btn>
-            </div>
-          </v-list-item-content>
-        </v-card>
-
-      </v-menu>
+        <!-- More menu -->
+          <Menu />
       </div>
     </v-app-bar>
     <v-main>
       <v-container>
        <Nuxt />
       </v-container>
-        <Footer />
-    
+          <Footer class="mt-15" />
     </v-main>
     <v-scale-transition>
       <v-btn

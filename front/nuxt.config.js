@@ -3,7 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - cafdo',
@@ -56,7 +56,7 @@ export default {
     // baseProjectsURL: 'https://api.open.undp.org/api/v1/project/list/?budget_sources=&keyword=&limit=100&offset=0&operating_units=&sectors=&year=2021&budget_type=&sdgs=&signature_solution=',
      baseURL: 'http://0.0.0.0:8000/api'
    },
-   
+ 
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -87,7 +87,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     options: {
-      fix: true
+        fix: true
       }
   }
 }

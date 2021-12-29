@@ -1,6 +1,6 @@
 <template>
-<v-container>
-    <p class="display-2 text-center mt-5 font-weight-bold">Explore  <span id="explore"></span></p>
+<v-container fluid>
+    <p class="display-2 text-center font-weight-bold">Explore  <span id="explore"></span></p>
     <p class="text-center">Learn more about where and how UNDP is making a difference around the globe. Search by location, donor <br>country, our focus, signature solution or Sustainable Development Goal.</p>
     <v-tabs class="ml-auto " v-model="tab" grow  slider-size="1" hide-slider>
         <v-tab >
@@ -26,10 +26,45 @@
           </v-btn>
           </v-tab>
   </v-tabs>
+  
      <v-tabs-items v-model="tab">
       <v-tab-item>
        
          <Leaflet />
+          <v-row no-gutters class="mx-3 mt-5">
+      <v-col>
+        <v-card
+          class="my-5"
+          max-height="500" max-width="370"
+          outlined
+          tile
+        >
+         <BarChartContent />
+
+          
+        </v-card>
+      </v-col>
+      <v-col order="12">
+        <v-card
+          class="my-5"
+          max-height="500" max-width="370"
+          outlined
+          tile
+        >
+          <PieChartContent />
+        </v-card>
+      </v-col>
+      <v-col order="1">
+        <v-card
+          class="my-5"
+          max-height="500" max-width="370"
+          outlined
+          tile
+        >
+        <LineChartContent />
+        </v-card>
+      </v-col>
+    </v-row>
       </v-tab-item>
     <v-tab-item>
         <v-card flat>
@@ -38,7 +73,7 @@
       </v-tab-item>
       <v-tab-item>
         <v-card flat>
-          <v-card-text class="display-2">Our focus Page {{ $store.state.msg }}</v-card-text>
+          <v-card-text class="display-2">Our focus Page</v-card-text>
         </v-card>
       </v-tab-item>
 
@@ -58,7 +93,6 @@
 </v-container>
 </template>
 <script>
-  import {mapState,mapMutations,mapGetters,mapActions} from 'vuex'
   export default {
     
     data () {
@@ -81,6 +115,5 @@
     margin: 0 auto;
     display: block;
     margin-top: 10px;
-    margin-bottom: 30px;
 }
 </style>

@@ -1,14 +1,14 @@
 <template>
 <div>
         <p class="white--text font-weight-bold mx-auto display-1 mt-15">
-        Portail de transparence du PNUD
+        UNDP Transparency Portal
         </p>
         <p class="white--text mx-auto">
-            Au PNUD, nous nous engageons à éradiquer la pauvreté, à lutter contre le changement climatique et à réduire
+            In UNDP, we are committed to eradicating poverty, fighting climate change and reducing
         </p>
         <p class="white--text mx-auto">
-           inégalités et exclusions dans le monde. Découvrez comment, avec l'aide de nos partenaires, nous travaillons
-             jour après jour pour en faire une réalité.
+            inequalities and exclusion around the world. Discover how, with the help of our partners, we work 
+            day to day to make this a reality.
         </p>
     <v-text-field
         placeholder="Search using Project,Donors, Recipients or Keyword"
@@ -21,10 +21,10 @@
     > 
     </v-text-field>
      <div class="mx-auto py-5 mb-5">
-        <v-btn icon size="60"><v-icon size="60" color="white">mdi-menu-left</v-icon></v-btn>
-        <span class="white--text font-weight-bold">2021</span>
+        <v-btn icon size="60"><v-icon size="60" color="`disable=='disabled'?transparent:white`" disable @click="decrease">mdi-menu-left</v-icon></v-btn>
+        <span class="white--text font-weight-bold">{{ date }}</span>
         
-        <v-btn icon size="60"><v-icon size="60" color="white">mdi-menu-right</v-icon></v-btn>
+        <v-btn icon size="60"><v-icon size="60" color="white" @click="increment">mdi-menu-right</v-icon></v-btn>
     </div>
        
     <ButtonGroup />
@@ -32,6 +32,28 @@
     
 </div>
 </template>
+<script>
+
+export default {
+    data(){
+        return {
+            date:2021,
+            disable:null,
+            color:null
+        }
+    },
+    methods:{
+        increment(){
+            return this.date++
+        },
+        decrease(){
+            if(this.date<=2018) return this.disabled = "disabled" & this.color=="transparent"
+            return this.date--
+
+        }
+    }
+}
+</script>
 
 <style scoped>
 .v-btn i:hover{

@@ -1,6 +1,10 @@
 Getting Up and Running Locally With Docker
 ==========================================
 
+ export COMPOSE_FILE=local.yml
+ docker-compose up
+ 
+
 .. index:: Docker
 
 The steps below will get you up and running with a local development environment.

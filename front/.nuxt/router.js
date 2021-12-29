@@ -4,17 +4,19 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _3f5e2109 = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
-const _5a4c1d76 = () => interopDefault(import('../pages/approche.vue' /* webpackChunkName: "pages/approche" */))
-const _6bb75601 = () => interopDefault(import('../pages/donors.vue' /* webpackChunkName: "pages/donors" */))
-const _7093f33c = () => interopDefault(import('../pages/download.vue' /* webpackChunkName: "pages/download" */))
-const _ba47cbf8 = () => interopDefault(import('../pages/error.vue' /* webpackChunkName: "pages/error" */))
-const _3591e700 = () => interopDefault(import('../pages/projet.vue' /* webpackChunkName: "pages/projet" */))
-const _7c97d53e = () => interopDefault(import('../pages/projet1.vue' /* webpackChunkName: "pages/projet1" */))
-const _9d624f0e = () => interopDefault(import('../pages/sustainable.vue' /* webpackChunkName: "pages/sustainable" */))
-const _435d8118 = () => interopDefault(import('../pages/donor/add.vue' /* webpackChunkName: "pages/donor/add" */))
-const _7e059027 = () => interopDefault(import('../pages/project/add.vue' /* webpackChunkName: "pages/project/add" */))
-const _5f15fbce = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _9d1c6d12 = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
+const _d02d1370 = () => interopDefault(import('../pages/approche.vue' /* webpackChunkName: "pages/approche" */))
+const _d5cb3968 = () => interopDefault(import('../pages/backers/index.vue' /* webpackChunkName: "pages/backers/index" */))
+const _748baf34 = () => interopDefault(import('../pages/currentProject.vue' /* webpackChunkName: "pages/currentProject" */))
+const _3c18bb53 = () => interopDefault(import('../pages/donors.vue' /* webpackChunkName: "pages/donors" */))
+const _a39d67e4 = () => interopDefault(import('../pages/download.vue' /* webpackChunkName: "pages/download" */))
+const _14efc272 = () => interopDefault(import('../pages/error.vue' /* webpackChunkName: "pages/error" */))
+const _7ca49983 = () => interopDefault(import('../pages/projects/index.vue' /* webpackChunkName: "pages/projects/index" */))
+const _7dac8eb8 = () => interopDefault(import('../pages/projects1/index.vue' /* webpackChunkName: "pages/projects1/index" */))
+const _94cf1c5c = () => interopDefault(import('../pages/projet.vue' /* webpackChunkName: "pages/projet" */))
+const _4a1c1332 = () => interopDefault(import('../pages/sustainable.vue' /* webpackChunkName: "pages/sustainable" */))
+const _77f53636 = () => interopDefault(import('../pages/works/_works.vue' /* webpackChunkName: "pages/works/_works" */))
+const _5dacb788 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -29,47 +31,55 @@ export const routerOptions = {
 
   routes: [{
     path: "/about",
-    component: _3f5e2109,
+    component: _9d1c6d12,
     name: "about"
   }, {
     path: "/approche",
-    component: _5a4c1d76,
+    component: _d02d1370,
     name: "approche"
   }, {
+    path: "/backers",
+    component: _d5cb3968,
+    name: "backers"
+  }, {
+    path: "/currentProject",
+    component: _748baf34,
+    name: "currentProject"
+  }, {
     path: "/donors",
-    component: _6bb75601,
+    component: _3c18bb53,
     name: "donors"
   }, {
     path: "/download",
-    component: _7093f33c,
+    component: _a39d67e4,
     name: "download"
   }, {
     path: "/error",
-    component: _ba47cbf8,
+    component: _14efc272,
     name: "error"
   }, {
+    path: "/projects",
+    component: _7ca49983,
+    name: "projects"
+  }, {
+    path: "/projects1",
+    component: _7dac8eb8,
+    name: "projects1"
+  }, {
     path: "/projet",
-    component: _3591e700,
+    component: _94cf1c5c,
     name: "projet"
   }, {
-    path: "/projet1",
-    component: _7c97d53e,
-    name: "projet1"
-  }, {
     path: "/sustainable",
-    component: _9d624f0e,
+    component: _4a1c1332,
     name: "sustainable"
   }, {
-    path: "/donor/add",
-    component: _435d8118,
-    name: "donor-add"
-  }, {
-    path: "/project/add",
-    component: _7e059027,
-    name: "project-add"
+    path: "/works/:works?",
+    component: _77f53636,
+    name: "works-works"
   }, {
     path: "/",
-    component: _5f15fbce,
+    component: _5dacb788,
     name: "index"
   }],
 

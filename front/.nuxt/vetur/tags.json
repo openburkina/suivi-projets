@@ -2,8 +2,17 @@
   "ParallaxContent": {
     "description": "Auto imported from components/ParallaxContent.vue"
   },
+  "BarChart": {
+    "description": "Auto imported from components/barChart.vue"
+  },
+  "BarChartContent": {
+    "description": "Auto imported from components/barChartContent.vue"
+  },
   "ButtonGroup": {
     "description": "Auto imported from components/buttonGroup.vue"
+  },
+  "ButtonTitle": {
+    "description": "Auto imported from components/buttonTitle.vue"
   },
   "Error": {
     "description": "Auto imported from components/error.vue"
@@ -14,13 +23,46 @@
   "Leaflet": {
     "description": "Auto imported from components/leaflet.vue"
   },
+  "LineChart": {
+    "description": "Auto imported from components/lineChart.vue"
+  },
+  "LineChartContent": {
+    "description": "Auto imported from components/lineChartContent.vue"
+  },
+  "MenuPage": {
+    "description": "Auto imported from components/menu-page.vue"
+  },
+  "MenuProjectsPage": {
+    "description": "Auto imported from components/menu-projects-page.vue"
+  },
+  "MenuProjects": {
+    "description": "Auto imported from components/menu-projects.vue"
+  },
+  "Menu": {
+    "description": "Auto imported from components/menu.vue"
+  },
   "Parallax": {
     "description": "Auto imported from components/parallax.vue"
+  },
+  "PieChart": {
+    "description": "Auto imported from components/pieChart.vue"
+  },
+  "PieChartContent": {
+    "description": "Auto imported from components/pieChartContent.vue"
   },
   "ResponsiveButtonGroup": {
     "description": "Auto imported from components/responsiveButtonGroup.vue"
   },
   "Tabs": {
     "description": "Auto imported from components/tabs.vue"
+  },
+  "Travaux": {
+    "description": "Auto imported from components/travaux.vue"
+  },
+  "TravauxContentDone": {
+    "description": "Auto imported from components/travauxContentDone.vue"
+  },
+  "TravauxContentInprogress": {
+    "description": "Auto imported from components/travauxContentInprogress.vue"
   }
 }
