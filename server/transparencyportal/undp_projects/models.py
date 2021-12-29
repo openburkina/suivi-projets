@@ -1,5 +1,5 @@
 from django.db import models
-from master_tables.models import Organisation, Sector, DocumentCategory, OperatingUnit, Sdg, SdgTargets
+from master_tables.models import Organisation, Sector, DocumentCategory, OperatingUnit, Sdg, SdgTargets, Region
 from django.contrib.postgres.search import SearchVectorField
 from django.contrib.postgres.indexes import GinIndex
 
@@ -21,6 +21,7 @@ class Project(models.Model):
     capital_spend = models.FloatField(null=True, blank=True)
     conditions_attached = models.IntegerField(blank=True, null=True)
     crs_code = models.CharField(max_length=15, blank=True, null=True)
+
 
     def __str__(self):
         return "%s" % self.project_id

@@ -4,8 +4,9 @@ from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateMode
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 from undp_projects.models import Project
+from master_tables.models import Organisation
 from .serializers import ProjectSerializer
-from .serializers import Project1Serializer
+from .serializers import Project1Serializer,ProjectTSerializer, ProjectRSerializer
 
 
 class ProjectViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
@@ -31,3 +32,33 @@ class Project1ViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, Gene
     def me(self, request):
         serializer = Project1Serializer(request.project, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectTViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+
+    serializer_class = ProjectTSerializer
+    queryset = Project.objects.order_by("organisation")
+    lookup_field = "organisation"
+
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectTSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectRViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+
+    serializer_class = ProjectRSerializer
+    queryset = Project.objects.order_by("operating_unit")
+    lookup_field = "organisation"
+
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectRSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+
+
