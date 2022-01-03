@@ -13,6 +13,12 @@ class ProjectSerializer(serializers.ModelSerializer):
         }
 
 
+class ProjetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
 class Project1Serializer(serializers.ModelSerializer):
     class Meta:
         model = Project
@@ -21,3 +27,26 @@ class Project1Serializer(serializers.ModelSerializer):
         extra_kwargs = {
             "url": {"view_name": "api:project-detail", "lookup_field": "organisation"}
         }
+
+
+class ProjectTSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ["title", "organisation","activity_status"]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:project-detail", "lookup_field": "organisation"}
+        }
+
+
+class ProjectRSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ["title", "organisation","operating_unit","activity_status"]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:project-detail", "lookup_field": "organisation"}
+        }
+
+
+

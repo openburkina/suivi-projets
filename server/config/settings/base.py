@@ -2,7 +2,7 @@
 Base settings to build other settings files upon.
 """
 from pathlib import Path
-
+from transparencyportal.undp_transparency.settings.local_default import DB_FOR_WRITE
 import environ
 
 
@@ -10,7 +10,7 @@ ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # transparencyportal/
 APPS_DIR = ROOT_DIR / "transparencyportal"
 env = environ.Env()
-
+DB_FOR_WRITE = DB_FOR_WRITE
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
 if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
@@ -126,12 +126,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+
 # MIDDLEWARE
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
-
-CORS_ORIGIN_ALLOW_ALL = True
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",

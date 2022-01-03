@@ -9,7 +9,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-btn
           text
-          class="white--text"
+          class="#21618C --text"
             v-bind="attrs"
             v-on="on"
           >

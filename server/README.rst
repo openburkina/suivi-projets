@@ -1,9 +1,11 @@
 Getting Up and Running Locally With Docker
 ==========================================
 
- export COMPOSE_FILE=local.yml
- docker-compose up
- 
+export COMPOSE_FILE=local.yml
+
+docker-compose up
+
+
 
 .. index:: Docker
 

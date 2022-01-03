@@ -14,6 +14,9 @@
   "ButtonTitle": {
     "description": "Auto imported from components/buttonTitle.vue"
   },
+  "Caroussel": {
+    "description": "Auto imported from components/caroussel.vue"
+  },
   "Error": {
     "description": "Auto imported from components/error.vue"
   },
@@ -40,9 +43,6 @@
   },
   "Menu": {
     "description": "Auto imported from components/menu.vue"
-  },
-  "Parallax": {
-    "description": "Auto imported from components/parallax.vue"
   },
   "PieChart": {
     "description": "Auto imported from components/pieChart.vue"

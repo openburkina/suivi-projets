@@ -19,3 +19,5 @@ class DonorFundSplitUpViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMix
     def me(self, request):
         serializer = DonorFundSplitUpSerializer(request.DonorFundSplitUp, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+

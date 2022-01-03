@@ -1,11 +1,9 @@
 <template>
   <v-app>
-      <v-parallax
-        height="700"
-        :src="require('~/assets/img/bgHero.jpg')"
-      >
-      <Parallax />
-    </v-parallax>
+    <Caroussel />
+
+
+
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -62,6 +60,9 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
+
+
+
     <v-app-bar
       app
       fixed
@@ -80,23 +81,26 @@
         color="white"
         @click.stop="drawer = !drawer"
       />
+
       <div v-else>
         <v-btn to="/" text>
-          <span class="mr-2 white--text">Accueil</span>
+          <span class="mr-2 #21618C--text">Accueil</span>
         </v-btn>
 
          <Menu-projects/>
 
         <v-btn text to="/backers">
-          <span class="mr-2  white--text">Bailleurs</span>
+          <span class="mr-2  #21618C --text">Bailleurs</span>
         </v-btn>
         <v-btn text to="/sustainable">
-          <span class="mr-2  white--text">ODD</span>
+          <span class="mr-2  #21618C --text">ODD</span>
         </v-btn>
         <v-btn text to="/approche">
-          <span class="mr-2  white--text">NOS APPROCHES</span>
+          <span class="mr-2  #21618C --text">NOS APPROCHES</span>
         </v-btn>
         <!-- More menu -->
+
+
           <Menu />
       </div>
     </v-app-bar>
@@ -104,7 +108,7 @@
       <v-container>
        <Nuxt />
       </v-container>
-          <Footer class="mt-15" />
+          <Footer />
     </v-main>
     <v-scale-transition>
       <v-btn

@@ -11,7 +11,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-btn
           text
-          class="white--text"
+          class="#21618C--text"
             v-bind="attrs"
             v-on="on"
           >
@@ -34,8 +34,9 @@
                 <span class="mx-2">
                   Projets par Bailleur
                 </span>
-               
               </v-btn>
+
+              
               <v-divider class="my-3"></v-divider>
               <v-btn
                 depressed
@@ -45,9 +46,40 @@
               <v-icon class="mx-3">
                 mdi-thumb-up
               </v-icon>
-              <span class="mx-2"> Projets réalisés par Bailleur </span>
+              <span class="mx-2">Projets réalisés par Bailleur </span>
                 
               </v-btn>
+
+
+           
+              <v-divider class="my-3"></v-divider>
+              <v-btn
+                depressed
+                text
+                to="/projects2"
+              >
+              <v-icon class="mx-3">
+                mdi-thumb-up
+              </v-icon>
+              <span class="mx-2">Projets Ordonnés par bailleur </span>
+                
+              </v-btn>
+
+
+              <v-divider class="my-3"></v-divider>
+              <v-btn
+                depressed
+                text
+                to="/projects3"
+              >
+              <v-icon class="mx-3">
+                mdi-thumb-up
+              </v-icon>
+              <span class="mx-2">Projets par Region </span>
+                
+              </v-btn>
+
+
 
             </div>
           </v-list-item-content>
