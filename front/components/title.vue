@@ -1,13 +1,9 @@
 <template>
-<div>
-      
-      <Title value="Carte des régions"/>
-      <TabsHomePage />
-</div>
+      <p class="display-2 text-center font-weight-bold mt-12 mb-12"> {{this.value}}  <span id="explore"></span></p>
 </template>
 <script>
 export default {
-   
+   props: ["value"],
 }
 </script>
 <style lang="scss" scoped>
