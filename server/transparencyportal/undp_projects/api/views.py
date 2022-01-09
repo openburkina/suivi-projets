@@ -1,3 +1,5 @@
+
+from django.db.models import Count
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin
@@ -37,8 +39,9 @@ class Project1ViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, Gene
 class ProjectTViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
 
     serializer_class = ProjectTSerializer
-    queryset = Project.objects.order_by("organisation")
+    queryset = Project.objects.values('organisation').annotate(count=Count('organisation'))
     lookup_field = "organisation"
+
 
 
     @action(detail=False, methods=["GET"])
@@ -50,8 +53,11 @@ class ProjectTViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, Gene
 class ProjectRViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
 
     serializer_class = ProjectRSerializer
-    queryset = Project.objects.order_by("operating_unit")
-    lookup_field = "organisation"
+    queryset = Project.objects.values('operating_unit','organisation').annotate(count=Count('project_id'))
+    lookup_field = "operating_unit"
+
+    #queryset = Project.objects.order_by("operating_unit")
+    #lookup_field = "organisation"
 
 
     @action(detail=False, methods=["GET"])

@@ -13,12 +13,14 @@ else:
     router = SimpleRouter()
 
 router.register("users", UserViewSet)
+
 router.register("projets", ProjectViewSet)
 router.register("projets1", Project1ViewSet)
+router.register("fin_split_up", DonorFundSplitUpViewSet)
 router.register("project_aggregate", ProjectTViewSet)
 router.register("sector_aggregate", ProjectRViewSet)
 
-router.register("fin_split_up", DonorFundSplitUpViewSet)
+
 
 
 app_name = "api"
