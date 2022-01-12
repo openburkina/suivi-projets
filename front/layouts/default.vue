@@ -1,15 +1,12 @@
 <template>
   <v-app>
-    <Caroussel />
-
-
-
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
       app
       fixed
       temporary
+      color="indigo lighten-1"
     >
       <v-list>
         <v-list-item>
@@ -28,34 +25,34 @@
         dense
       >
         <v-list-item-group
-          active-class="deep-purple--text text--accent-4"
+          active-class="white--text"
         >
           <v-list-item to="/">
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-title>Accueil</v-list-item-title>
           </v-list-item>
 
-          <v-list-item to="projet">
+          <v-list-item to="/projets">
             <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
+              <v-icon>mdi-menu</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Projects</v-list-item-title>
+            <v-list-item-title>Projets</v-list-item-title>
           </v-list-item>
           
-          <v-list-item to="/donors">
+          <v-list-item to="/bailleurs">
             <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
+              <v-icon>mdi-menu</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Donors</v-list-item-title>
+            <v-list-item-title>Bailleurs</v-list-item-title>
           </v-list-item>
           
-          <v-list-item to="/sustainable">
+          <v-list-item to="/regions">
             <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
+              <v-icon>mdi-menu</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>SUSTAINABLE DEVELOPMENT GOALS</v-list-item-title>
+            <v-list-item-title>R&eacute;gions</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -68,10 +65,10 @@
       fixed
       height="90"
       v-bind:elevation="scrollPosition>28?4:0"
-      v-bind:color="scrollPosition<28?'transparent':'indigo lighten-1'"
+      color="indigo lighten-1"
     >
         <img
-          :src="require('~/assets/img/logo.png')" height="60" width="50"
+          :src="require('~/assets/img/logo.png')" class="logo"
         >
   
       <v-spacer />
@@ -86,26 +83,19 @@
         <v-btn to="/" text>
           <span class="mr-2 #21618C--text">Accueil</span>
         </v-btn>
-
-         <Menu-projects/>
-
-        <v-btn text to="/backers">
+        <v-btn text to="/projets">
+          <span class="mr-2  #21618C --text">Projets</span>
+        </v-btn>
+        <v-btn text to="/bailleurs">
           <span class="mr-2  #21618C --text">Bailleurs</span>
         </v-btn>
-        <v-btn text to="/sustainable">
-          <span class="mr-2  #21618C --text">ODD</span>
+        <v-btn text to="/regions">
+          <span class="mr-2  #21618C --text">R&eacute;gions</span>
         </v-btn>
-        <v-btn text to="/approche">
-          <span class="mr-2  #21618C --text">NOS APPROCHES</span>
-        </v-btn>
-        <!-- More menu -->
-
-
-          <Menu />
       </div>
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container fluid>
        <Nuxt />
       </v-container>
           <Footer />
@@ -187,6 +177,9 @@ active-class{
 .v-btn{
   z-index:999;
 }
-
+.logo{
+  width: 60px;
+  height: 90px;
+}
 </style>
 

@@ -2,106 +2,109 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/about.vue",
-    "chunkName": "pages/about",
-    "_name": "_3f5e2109"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\about.vue",
+    "chunkName": "pages/about"
   },
   {
     "name": "approche",
     "path": "/approche",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/approche.vue",
-    "chunkName": "pages/approche",
-    "_name": "_5a4c1d76"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\approche.vue",
+    "chunkName": "pages/approche"
   },
   {
     "name": "backers",
     "path": "/backers",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/backers/index.vue",
-    "chunkName": "pages/backers/index",
-    "_name": "_47c708de"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\backers\\\\index.vue",
+    "chunkName": "pages/backers/index"
+  },
+  {
+    "name": "bailleurs",
+    "path": "/bailleurs",
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\bailleurs\\\\index.vue",
+    "chunkName": "pages/bailleurs/index"
   },
   {
     "name": "currentProject",
     "path": "/currentProject",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/currentProject.vue",
-    "chunkName": "pages/currentProject",
-    "_name": "_68a23514"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\currentProject.vue",
+    "chunkName": "pages/currentProject"
   },
   {
     "name": "donors",
     "path": "/donors",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/donors.vue",
-    "chunkName": "pages/donors",
-    "_name": "_6bb75601"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\donors.vue",
+    "chunkName": "pages/donors"
   },
   {
     "name": "download",
     "path": "/download",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/download.vue",
-    "chunkName": "pages/download",
-    "_name": "_7093f33c"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\download.vue",
+    "chunkName": "pages/download"
   },
   {
     "name": "error",
     "path": "/error",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/error.vue",
-    "chunkName": "pages/error",
-    "_name": "_ba47cbf8"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\error.vue",
+    "chunkName": "pages/error"
   },
   {
     "name": "projects",
     "path": "/projects",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projects/index.vue",
-    "chunkName": "pages/projects/index",
-    "_name": "_1f8ca631"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projects\\\\index.vue",
+    "chunkName": "pages/projects/index"
   },
   {
     "name": "projects1",
     "path": "/projects1",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projects1/index.vue",
-    "chunkName": "pages/projects1/index",
-    "_name": "_7b4341b6"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projects1\\\\index.vue",
+    "chunkName": "pages/projects1/index"
   },
   {
     "name": "projects2",
     "path": "/projects2",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projects2/index.vue",
-    "chunkName": "pages/projects2/index",
-    "_name": "_1027f477"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projects2\\\\index.vue",
+    "chunkName": "pages/projects2/index"
   },
   {
     "name": "projects3",
     "path": "/projects3",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projects3/index.vue",
-    "chunkName": "pages/projects3/index",
-    "_name": "_b5e6b190"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projects3\\\\index.vue",
+    "chunkName": "pages/projects3/index"
   },
   {
     "name": "projet",
     "path": "/projet",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projet.vue",
-    "chunkName": "pages/projet",
-    "_name": "_3591e700"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projet.vue",
+    "chunkName": "pages/projet"
+  },
+  {
+    "name": "projets",
+    "path": "/projets",
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projets\\\\index.vue",
+    "chunkName": "pages/projets/index"
   },
   {
     "name": "sustainable",
     "path": "/sustainable",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/sustainable.vue",
-    "chunkName": "pages/sustainable",
-    "_name": "_9d624f0e"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\sustainable.vue",
+    "chunkName": "pages/sustainable"
+  },
+  {
+    "name": "projets-detail-id",
+    "path": "/projets/detail/:id?",
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projets\\\\detail\\\\_id.vue",
+    "chunkName": "pages/projets/detail/_id"
   },
   {
     "name": "works-works",
     "path": "/works/:works?",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/works/_works.vue",
-    "chunkName": "pages/works/_works",
-    "_name": "_6d349664"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\works\\\\_works.vue",
+    "chunkName": "pages/works/_works"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_5f15fbce"
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
   }
 ]

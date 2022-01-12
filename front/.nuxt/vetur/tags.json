@@ -1,7 +1,4 @@
 {
-  "ParallaxContent": {
-    "description": "Auto imported from components/ParallaxContent.vue"
-  },
   "BarChart": {
     "description": "Auto imported from components/barChart.vue"
   },
@@ -44,6 +41,12 @@
   "Menu": {
     "description": "Auto imported from components/menu.vue"
   },
+  "Parallax": {
+    "description": "Auto imported from components/parallax.vue"
+  },
+  "ParallaxContent": {
+    "description": "Auto imported from components/ParallaxContent.vue"
+  },
   "PieChart": {
     "description": "Auto imported from components/pieChart.vue"
   },
@@ -55,6 +58,12 @@
   },
   "Tabs": {
     "description": "Auto imported from components/tabs.vue"
+  },
+  "TabsHomePage": {
+    "description": "Auto imported from components/tabsHomePage.vue"
+  },
+  "Title": {
+    "description": "Auto imported from components/title.vue"
   },
   "Travaux": {
     "description": "Auto imported from components/travaux.vue"

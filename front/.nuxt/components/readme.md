@@ -6,7 +6,6 @@ You can directly use them in pages and other components without the need to impo
 
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
-- `<ParallaxContent>` | `<parallax-content>` (components/ParallaxContent.vue)
 - `<BarChart>` | `<bar-chart>` (components/barChart.vue)
 - `<BarChartContent>` | `<bar-chart-content>` (components/barChartContent.vue)
 - `<ButtonGroup>` | `<button-group>` (components/buttonGroup.vue)
@@ -21,10 +20,14 @@ You can directly use them in pages and other components without the need to impo
 - `<MenuProjectsPage>` | `<menu-projects-page>` (components/menu-projects-page.vue)
 - `<MenuProjects>` | `<menu-projects>` (components/menu-projects.vue)
 - `<Menu>` | `<menu>` (components/menu.vue)
+- `<Parallax>` | `<parallax>` (components/parallax.vue)
+- `<ParallaxContent>` | `<parallax-content>` (components/ParallaxContent.vue)
 - `<PieChart>` | `<pie-chart>` (components/pieChart.vue)
 - `<PieChartContent>` | `<pie-chart-content>` (components/pieChartContent.vue)
 - `<ResponsiveButtonGroup>` | `<responsive-button-group>` (components/responsiveButtonGroup.vue)
 - `<Tabs>` | `<tabs>` (components/tabs.vue)
+- `<TabsHomePage>` | `<tabs-home-page>` (components/tabsHomePage.vue)
+- `<Title>` | `<title>` (components/title.vue)
 - `<Travaux>` | `<travaux>` (components/travaux.vue)
 - `<TravauxContentDone>` | `<travaux-content-done>` (components/travauxContentDone.vue)
 - `<TravauxContentInprogress>` | `<travaux-content-inprogress>` (components/travauxContentInprogress.vue)
