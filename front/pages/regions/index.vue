@@ -20,14 +20,14 @@
         </v-tab>
         <v-spacer></v-spacer>
         <v-select
-          :items="bailleurs"
-          v-model="bailleur"
-          label="Selectionnez un bailleur"
+          :items="regions"
+          v-model="region"
+          label="Selectionnez une région"
           item-text="nom"
           item-value="nom"
           bottom
           autocomplete
-          v-on:change="changeBailleur"
+          v-on:change="changeRegion"
         >
         </v-select>
       </v-tabs>
@@ -205,11 +205,10 @@ export default {
       //
       //
       //
-      bailleur: null,
-      bailleurs: [
-        { id: '1111', nom: 'BAI 1' },
-        { id: '2222', nom: 'BAI 2' },
-        { id: '3333', nom: 'BAI 3' },
+      region: null,
+      regions: [
+        { id: '283', nom: 'Iraq' },
+        { id: '546', nom: 'Afghanistan' },
       ],
       search: '',
       headersProjets: [
@@ -255,13 +254,13 @@ export default {
           derniereMAJ: '2022-01-12',
         },
       ],
-      idBailleur: '-',
+      idRegion: '-',
       tab: null,
     }
   },
   methods: {
     getTitle(message) {
-      return `${message}  des projets sur le bailleur : ${this.idBailleur}`
+      return `${message}  des projets sur la région : ${this.idRegion}`
     },
     getColor(statut) {
       if (statut < 1) return '#00E396'
@@ -271,8 +270,8 @@ export default {
       if (statut < 1) return 'mdi-close'
       else return 'mdi-check'
     },
-    changeBailleur(a) {
-      this.idBailleur = a
+    changeRegion(a) {
+      this.idRegion = a
     },
   },
 }

@@ -18,6 +18,7 @@ const _2dfd3147 = () => interopDefault(import('..\\pages\\projects2\\index.vue' 
 const _35aed6a6 = () => interopDefault(import('..\\pages\\projects3\\index.vue' /* webpackChunkName: "pages/projects3/index" */))
 const _dea4480e = () => interopDefault(import('..\\pages\\projet.vue' /* webpackChunkName: "pages/projet" */))
 const _8308ee10 = () => interopDefault(import('..\\pages\\projets\\index.vue' /* webpackChunkName: "pages/projets/index" */))
+const _042c6720 = () => interopDefault(import('..\\pages\\regions\\index.vue' /* webpackChunkName: "pages/regions/index" */))
 const _6d8866c0 = () => interopDefault(import('..\\pages\\sustainable.vue' /* webpackChunkName: "pages/sustainable" */))
 const _13e532af = () => interopDefault(import('..\\pages\\projets\\detail\\_id.vue' /* webpackChunkName: "pages/projets/detail/_id" */))
 const _dd4ef130 = () => interopDefault(import('..\\pages\\works\\_works.vue' /* webpackChunkName: "pages/works/_works" */))
@@ -90,6 +91,10 @@ export const routerOptions = {
     path: "/projets",
     component: _8308ee10,
     name: "projets"
+  }, {
+    path: "/regions",
+    component: _042c6720,
+    name: "regions"
   }, {
     path: "/sustainable",
     component: _6d8866c0,
