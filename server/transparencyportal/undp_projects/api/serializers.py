@@ -46,6 +46,10 @@ class ProjectRSerializer(serializers.Serializer):
     operating_unit = serializers.CharField(max_length=20)
     count = serializers.CharField(max_length=20)
 
+class RegionBudgetSerializer(serializers.Serializer):
+    operating_unit = serializers.CharField(max_length=20)
+    sum = serializers.CharField(max_length=20)
+
 
 
 

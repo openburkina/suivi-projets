@@ -19,6 +19,7 @@ class Project(models.Model):
     default_aid_type = models.CharField(max_length=5, blank=True, null=True, )
     default_tied_status = models.IntegerField(blank=True, null=True)
     capital_spend = models.FloatField(null=True, blank=True)
+    budgetT = models.FloatField(null=True, blank=True)
     conditions_attached = models.IntegerField(blank=True, null=True)
     crs_code = models.CharField(max_length=15, blank=True, null=True)
 

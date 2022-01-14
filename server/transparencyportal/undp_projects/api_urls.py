@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
-from undp_projects.api_views import SectorAggregateView, ProjectViewSet,Project1ViewSet,ProjectTViewSet \
-    RecipientProfileView, MapLocationsView, RecipientThemeDetailsView, \
+from undp_projects.api_views import SectorAggregateView, ProjectViewSet,Project1ViewSet,ProjectTViewSet, \
+    RegionBudgetViewSet ,RecipientProfileView, MapLocationsView, RecipientThemeDetailsView, \
     ProjectSearchView, CountryResultsView, ProjectAggregateView, \
     RecipientDocumentsView, ProjectBudgetUtilizationView, ProjectBudgetSourcesView, ProjectDocumentsView, \
     RecipientThemeBudgetVsExpenseView, ProjectTimeLineView, SectorDetailsView, GlobalThemesView, \

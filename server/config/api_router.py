@@ -3,7 +3,8 @@ from rest_framework.routers import DefaultRouter, SimpleRouter
 
 from transparencyportal.users.api.views import UserViewSet
 from transparencyportal.undp_projects.api.views import ProjectViewSet
-from transparencyportal.undp_projects.api.views import Project1ViewSet,ProjectTViewSet, ProjectRViewSet
+from transparencyportal.undp_projects.api.views import Project1ViewSet,ProjectTViewSet, ProjectRViewSet,\
+    RegionBudgetViewSet
 
 from transparencyportal.undp_donors.api.views import DonorFundSplitUpViewSet
 
@@ -19,6 +20,7 @@ router.register("projets1", Project1ViewSet)
 router.register("fin_split_up", DonorFundSplitUpViewSet)
 router.register("project_aggregate", ProjectTViewSet)
 router.register("sector_aggregate", ProjectRViewSet)
+router.register("budget_sources", RegionBudgetViewSet)
 
 
 
