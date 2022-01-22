@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
-from undp_projects.api_views import SectorAggregateView, ProjectViewSet,Project1ViewSet,ProjectTViewSet, \
+from undp_projects.api_views import SectorAggregateView, ProjectViewSet,Project1ViewSet,Project2ViewSet,ProjectTViewSet, \
     RegionBudgetViewSet ,RecipientProfileView, MapLocationsView, RecipientThemeDetailsView, \
     ProjectSearchView, CountryResultsView, ProjectAggregateView, \
     RecipientDocumentsView, ProjectBudgetUtilizationView, ProjectBudgetSourcesView, ProjectDocumentsView, \
@@ -16,6 +16,8 @@ project_list = ProjectViewSet.as_view({'get': 'list'})
 project_detail = ProjectViewSet.as_view({'get': 'retrieve'})
 project_list = Project1ViewSet.as_view({'get': 'list'})
 project_detail = Project1ViewSet.as_view({'get': 'retrieve'})
+project_list = Project2ViewSet.as_view({'get': 'list'})
+project_detail = Project2ViewSet.as_view({'get': 'retrieve'})
 projectT_list = ProjectTViewSet.as_view({'get': 'list'})
 projectT_detail = ProjectTViewSet.as_view({'get': 'retrieve'})
 
