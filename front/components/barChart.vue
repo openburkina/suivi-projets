@@ -1,13 +1,12 @@
-
+<template>
+  <apexchart
+    type="bar"
+    :options="options"
+    :series="series"
+  ></apexchart>
+</template>
 <script>
-import { Bar } from "vue-chartjs"
-
 export default {
-    extends: Bar,
-    props: ["chartData","options"],
-
-    mounted(){
-        this.renderChart(this.chartData,this.options)
-    }
+  props: ["series","options"]
 }
 </script>

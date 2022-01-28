@@ -1,12 +1,12 @@
 <template>
   <apexchart
-    type="line"
+    type="donut"
     :options="options"
     :series="series"
   ></apexchart>
 </template>
 <script>
 export default {
-  props: ['series', 'options'],
+  props: ["series","options"]
 }
 </script>

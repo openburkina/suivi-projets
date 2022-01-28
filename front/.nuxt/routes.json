@@ -1,135 +1,50 @@
 [
   {
-    "name": "about",
-    "path": "/about",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\about.vue",
-    "chunkName": "pages/about",
-    "_name": "_8efa0320"
-  },
-  {
-    "name": "approche",
-    "path": "/approche",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\approche.vue",
-    "chunkName": "pages/approche",
-    "_name": "_034cf2af"
-  },
-  {
-    "name": "backers",
-    "path": "/backers",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\backers\\\\index.vue",
-    "chunkName": "pages/backers/index",
-    "_name": "_e58f3800"
-  },
-  {
     "name": "bailleurs",
     "path": "/bailleurs",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\bailleurs\\\\index.vue",
-    "chunkName": "pages/bailleurs/index",
-    "_name": "_b235e138"
-  },
-  {
-    "name": "currentProject",
-    "path": "/currentProject",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\currentProject.vue",
-    "chunkName": "pages/currentProject",
-    "_name": "_af9b08e6"
-  },
-  {
-    "name": "donors",
-    "path": "/donors",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\donors.vue",
-    "chunkName": "pages/donors",
-    "_name": "_172e257a"
-  },
-  {
-    "name": "download",
-    "path": "/download",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\download.vue",
-    "chunkName": "pages/download",
-    "_name": "_1994c875"
+    "chunkName": "pages/bailleurs/index"
   },
   {
     "name": "error",
     "path": "/error",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\error.vue",
-    "chunkName": "pages/error",
-    "_name": "_1c00f76b"
-  },
-  {
-    "name": "projects",
-    "path": "/projects",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projects\\\\index.vue",
-    "chunkName": "pages/projects/index",
-    "_name": "_210eb33b"
-  },
-  {
-    "name": "projects1",
-    "path": "/projects1",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projects1\\\\index.vue",
-    "chunkName": "pages/projects1/index",
-    "_name": "_264b8be8"
-  },
-  {
-    "name": "projects2",
-    "path": "/projects2",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projects2\\\\index.vue",
-    "chunkName": "pages/projects2/index",
-    "_name": "_2dfd3147"
-  },
-  {
-    "name": "projects3",
-    "path": "/projects3",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projects3\\\\index.vue",
-    "chunkName": "pages/projects3/index",
-    "_name": "_35aed6a6"
-  },
-  {
-    "name": "projet",
-    "path": "/projet",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projet.vue",
-    "chunkName": "pages/projet",
-    "_name": "_dea4480e"
+    "chunkName": "pages/error"
   },
   {
     "name": "projets",
     "path": "/projets",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projets\\\\index.vue",
-    "chunkName": "pages/projets/index",
-    "_name": "_8308ee10"
+    "chunkName": "pages/projets/index"
   },
   {
     "name": "regions",
     "path": "/regions",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\regions\\\\index.vue",
-    "chunkName": "pages/regions/index",
-    "_name": "_042c6720"
+    "chunkName": "pages/regions/index"
   },
   {
-    "name": "sustainable",
-    "path": "/sustainable",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\sustainable.vue",
-    "chunkName": "pages/sustainable",
-    "_name": "_6d8866c0"
+    "name": "test",
+    "path": "/test",
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\test.vue",
+    "chunkName": "pages/test"
+  },
+  {
+    "name": "regions-test",
+    "path": "/regions/test",
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\regions\\\\test.vue",
+    "chunkName": "pages/regions/test"
   },
   {
     "name": "projets-detail-id",
     "path": "/projets/detail/:id?",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projets\\\\detail\\\\_id.vue",
-    "chunkName": "pages/projets/detail/_id",
-    "_name": "_13e532af"
-  },
-  {
-    "name": "works-works",
-    "path": "/works/:works?",
-    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\works\\\\_works.vue",
-    "chunkName": "pages/works/_works",
-    "_name": "_dd4ef130"
+    "chunkName": "pages/projets/detail/_id"
   },
   {
     "name": "index",
     "path": "/",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_4f8a4d96"
+    "chunkName": "pages/index"
   }
 ]
