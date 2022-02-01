@@ -25,8 +25,11 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    
+    '@plugins/vuetify',
+    { src: '~/plugins/vue-apexchart.js', mode: 'client' },
+    { src: '~/plugins/datatableUtil.js', mode: 'client' },
   ],
+
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -53,9 +56,8 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
 
   axios: {
-    // baseURL: 'http://localhost:4000/api',
-    // baseProjectsURL: 'https://api.open.undp.org/api/v1/project/list/?budget_sources=&keyword=&limit=100&offset=0&operating_units=&sectors=&year=2021&budget_type=&sdgs=&signature_solution=',
-     baseURL: 'http://0.0.0.0:8000/api'
+    baseURL: 'http://0.0.0.0:8000/api'
+    // baseURL: process.env.API_URL,
    },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

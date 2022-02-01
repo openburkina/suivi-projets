@@ -58,8 +58,6 @@ class Sector(models.Model):
     code = models.CharField(max_length=2, db_index=True, primary_key=True)
     sector = models.CharField(max_length=150, default=None, blank=True, null=True, db_index=True)
     color = models.CharField(max_length=7, default=None, blank=True, null=True)
-    start_year = models.IntegerField()
-    end_year = models.IntegerField()
 
     def __str__(self):
         return "%s" % self.sector

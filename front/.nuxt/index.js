@@ -20,6 +20,9 @@ import nuxt_plugin_workbox_8872f1a8 from 'nuxt_plugin_workbox_8872f1a8' // Sourc
 import nuxt_plugin_metaplugin_2d283b82 from 'nuxt_plugin_metaplugin_2d283b82' // Source: ./pwa/meta.plugin.js (mode: 'all')
 import nuxt_plugin_iconplugin_23d8f09a from 'nuxt_plugin_iconplugin_23d8f09a' // Source: ./pwa/icon.plugin.js (mode: 'all')
 import nuxt_plugin_axios_6d1953e0 from 'nuxt_plugin_axios_6d1953e0' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_vuetify_6ccb54d5 from 'nuxt_plugin_vuetify_6ccb54d5' // Source: ../plugins/vuetify (mode: 'all')
+import nuxt_plugin_vueapexchart_0ea3e8d8 from 'nuxt_plugin_vueapexchart_0ea3e8d8' // Source: ../plugins/vue-apexchart.js (mode: 'client')
+import nuxt_plugin_datatableUtil_31b209b2 from 'nuxt_plugin_datatableUtil_31b209b2' // Source: ../plugins/datatableUtil.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -242,6 +245,18 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_axios_6d1953e0 === 'function') {
     await nuxt_plugin_axios_6d1953e0(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_vuetify_6ccb54d5 === 'function') {
+    await nuxt_plugin_vuetify_6ccb54d5(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_vueapexchart_0ea3e8d8 === 'function') {
+    await nuxt_plugin_vueapexchart_0ea3e8d8(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_datatableUtil_31b209b2 === 'function') {
+    await nuxt_plugin_datatableUtil_31b209b2(app.context, inject)
   }
 
   // Lock enablePreview in context

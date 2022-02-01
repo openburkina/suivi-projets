@@ -1,21 +1,42 @@
 {
-  "ParallaxContent": {
-    "description": "Auto imported from components/ParallaxContent.vue"
-  },
   "BarChart": {
     "description": "Auto imported from components/barChart.vue"
   },
-  "BarChartContent": {
-    "description": "Auto imported from components/barChartContent.vue"
+  "BarChartMontantParRegion": {
+    "description": "Auto imported from components/barChartMontantParRegion.vue"
   },
-  "ButtonGroup": {
-    "description": "Auto imported from components/buttonGroup.vue"
+  "BarChartMontantParRegionParBailleur": {
+    "description": "Auto imported from components/barChartMontantParRegionParBailleur.vue"
   },
-  "ButtonTitle": {
-    "description": "Auto imported from components/buttonTitle.vue"
+  "BarChartMontantParRegionParRegion": {
+    "description": "Auto imported from components/barChartMontantParRegionParRegion.vue"
+  },
+  "BarChartMontantParSecteur": {
+    "description": "Auto imported from components/barChartMontantParSecteur.vue"
+  },
+  "BarChartMontantParSecteurParBailleur": {
+    "description": "Auto imported from components/barChartMontantParSecteurParBailleur.vue"
+  },
+  "BarChartMontantParSecteurParRegion": {
+    "description": "Auto imported from components/barChartMontantParSecteurParRegion.vue"
   },
   "Caroussel": {
     "description": "Auto imported from components/caroussel.vue"
+  },
+  "DatatableProjets": {
+    "description": "Auto imported from components/datatableProjets.vue"
+  },
+  "DonutChart": {
+    "description": "Auto imported from components/donutChart.vue"
+  },
+  "DonutChartStatutProjet": {
+    "description": "Auto imported from components/donutChartStatutProjet.vue"
+  },
+  "DonutChartStatutProjetParBailleur": {
+    "description": "Auto imported from components/donutChartStatutProjetParBailleur.vue"
+  },
+  "DonutChartStatutProjetParRegion": {
+    "description": "Auto imported from components/donutChartStatutProjetParRegion.vue"
   },
   "Error": {
     "description": "Auto imported from components/error.vue"
@@ -29,40 +50,55 @@
   "LineChart": {
     "description": "Auto imported from components/lineChart.vue"
   },
-  "LineChartContent": {
-    "description": "Auto imported from components/lineChartContent.vue"
+  "LineChartMontantParSecteur": {
+    "description": "Auto imported from components/lineChartMontantParSecteur.vue"
   },
-  "MenuPage": {
-    "description": "Auto imported from components/menu-page.vue"
+  "LineChartMontantParSecteurParBailleur": {
+    "description": "Auto imported from components/lineChartMontantParSecteurParBailleur.vue"
   },
-  "MenuProjectsPage": {
-    "description": "Auto imported from components/menu-projects-page.vue"
+  "LineChartMontantParSecteurParRegion": {
+    "description": "Auto imported from components/lineChartMontantParSecteurParRegion.vue"
   },
-  "MenuProjects": {
-    "description": "Auto imported from components/menu-projects.vue"
+  "ListeMenu": {
+    "description": "Auto imported from components/listeMenu.vue"
   },
-  "Menu": {
-    "description": "Auto imported from components/menu.vue"
+  "MenuNavbar": {
+    "description": "Auto imported from components/menuNavbar.vue"
   },
-  "PieChart": {
-    "description": "Auto imported from components/pieChart.vue"
+  "MenuSide": {
+    "description": "Auto imported from components/menuSide.vue"
   },
-  "PieChartContent": {
-    "description": "Auto imported from components/pieChartContent.vue"
+  "SelectRegions": {
+    "description": "Auto imported from components/selectRegions.vue"
   },
-  "ResponsiveButtonGroup": {
-    "description": "Auto imported from components/responsiveButtonGroup.vue"
+  "TabActiviteProjet": {
+    "description": "Auto imported from components/tabActiviteProjet.vue"
   },
-  "Tabs": {
-    "description": "Auto imported from components/tabs.vue"
+  "TabBailleurContent": {
+    "description": "Auto imported from components/tabBailleurContent.vue"
   },
-  "Travaux": {
-    "description": "Auto imported from components/travaux.vue"
+  "TabBailleurListeProjet": {
+    "description": "Auto imported from components/tabBailleurListeProjet.vue"
   },
-  "TravauxContentDone": {
-    "description": "Auto imported from components/travauxContentDone.vue"
+  "TabDecaissementProjet": {
+    "description": "Auto imported from components/tabDecaissementProjet.vue"
   },
-  "TravauxContentInprogress": {
-    "description": "Auto imported from components/travauxContentInprogress.vue"
+  "TabIndicateurProjet": {
+    "description": "Auto imported from components/tabIndicateurProjet.vue"
+  },
+  "TabInfoProjet": {
+    "description": "Auto imported from components/tabInfoProjet.vue"
+  },
+  "TabRegionContent": {
+    "description": "Auto imported from components/tabRegionContent.vue"
+  },
+  "TabRegionListeProjet": {
+    "description": "Auto imported from components/tabRegionListeProjet.vue"
+  },
+  "TabsDetailProjet": {
+    "description": "Auto imported from components/tabsDetailProjet.vue"
+  },
+  "Title": {
+    "description": "Auto imported from components/title.vue"
   }
 }

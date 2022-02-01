@@ -11,10 +11,8 @@ import '../node_modules/leaflet/dist/leaflet.css'
 import '../node_modules/vuetify/dist/vuetify.css'
 
 import _6f6c098b from '../layouts/default.vue'
-import _7efe0585 from '../layouts/error-layout.vue'
-import _48a35b1c from '../layouts/page-layout.vue'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b),"_error-layout": sanitizeComponent(_7efe0585),"_page-layout": sanitizeComponent(_48a35b1c) }
+const layouts = { "_default": sanitizeComponent(_6f6c098b) }
 
 export default {
   render (h, props) {

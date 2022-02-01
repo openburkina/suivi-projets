@@ -1,45 +1,10 @@
 [
   {
-    "name": "about",
-    "path": "/about",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/about.vue",
-    "chunkName": "pages/about",
-    "_name": "_3f5e2109"
-  },
-  {
-    "name": "approche",
-    "path": "/approche",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/approche.vue",
-    "chunkName": "pages/approche",
-    "_name": "_5a4c1d76"
-  },
-  {
-    "name": "backers",
-    "path": "/backers",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/backers/index.vue",
-    "chunkName": "pages/backers/index",
-    "_name": "_47c708de"
-  },
-  {
-    "name": "currentProject",
-    "path": "/currentProject",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/currentProject.vue",
-    "chunkName": "pages/currentProject",
-    "_name": "_68a23514"
-  },
-  {
-    "name": "donors",
-    "path": "/donors",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/donors.vue",
-    "chunkName": "pages/donors",
-    "_name": "_6bb75601"
-  },
-  {
-    "name": "download",
-    "path": "/download",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/download.vue",
-    "chunkName": "pages/download",
-    "_name": "_7093f33c"
+    "name": "bailleurs",
+    "path": "/bailleurs",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/bailleurs/index.vue",
+    "chunkName": "pages/bailleurs/index",
+    "_name": "_e025428c"
   },
   {
     "name": "error",
@@ -49,53 +14,39 @@
     "_name": "_ba47cbf8"
   },
   {
-    "name": "projects",
-    "path": "/projects",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projects/index.vue",
-    "chunkName": "pages/projects/index",
-    "_name": "_1f8ca631"
+    "name": "projets",
+    "path": "/projets",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projets/index.vue",
+    "chunkName": "pages/projets/index",
+    "_name": "_0f8f64e6"
   },
   {
-    "name": "projects1",
-    "path": "/projects1",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projects1/index.vue",
-    "chunkName": "pages/projects1/index",
-    "_name": "_7b4341b6"
+    "name": "regions",
+    "path": "/regions",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/regions/index.vue",
+    "chunkName": "pages/regions/index",
+    "_name": "_a293bc84"
   },
   {
-    "name": "projects2",
-    "path": "/projects2",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projects2/index.vue",
-    "chunkName": "pages/projects2/index",
-    "_name": "_1027f477"
+    "name": "test",
+    "path": "/test",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/test.vue",
+    "chunkName": "pages/test",
+    "_name": "_54d8c846"
   },
   {
-    "name": "projects3",
-    "path": "/projects3",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projects3/index.vue",
-    "chunkName": "pages/projects3/index",
-    "_name": "_b5e6b190"
+    "name": "regions-test",
+    "path": "/regions/test",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/regions/test.vue",
+    "chunkName": "pages/regions/test",
+    "_name": "_3ea42456"
   },
   {
-    "name": "projet",
-    "path": "/projet",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projet.vue",
-    "chunkName": "pages/projet",
-    "_name": "_3591e700"
-  },
-  {
-    "name": "sustainable",
-    "path": "/sustainable",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/sustainable.vue",
-    "chunkName": "pages/sustainable",
-    "_name": "_9d624f0e"
-  },
-  {
-    "name": "works-works",
-    "path": "/works/:works?",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/works/_works.vue",
-    "chunkName": "pages/works/_works",
-    "_name": "_6d349664"
+    "name": "projets-detail-id",
+    "path": "/projets/detail/:id?",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projets/detail/_id.vue",
+    "chunkName": "pages/projets/detail/_id",
+    "_name": "_23f51698"
   },
   {
     "name": "index",

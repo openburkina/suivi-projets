@@ -8,8 +8,6 @@ const VUEX_PROPERTIES = ['state', 'getters', 'actions', 'mutations']
 let store = {};
 
 (function updateModules () {
-  store = normalizeRoot(require('../store/index.js'), 'store/index.js')
-
   // If store is an exported method = classic mode (deprecated)
 
   if (typeof store === 'function') {
@@ -19,23 +17,18 @@ let store = {};
   // Enforce store modules
   store.modules = store.modules || {}
 
-  resolveStoreModules(require('../store/donor.js'), 'donor.js')
+  resolveStoreModules(require('../store/bailleur.js'), 'bailleur.js')
   resolveStoreModules(require('../store/project.js'), 'project.js')
-  resolveStoreModules(require('../store/project1.js'), 'project1.js')
-  resolveStoreModules(require('../store/project2.js'), 'project2.js')
-  resolveStoreModules(require('../store/project3.js'), 'project3.js')
+  resolveStoreModules(require('../store/region.js'), 'region.js')
 
   // If the environment supports hot reloading...
 
   if (process.client && module.hot) {
     // Whenever any Vuex module is updated...
     module.hot.accept([
-      '../store/donor.js',
-      '../store/index.js',
+      '../store/bailleur.js',
       '../store/project.js',
-      '../store/project1.js',
-      '../store/project2.js',
-      '../store/project3.js',
+      '../store/region.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

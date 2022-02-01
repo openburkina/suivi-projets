@@ -2,8 +2,6 @@
   <v-app>
     <Caroussel />
 
-
-
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -11,69 +9,19 @@
       fixed
       temporary
     >
-      <v-list>
-        <v-list-item>
-          <v-list-item-content>
-              <img
-                :src="require('~/assets/img/pnud.png')" height="100"
-              >
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-
-      <v-divider />
-
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item-group
-          active-class="deep-purple--text text--accent-4"
-        >
-          <v-list-item to="/">
-            <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item to="projet">
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Projects</v-list-item-title>
-          </v-list-item>
-          
-          <v-list-item to="/donors">
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Donors</v-list-item-title>
-          </v-list-item>
-          
-          <v-list-item to="/sustainable">
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>SUSTAINABLE DEVELOPMENT GOALS</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
+      <MenuSide/>
     </v-navigation-drawer>
-
-
 
     <v-app-bar
       app
       fixed
       height="90"
-      v-bind:elevation="scrollPosition>28?4:0"
-      v-bind:color="scrollPosition<28?'transparent':'indigo lighten-1'"
+      v-bind:elevation="scrollPosition > 28 ? 4 : 0"
+      v-bind:color="scrollPosition < 28 ? 'transparent' : 'indigo lighten-1'"
+      dark
     >
-        <img
-          :src="require('~/assets/img/logo.png')" height="60" width="50"
-        >
-  
+      <img :src="require('~/assets/img/logo.png')" height="60" width="50" />
+
       <v-spacer />
       <v-app-bar-nav-icon
         v-if="isXs"
@@ -83,32 +31,14 @@
       />
 
       <div v-else>
-        <v-btn to="/" text>
-          <span class="mr-2 #21618C--text">Accueil</span>
-        </v-btn>
-
-         <Menu-projects/>
-
-        <v-btn text to="/backers">
-          <span class="mr-2  #21618C --text">Bailleurs</span>
-        </v-btn>
-        <v-btn text to="/sustainable">
-          <span class="mr-2  #21618C --text">ODD</span>
-        </v-btn>
-        <v-btn text to="/approche">
-          <span class="mr-2  #21618C --text">NOS APPROCHES</span>
-        </v-btn>
-        <!-- More menu -->
-
-
-          <Menu />
+        <MenuNavbar />
       </div>
     </v-app-bar>
     <v-main>
       <v-container>
-       <Nuxt />
+        <Nuxt />
       </v-container>
-          <Footer />
+      <Footer />
     </v-main>
     <v-scale-transition>
       <v-btn
@@ -134,59 +64,52 @@ export default {
   data: () => ({
     drawer: null,
     isXs: false,
-    miniVariant:false,
+    miniVariant: false,
     fab: false,
     scrollPosition: null,
-
   }),
   watch: {
     isXs(value) {
       if (!value) {
         if (this.drawer) {
-          this.drawer = false;
+          this.drawer = false
         }
       }
     },
-    
   },
-  
- 
-  mounted() {
-    this.onResize();
-    window.addEventListener("resize", this.onResize, { passive: true });
-    window.addEventListener('scroll', this.updateScroll);
 
+  mounted() {
+    this.onResize()
+    window.addEventListener('resize', this.onResize, { passive: true })
+    window.addEventListener('scroll', this.updateScroll)
   },
-   methods: {
+  methods: {
     onResize() {
-      this.isXs = window.innerWidth < 850;
+      this.isXs = window.innerWidth < 850
     },
     updateScroll() {
-       this.scrollPosition = window.scrollY
+      this.scrollPosition = window.scrollY
     },
-    onScroll (e) {
+    onScroll(e) {
       if (typeof window === 'undefined') return
-      const top = window.pageYOffset ||   e.target.scrollTop || 0
+      const top = window.pageYOffset || e.target.scrollTop || 0
       this.fab = top > 20
     },
-    toTop () {
+    toTop() {
       this.$vuetify.goTo(0)
-    }
+    },
   },
-  
-};
+}
 </script>
 <style scoped>
 .v-toolbar {
   transition: 0.6s;
 }
-active-class{
-  color:red;
+active-class {
+  color: red;
 }
 
-.v-btn{
-  z-index:999;
+.v-btn {
+  z-index: 999;
 }
-
 </style>
-

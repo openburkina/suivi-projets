@@ -19,10 +19,10 @@ export const state = ()=> ({
     getProjectsData({commit}, payload){
       let search = payload ? payload : ''
       return new Promise((resolve, reject)=> {
-        this.$axios.get('/projets').then((response)=> {
+        this.$axios.get('/project-list').then((response)=> {
           commit('SET_PROJECT_DATA', response.data)
           resolve()
-          console.log(response.data)
+           console.log(response.data)
         })
       })
     },   
