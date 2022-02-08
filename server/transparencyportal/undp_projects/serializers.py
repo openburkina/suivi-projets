@@ -28,7 +28,6 @@ class SectorAggregateSerializer(serializers.ModelSerializer):
     countries = serializers.IntegerField(required=False, source='countries_count')
 
     def get_color(self, obj):
-
         color = obj.get('sector').color if obj.get('sector', '0') != '0' else NULL_SECTOR_COLOR_CODE
 
         return color
@@ -54,10 +53,12 @@ class ProjectAggregateSerializer(serializers.Serializer):
     class Meta:
         fields = ('year', 'countries', 'budget', 'expense', 'donors', 'projects', 'outputs')
 
+
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields  = '__all__'
+        fields = '__all__'
+
 
 class ProjectDetailSerializer(serializers.ModelSerializer):
     operating_unit = CountrySerializer()
@@ -135,8 +136,8 @@ class MapDetailsSerializer(serializers.ModelSerializer):
         if provide_output in TRUE_VALUES:
             query = self._get_output_query(obj)
             if year and int(year) >= SP_START_YEAR:
-                outputs = OutputLocation.objects.filter(query)\
-                    .distinct()\
+                outputs = OutputLocation.objects.filter(query) \
+                    .distinct() \
                     .annotate(output_latitude=F('latitude'),
                               output_longitude=F('longitude'),
                               output_signature_solution=F('output__signature_solution__name'),
@@ -146,18 +147,18 @@ class MapDetailsSerializer(serializers.ModelSerializer):
                               output_location_name=F('name'),
                               output_id=F('output'),
                               project_id=F('project'),
-                              )\
+                              ) \
                     .annotate(output_location_class=Case(
-                        When(location_class=LOCATION_CLASSES.admin, then=Value('Administrative Region')),
-                        When(location_class=LOCATION_CLASSES.populated, then=Value('Populated Place')),
-                        When(location_class=LOCATION_CLASSES.structure, then=Value('Structure')),
-                        When(location_class=LOCATION_CLASSES.topo, then=Value('Other Topographical Feature')),
-                        default=Value(''),
-                        output_field=CharField(),
-                    ))\
+                    When(location_class=LOCATION_CLASSES.admin, then=Value('Administrative Region')),
+                    When(location_class=LOCATION_CLASSES.populated, then=Value('Populated Place')),
+                    When(location_class=LOCATION_CLASSES.structure, then=Value('Structure')),
+                    When(location_class=LOCATION_CLASSES.topo, then=Value('Other Topographical Feature')),
+                    default=Value(''),
+                    output_field=CharField(),
+                )) \
                     .values('output_id', 'project_id', 'project_title', 'output_signature_solution', 'ss_id',
                             'signature_solution', 'output_latitude', 'output_longitude',
-                            'output_location_class', 'output_location_name',)
+                            'output_location_class', 'output_location_name', )
             else:
                 outputs = OutputLocation.objects.filter(query) \
                     .distinct() \
@@ -174,13 +175,13 @@ class MapDetailsSerializer(serializers.ModelSerializer):
                               project_id=F('project'),
                               ) \
                     .annotate(output_location_class=Case(
-                        When(location_class=LOCATION_CLASSES.admin, then=Value('Administrative Region')),
-                        When(location_class=LOCATION_CLASSES.populated, then=Value('Populated Place')),
-                        When(location_class=LOCATION_CLASSES.structure, then=Value('Structure')),
-                        When(location_class=LOCATION_CLASSES.topo, then=Value('Other Topographical Feature')),
-                        default=Value(''),
-                        output_field=CharField(),
-                    )) \
+                    When(location_class=LOCATION_CLASSES.admin, then=Value('Administrative Region')),
+                    When(location_class=LOCATION_CLASSES.populated, then=Value('Populated Place')),
+                    When(location_class=LOCATION_CLASSES.structure, then=Value('Structure')),
+                    When(location_class=LOCATION_CLASSES.topo, then=Value('Other Topographical Feature')),
+                    default=Value(''),
+                    output_field=CharField(),
+                )) \
                     .values('output_id', 'project_id', 'project_title', 'output_sector', 'sector_color',
                             'sector_code', 'output_latitude', 'output_longitude',
                             'output_location_class', 'output_location_name', )
@@ -269,8 +270,8 @@ class MapDetailsSerializer(serializers.ModelSerializer):
         if year:
             year_query = Q(Q(project__project_active__year=year) &
                            Q(project__donorfundsplitup__year=year)) | \
-                Q(Q(project__project_active__year=year) & Q(~Q(project__donorfundsplitup__year=year) |
-                  Q(project__donorfundsplitup__isnull=True)))
+                         Q(Q(project__project_active__year=year) & Q(~Q(project__donorfundsplitup__year=year) |
+                                                                     Q(project__donorfundsplitup__isnull=True)))
             # year_query &= Q(output_active__year=year)
             if sector == '0':
                 year_query &= Q(Q(output__outputsector__isnull=True) and
@@ -283,12 +284,12 @@ class MapDetailsSerializer(serializers.ModelSerializer):
             query.add(year_query, Q.AND)
         if recipient_country:
             op_query = Q(operating_unit__iso3=recipient_country) | \
-                Q(operating_unit__bureau__code=recipient_country)
+                       Q(operating_unit__bureau__code=recipient_country)
             query.add(op_query, Q.AND)
         if budget_source:
             if budget_type != 'regular':
                 budget_source_query = Q(output__donorfundsplitup__organisation__type_level_3=budget_source) | \
-                    Q(output__donorfundsplitup__organisation__ref_id=budget_source)
+                                      Q(output__donorfundsplitup__organisation__ref_id=budget_source)
                 if year:
                     budget_source_query &= Q(output__donorfundsplitup__year=year)
                 query.add(budget_source_query, Q.AND)
@@ -302,24 +303,24 @@ class MapDetailsSerializer(serializers.ModelSerializer):
                     other_sector_query = Q(outputsector__isnull=True) | \
                                          Q(outputsector__sector__in=EXCLUDED_SECTOR_CODES)
 
-                    outputs = Output.objects.filter(other_sector_query).distinct()\
+                    outputs = Output.objects.filter(other_sector_query).distinct() \
                         .values_list('output_id', flat=True).exclude(Q(outputsector__sector__in=NEW_SECTOR_CODES)
                                                                      & ~Q(output_active__year=year))
                 else:
-                    outputs = Output.objects.filter(outputsector__sector=sector)\
-                        .distinct().values_list('output_id', flat=True)\
+                    outputs = Output.objects.filter(outputsector__sector=sector) \
+                        .distinct().values_list('output_id', flat=True) \
                         .exclude(Q(outputsector__sector__in=NEW_SECTOR_CODES) & ~Q(output_active__year=year))
             else:
                 if sector == '0':
                     EXCLUDED_SECTOR_CODES.append('8')
                     other_sector_query = Q(outputsector__isnull=True) | \
                                          Q(outputsector__sector__in=EXCLUDED_SECTOR_CODES)
-                    outputs = Output.objects.filter(other_sector_query).distinct()\
+                    outputs = Output.objects.filter(other_sector_query).distinct() \
                         .values_list('output_id', flat=True).exclude(Q(outputsector__sector__in=OLD_SECTOR_CODES)
                                                                      & ~Q(output_active__year=year))
                 else:
-                    outputs = Output.objects.filter(outputsector__sector=sector)\
-                        .distinct().values_list('output_id', flat=True)\
+                    outputs = Output.objects.filter(outputsector__sector=sector) \
+                        .distinct().values_list('output_id', flat=True) \
                         .exclude(Q(outputsector__sector__in=OLD_SECTOR_CODES) & ~Q(output_active__year=year))
 
             query.add(Q(output__in=outputs), Q.AND)
@@ -338,7 +339,7 @@ class MapDetailsSerializer(serializers.ModelSerializer):
 
             else:
                 outputs = Output.objects.filter(Q(outputtarget__target_id__sdg=sdg) & Q(
-                        output_active__year=year)).distinct().values_list('output_id', flat=True)
+                    output_active__year=year)).distinct().values_list('output_id', flat=True)
             query.add(Q(output__in=outputs), Q.AND)
         if project_id:
             query.add(Q(project=project_id), Q.AND)
@@ -496,7 +497,7 @@ class ProjectSearchSerializer(serializers.ModelSerializer):
             if budget_type != 'regular':
                 budget_sources = [item.upper() for item in budget_sources]
                 budget_sources_query = Q(organisation__in=budget_sources) | \
-                    Q(organisation__type_level_3__in=budget_sources)
+                                       Q(organisation__type_level_3__in=budget_sources)
                 query.add(budget_sources_query, Q.AND)
         if themes:
             theme_query = Q()
@@ -507,7 +508,7 @@ class ProjectSearchSerializer(serializers.ModelSerializer):
                     themes.remove('0')
 
                 other_sector_query = Q(output__outputsector__sector__in=EXCLUDED_SECTOR_CODES) | \
-                    Q(output__outputsector__sector__isnull=True)
+                                     Q(output__outputsector__sector__isnull=True)
                 theme_query |= other_sector_query
             if themes:
                 theme_query |= Q(output__outputsector__sector__in=themes)
@@ -592,7 +593,6 @@ class ProjectDocumentSerializer(serializers.Serializer):
 
 
 class DocumentsSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = ProjectDocument
         fields = '__all__'
@@ -804,4 +804,3 @@ class SdgTargetSerializer(serializers.Serializer):
 
     class Meta:
         fields = ('target_budget', 'target_expense', 'target_percentage', 'target_id', 'target_description')
-

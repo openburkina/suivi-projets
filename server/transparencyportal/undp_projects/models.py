@@ -1,19 +1,21 @@
 from django.db import models
+from django.utils import timezone
 from master_tables.models import Organisation, Sector, DocumentCategory, OperatingUnit, Sdg, SdgTargets, Region
 from django.contrib.postgres.search import SearchVectorField
 from django.contrib.postgres.indexes import GinIndex
 
 
 class Project(models.Model):
-    project_id = models.CharField(max_length=100,db_index=True, primary_key=True)
+    project_id = models.CharField(max_length=100, db_index=True, primary_key=True)
     title = models.TextField(blank=True, null=True)
     organisation = models.ForeignKey(Organisation, blank=True, null=True, on_delete=models.DO_NOTHING)
     sector = models.ForeignKey(Sector, blank=True, null=True, on_delete=models.DO_NOTHING)
     description = models.CharField(max_length=600, blank=True, null=True)
     contact_email = models.CharField(max_length=100, default=None, blank=True, null=True)
     contact_website = models.CharField(max_length=100, default=None, blank=True, null=True)
-    operating_unit = models.ForeignKey(OperatingUnit, default=None, blank=True, null=True, db_index=True, on_delete=models.DO_NOTHING)
-    region = models.ForeignKey(Region, default=None, blank=True, null=True, db_index=True,on_delete=models.DO_NOTHING)
+    operating_unit = models.ForeignKey(OperatingUnit, default=None, blank=True, null=True, db_index=True,
+                                       on_delete=models.DO_NOTHING)
+    region = models.ForeignKey(Region, default=None, blank=True, null=True, db_index=True, on_delete=models.DO_NOTHING)
     activity_status = models.IntegerField(blank=True, null=True)
     collaboration_type = models.IntegerField(blank=True, null=True)
     default_flow_type = models.IntegerField(blank=True, null=True)
@@ -24,10 +26,22 @@ class Project(models.Model):
     budgetT = models.FloatField(null=True, blank=True)
     conditions_attached = models.IntegerField(blank=True, null=True)
     crs_code = models.CharField(max_length=15, blank=True, null=True)
-
+    start_date = models.DateField(db_index=True, default=timezone.now)
+    finish_date = models.DateField(db_index=True, default=timezone.now)
+    planification_year = models.CharField(max_length=600, blank=True, null=True)
 
     def __str__(self):
         return "%s" % self.project_id
+
+class ProjectIndicator(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.DO_NOTHING)
+    reference = models.CharField(max_length=15, blank=True, null=True)
+    reference_period = models.IntegerField(blank=True, null=True)
+    target = models.CharField(max_length=15, blank=True, null=True)
+    target_period = models.IntegerField(blank=True, null=True)
+    target_status = models.CharField(max_length=15, blank=True, null=True)
+    def __str__(self):
+        return "%s" % self.project
 
 
 class ProjectParticipatingOrganisations(models.Model):
@@ -197,3 +211,6 @@ class SDGMap(models.Model):
     year = models.IntegerField()
     sdg = models.CharField(max_length=20)
     response = models.TextField()
+
+
+
