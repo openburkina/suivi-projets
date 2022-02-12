@@ -1,3 +1,4 @@
+from django.views.generic import ListView
 from django.db.models import Count, Sum
 from django.shortcuts import render
 from django.template.context_processors import request
@@ -6,9 +7,11 @@ from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
-from undp_projects.models import Project, ProjectParticipatingOrganisations, ProjectIndicator
-from .serializers import ProjectSerializer, ProjectInfoSerializer, Project1Serializer, Project2Serializer, \
-    ProjectTSerializer, ProjectRSerializer, RegionBudgetSerializer
+from undp_projects.models import Project, ProjectActivity, ProjectDec, ProjectIndicator,\
+    ProjectParticipatingOrganisations
+from .serializers import ProjectSerializer, ProjectInfoSerializer, ProjectActivitySerializer, ProjectDecSerializer, \
+    ProjectIndicatorSerializer, RegionProjectListSerializer, Project1Serializer, Project2Serializer, ProjectTSerializer, \
+    ProjectRSerializer, RegionBudgetSerializer
 from django.views.generic import DetailView
 from undp_donors.models import DonorFundSplitUp
 from undp_outputs.models import Output
@@ -25,44 +28,6 @@ class ProjectViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, Gener
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 
-class DetailProject(DetailView):
-    model = Project
-    context_object_name = 'p'
-
-
-def ProjectDetailView(request, project_id):
-    project = Project.objects.get(pk=project_id)
-    return render(request, 'projects/detail_project.html', {'project': project})
-
-
-def ProjectRegionView(request, region_id):
-    projects = Project.objects.filter(region_id=region_id)
-    return render(request, 'projects/region_projects.html', {'projects': projects})
-
-
-def ProjectDecView(request, project_id):
-    project = DonorFundSplitUp.objects.get(pk=project_id)
-    output = Output.objects.filter(project=project_id)
-    return render(request, 'projects/dec_project.html', {'project': project, 'output': output})
-
-
-def ProjectOutputView(request, project_id):
-    output = Output.objects.filter(pk=project_id)
-    return render(request, 'projects/dec_project.html', {'output': output})
-
-
-def ProjectActView(request, project_id):
-    project = Project.objects.get(pk=project_id)
-    part = ProjectParticipatingOrganisations.objects.filter(project=project_id)
-    return render(request, 'projects/act_project.html', {'project': project, 'part': part})
-
-
-def ProjectIndView(request, project_id):
-    project = Project.objects.get(pk=project_id)
-    ind = ProjectIndicator.objects.get(project=project_id)
-    return render(request, 'projects/ind_project.html', {'project': project, 'ind': ind})
-
-
 class ProjectInfoViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
     serializer_class = ProjectInfoSerializer
     queryset = Project.objects.all()
@@ -71,6 +36,82 @@ class ProjectInfoViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, G
     @action(detail=False, methods=["GET"])
     def me(self, request):
         serializer = ProjectInfoSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectActivityViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+
+    serializer_class = ProjectActivitySerializer
+    lookup_field = "project_id"
+
+    def get_queryset(self):
+        if self.request.method == 'GET':
+            queryset = ProjectActivity.objects.all()
+            pk = self.request.GET.get('q', None)
+            if pk is not None:
+                queryset = queryset.filter(project_id=pk)
+            return queryset
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectActivitySerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectDecViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+
+    serializer_class = ProjectDecSerializer
+    lookup_field = "project_id"
+
+    def get_queryset(self):
+        if self.request.method == 'GET':
+            queryset = ProjectDec.objects.all()
+            pk = self.request.GET.get('q', None)
+            if pk is not None:
+                queryset = queryset.filter(project_id=pk)
+            return queryset
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectDecSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectIndicatorViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+
+    serializer_class = ProjectIndicatorSerializer
+    lookup_field = "project_id"
+
+    def get_queryset(self):
+        if self.request.method == 'GET':
+            queryset = ProjectIndicator.objects.all()
+            pk = self.request.GET.get('q', None)
+            if pk is not None:
+                queryset = queryset.filter(project_id=pk)
+            return queryset
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectIndicatorSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class RegionProjectListViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+
+    serializer_class = RegionProjectListSerializer
+    lookup_field = "region"
+
+    def get_queryset(self):
+        if self.request.method == 'GET':
+            queryset = Project.objects.all()
+            pk = self.request.GET.get('q', None)
+            if pk is not None:
+                queryset = queryset.filter(region=pk)
+            return queryset
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = RegionProjectListSerializer(request.project, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 

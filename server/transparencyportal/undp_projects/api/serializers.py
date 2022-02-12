@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from undp_projects.models import Project
+from undp_projects.models import Project, ProjectActivity, ProjectDec, ProjectIndicator
 
 
 class ProjectSerializer(serializers.ModelSerializer):
@@ -30,6 +30,55 @@ class ProjectInfoSerializer(serializers.ModelSerializer):
 
         extra_kwargs = {
             "url": {"view_name": "api:project-detail", "lookup_field": "organisation"}
+        }
+
+
+class ProjectActivitySerializer(serializers.ModelSerializer):
+    title = serializers.ReadOnlyField(source='project.title')
+
+    class Meta:
+        model = ProjectActivity
+        fields = ["project_id", "title", "start_date", "finish_date", "amount_act", "Actors_execution",
+                  "Actors_partner", "year_plan"]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:project-act", "lookup_field": "project_id"}
+        }
+
+
+class ProjectDecSerializer(serializers.ModelSerializer):
+    title = serializers.ReadOnlyField(source='project.title')
+
+    class Meta:
+        model = ProjectDec
+        fields = ["project_id", "title", "dec_date", "amount_dec", "deliverable"]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:project-act", "lookup_field": "project_id"}
+        }
+
+
+class ProjectIndicatorSerializer(serializers.ModelSerializer):
+    title = serializers.ReadOnlyField(source='project.title')
+
+    class Meta:
+        model = ProjectIndicator
+        fields = ["project_id", "title", "reference", "reference_period", "target", "target_period", "target_status"]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:project-ind", "lookup_field": "project_id"}
+        }
+
+
+class RegionProjectListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Project
+        fields = ["project_id", "beneficiary", "title", "sector","organisation", "budgetT", "stage", "start_date",
+                  "finish_date"]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:region-project-list", "lookup_field": "region"}
         }
 
 # class ProjetSerializer(serializers.ModelSerializer):

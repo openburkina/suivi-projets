@@ -28,10 +28,35 @@ class Project(models.Model):
     crs_code = models.CharField(max_length=15, blank=True, null=True)
     start_date = models.DateField(db_index=True, default=timezone.now)
     finish_date = models.DateField(db_index=True, default=timezone.now)
-    planification_year = models.CharField(max_length=600, blank=True, null=True)
+    beneficiary = models.CharField(max_length=100, default=None, blank=True, null=True)
+    stage = models.CharField(max_length=100, default=None, blank=True, null=True)
 
     def __str__(self):
         return "%s" % self.project_id
+
+
+class ProjectActivity(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.DO_NOTHING)
+    start_date = models.DateField(db_index=True, default=timezone.now)
+    finish_date = models.DateField(db_index=True, default=timezone.now)
+    amount_act = models.FloatField(null=True, blank=True)
+    Actors_execution = models.CharField(max_length=15, blank=True, null=True)
+    Actors_partner = models.CharField(max_length=15, blank=True, null=True)
+    year_plan = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return "%s" % self.project
+
+
+class ProjectDec(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.DO_NOTHING)
+    dec_date = models.DateField(db_index=True, default=timezone.now)
+    amount_dec = models.FloatField(null=True, blank=True)
+    deliverable = models.CharField(max_length=600, blank=True, null=True)
+
+    def __str__(self):
+        return "%s" % self.project
+
 
 class ProjectIndicator(models.Model):
     project = models.ForeignKey(Project, on_delete=models.DO_NOTHING)
@@ -40,6 +65,7 @@ class ProjectIndicator(models.Model):
     target = models.CharField(max_length=15, blank=True, null=True)
     target_period = models.IntegerField(blank=True, null=True)
     target_status = models.CharField(max_length=15, blank=True, null=True)
+
     def __str__(self):
         return "%s" % self.project
 

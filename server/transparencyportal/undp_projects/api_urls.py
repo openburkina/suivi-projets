@@ -8,7 +8,7 @@ from undp_projects.api_views import SectorAggregateView, ProjectViewSet,Project1
     SdgAggregateView, RecipientSdgBudgetVsExpenseView, RecipientSdgDetailsView, SdgDetailsView, ProjectPicturesView, \
     ProjectSearchFullTextView, SignatureSolutionsAggregateView, SignatureSolutionsDetailsView, \
     SignatureSolutionsOutcomeView, SectorSignatureSolutionView, SdgTargetDetailView, SdgTargetView, SdgView, \
-    SectorView, MapLocationsNewView
+    SectorView, MapLocationsNewView, ProjectActivityView
 
 router = DefaultRouter()
 # router.register(r'', ProjectViewSet)
