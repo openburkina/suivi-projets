@@ -38,7 +38,7 @@ export default {
           sortable: false,
           value: 'ref_id',
         },
-        { text: 'Organisation', value: 'org_name' },
+        { text: 'Bailleur', value: 'org_name' },
       ],
     }
   },

@@ -18,7 +18,7 @@ export const actions = {
       this.$axios.get('/region-list').then((response) => {
         commit('SET_REGION_DATA', response.data)
         resolve()
-        console.log(response.data)
+      //  console.log(response.data)
       })
     })
   },

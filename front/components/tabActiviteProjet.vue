@@ -3,7 +3,7 @@
     <Title value="Activités sur le projet" />
     <v-data-table
       :headers="headers"
-      :items="activites"
+      :items="activities"
       :search="search"
       class="elevation-0"
     >
@@ -19,6 +19,9 @@
   </v-card>
 </template>
 <script>
+
+import {  mapState } from 'vuex'
+
 export default {
   props: ['search'],
   data() {
@@ -28,53 +31,37 @@ export default {
           text: 'ID',
           align: 'start',
           sortable: false,
-          value: 'id',
+          value: 'project_id',
         },
-        { text: 'Titre', value: 'titre' },
-        { text: 'Date début', value: 'dateDebut' },
-        { text: 'Date fin', value: 'dateFin' },
-        { text: 'Montant', value: 'montant' },
-        { text: "Acteurs d'éxecutions", value: 'acteurExc' },
-        { text: 'Acteurs partenaires', value: 'acteurPart' },
-        { text: 'Statut', value: 'statut' },
-        { text: 'Année de planifications', value: 'anneePlan' },
-      ],
-      activites: [
-        {
-          id: 11110,
-          statut: 1,
-          titre: 'ACT 878CC',
-          dateDebut: '2021-12-12',
-          dateFin: '2022-01-07',
-          montant: 12849585.94,
-          acteurExc: 'EXC LLC',
-          acteurPart: 'PRT 987',
-          anneePlan: '2021-12-11',
-        },
-        {
-          id: 11122,
-          statut: -1,
-          titre: 'ACT UJI87',
-          dateDebut: '2021-12-19',
-          dateFin: '2022-01-07',
-          montant: 12777785.94,
-          acteurExc: 'EXC MLC',
-          acteurPart: 'PRT 543',
-          anneePlan: '2021-12-11',
-        },
-        {
-          id: 11133,
-          statut: -1,
-          titre: 'ACT MN88',
-          dateDebut: '2021-12-10',
-          dateFin: '2022-01-07',
-          montant: 12777785.94,
-          acteurExc: 'EXC MLC',
-          acteurPart: 'PRT 943',
-          anneePlan: '2021-12-11',
-        },
+        { text: 'Titre', value: 'title' },
+        { text: 'Date début', value: 'start_date' },
+        { text: 'Date fin', value: 'finish_date' },
+        { text: 'Montant', value: 'amount_act' },
+        { text: "Acteurs d'éxecutions", value: 'Actors_partner' },
+        { text: 'Acteurs partenaires', value: 'Actors_execution' },
+        { text: 'Année de planifications', value: 'year_plan' },
       ],
     }
   },
+
+    computed:{
+      ...mapState('project', {
+        activities: state=> state.activities,
+        errors: state=> state.errors
+      })
+    },
+
+    methods: {
+      getColor(statut) {
+        if (statut < 1) return '#00E396'
+        else return '#008FFB'
+      },
+      getValue(statut) {
+        if (statut < 1) return 'mdi-close'
+        else return 'mdi-check'
+      }
+  },
+
+
 }
 </script>

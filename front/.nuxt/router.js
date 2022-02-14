@@ -10,7 +10,7 @@ const _0f8f64e6 = () => interopDefault(import('../pages/projets/index.vue' /* we
 const _a293bc84 = () => interopDefault(import('../pages/regions/index.vue' /* webpackChunkName: "pages/regions/index" */))
 const _54d8c846 = () => interopDefault(import('../pages/test.vue' /* webpackChunkName: "pages/test" */))
 const _3ea42456 = () => interopDefault(import('../pages/regions/test.vue' /* webpackChunkName: "pages/regions/test" */))
-const _23f51698 = () => interopDefault(import('../pages/projets/detail/_id.vue' /* webpackChunkName: "pages/projets/detail/_id" */))
+const _eed78878 = () => interopDefault(import('../pages/projets/details/_id/index.vue' /* webpackChunkName: "pages/projets/details/_id/index" */))
 const _5f15fbce = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -49,9 +49,9 @@ export const routerOptions = {
     component: _3ea42456,
     name: "regions-test"
   }, {
-    path: "/projets/detail/:id?",
-    component: _23f51698,
-    name: "projets-detail-id"
+    path: "/projets/details/:id",
+    component: _eed78878,
+    name: "projets-details-id"
   }, {
     path: "/",
     component: _5f15fbce,

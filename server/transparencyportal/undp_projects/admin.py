@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from undp_projects.models import ProjectAggregate, SectorAggregate, Project, ProjectActiveYear, ProjectDocument, \
     CountryResultPeriod, CountryResult, Log, DownloadLog, CountryDocument, ProjectParticipatingOrganisations, \
-    ProjectSdg, ProjectActivityDate, ProjectSearch
+    ProjectSdg, ProjectActivityDate, ProjectSearch, ProjectIndicator, ProjectActivity, ProjectDec
 
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -84,6 +84,22 @@ class ProjectSearchAdmin(admin.ModelAdmin):
     list_filter = ('year',)
 
 
+class ProjectIndicatorAdmin(admin.ModelAdmin):
+    list_display = ( 'project_id', 'reference', 'reference_period', 'target', 'target_period', 'target_status')
+    search_fields = ('project_id__project_id',)
+
+
+class ProjectActivityAdmin(admin.ModelAdmin):
+    list_display = ( 'project_id', 'start_date', 'finish_date', 'amount_act', 'Actors_execution', 'Actors_partner',\
+                     'year_plan')
+    search_fields = ('project_id__project_id',)
+
+
+class ProjectDecAdmin(admin.ModelAdmin):
+    list_display = ( 'project_id', 'dec_date', 'amount_dec', 'deliverable')
+    search_fields = ('project_id__project_id',)
+
+
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(SectorAggregate, SectorAggregateAdmin)
 admin.site.register(ProjectAggregate, ProjectAggregateAdmin)
@@ -98,3 +114,7 @@ admin.site.register(ProjectParticipatingOrganisations, ProjectParticipatingOrgan
 admin.site.register(ProjectSdg, ProjectSdgAdmin)
 admin.site.register(ProjectActivityDate, ProjectActivityDateAdmin)
 admin.site.register(ProjectSearch, ProjectSearchAdmin)
+admin.site.register(ProjectIndicator, ProjectIndicatorAdmin)
+admin.site.register(ProjectActivity, ProjectActivityAdmin)
+admin.site.register(ProjectDec, ProjectDecAdmin)
+

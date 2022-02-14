@@ -42,11 +42,11 @@
     "_name": "_3ea42456"
   },
   {
-    "name": "projets-detail-id",
-    "path": "/projets/detail/:id?",
-    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projets/detail/_id.vue",
-    "chunkName": "pages/projets/detail/_id",
-    "_name": "_23f51698"
+    "name": "projets-details-id",
+    "path": "/projets/details/:id",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projets/details/_id/index.vue",
+    "chunkName": "pages/projets/details/_id/index",
+    "_name": "_eed78878"
   },
   {
     "name": "index",

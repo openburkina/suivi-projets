@@ -56,20 +56,7 @@
 export default {
 
   props: ['id'],
-/* 
- async asyncData({store}){
-      await Promise.all([
-        store.dispatch('project/getProjectsData')
-      ])
-      return
-     },
- computed:{
-      ...mapState('project', {
-        projets: state => state.projects,
-        errors: state => state.errors,
-      })
-    },
- */
+
   data() {
     return {
       search: '',
@@ -77,24 +64,5 @@ export default {
       tab: null,
     }
   },
-  /* 
-  methods: {
-    getTitle(message) {
-      return `${message} sur le projet : ${this.idProjet}`
-    },
-    getProjet() {
-      return this.projets.find((p) => p.project_id == this.idProjet)
-    },
-    getColor(statut) {
-      if (statut < 1) return '#00E396'
-      else return '#008FFB'
-    },
-    getValue(statut) {
-      if (statut < 1) return 'mdi-close'
-      else return 'mdi-check'
-    },
-  },
-
-   */
 }
 </script>

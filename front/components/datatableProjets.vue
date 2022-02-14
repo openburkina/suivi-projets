@@ -8,14 +8,13 @@
   >
 
     <template v-slot:[`item.statut`]="{ item }">
-      <v-chip :color="getColor(item.statut)" dark>
+      <v-chip :color="getColor(item.activity_status)" dark>
         <v-icon size="24px">
-          {{ getValue(item.statut) }}
-
-         
+          {{ getValue(item.activity_status) }}
         </v-icon>
       </v-chip>
     </template>
+    
   </v-data-table>
 </template>
 <script>
@@ -38,8 +37,8 @@ export default {
         },
         { text: 'Intitulé', value: 'title' },
         { text: 'Region', value: 'region', width:'150px'  },
-        { text: 'Organisation', value: 'org_name' },
-        { text: 'Statut', value: 'activity_status', width:'120px' },
+        { text: 'Bailleur', value: 'org_name'},
+        { text: 'Statut', value: 'statut', width:'120px' },
         { text: 'Budget', value: 'budgetT', width:'150px' },
       ],
     
@@ -65,7 +64,7 @@ export default {
       else return 'mdi-check'
     },
     createEditLink(item) {
-      return this.$router.push({ path: '/projets/detail/' + item.project_id })
+      return this.$router.push({ path: '/projets/details/' + item.project_id })
     },
   },
 

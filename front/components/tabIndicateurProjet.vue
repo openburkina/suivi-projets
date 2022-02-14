@@ -4,7 +4,7 @@
     <v-card class="mx-auto px-3">
       <v-data-table
         :headers="headersIndicateurs"
-        :items="indicateurs"
+        :items="indicators"
         :search="search"
         class="elevation-0"
       >
@@ -20,6 +20,9 @@
   </div>
 </template>
 <script>
+
+import {  mapState } from 'vuex'
+
 export default {
   props: ['search'],
   data() {
@@ -29,36 +32,34 @@ export default {
           text: 'ID',
           align: 'start',
           sortable: false,
-          value: 'id',
+          value: 'project_id',
         },
         { text: 'Titre', value: 'titre' },
         { text: 'Référence', value: 'reference' },
-        { text: 'Période référence', value: 'periodeRef' },
-        { text: 'Cible', value: 'cible' },
-        { text: 'Période Cible', value: 'periodeCible' },
-        { text: 'Statut Cible', value: 'statutCible' },
-      ],
-      indicateurs: [
-        {
-          id: 7466,
-          titre: 'IND 348',
-          reference: 'IND JJ CD98',
-          periodeRef: '2021-12-19',
-          cible: '2022-01-19',
-          periodeCible: '2021-12-19',
-          statutCible: 1,
-        },
-        {
-          id: 894,
-          titre: 'IND 893',
-          reference: 'KJD JJ NJD9',
-          periodeRef: '2022-01-19',
-          cible: '2022-02-27',
-          periodeCible: '2021-12-19',
-          statutCible: -1,
-        },
-      ],
+        { text: 'Période référence', value: 'reference_period'},
+        { text: 'Cible', value: 'target'},
+        { text: 'Période Cible', value: 'target_period'},
+        { text: 'Statut Cible', value: 'target_status'},
+      ]
     }
+  },
+
+  computed:{
+      ...mapState('project', {
+        indicators: state=> state.indicators,
+        errors: state=> state.errors
+      })
+    },
+
+    methods: {
+      getColor(statut) {
+        if (statut < 1) return '#00E396'
+        else return '#008FFB'
+      },
+      getValue(statut) {
+        if (statut < 1) return 'mdi-close'
+        else return 'mdi-check'
+      }
   },
 }
 </script>
