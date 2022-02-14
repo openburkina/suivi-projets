@@ -26,6 +26,9 @@
   "DatatableProjets": {
     "description": "Auto imported from components/datatableProjets.vue"
   },
+  "DatatableRegions": {
+    "description": "Auto imported from components/datatableRegions.vue"
+  },
   "DonutChart": {
     "description": "Auto imported from components/donutChart.vue"
   },

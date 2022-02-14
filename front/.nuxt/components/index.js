@@ -7,6 +7,7 @@ export { default as BarChartMontantParSecteurParBailleur } from '../..\\componen
 export { default as BarChartMontantParSecteurParRegion } from '../..\\components\\barChartMontantParSecteurParRegion.vue'
 export { default as Caroussel } from '../..\\components\\caroussel.vue'
 export { default as DatatableProjets } from '../..\\components\\datatableProjets.vue'
+export { default as DatatableRegions } from '../..\\components\\datatableRegions.vue'
 export { default as DonutChart } from '../..\\components\\donutChart.vue'
 export { default as DonutChartStatutProjet } from '../..\\components\\donutChartStatutProjet.vue'
 export { default as DonutChartStatutProjetParBailleur } from '../..\\components\\donutChartStatutProjetParBailleur.vue'

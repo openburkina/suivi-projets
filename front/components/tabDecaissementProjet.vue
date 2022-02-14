@@ -4,7 +4,7 @@
     <v-card class="mx-auto px-3">
       <v-data-table
         :headers="headersDecaissements"
-        :items="decaissements"
+        :items="amounts"
         :search="search"
         class="elevation-0"
       >
@@ -13,43 +13,26 @@
   </div>
 </template>
 <script>
+
+import {  mapState } from 'vuex'
+
 export default {
   props: ['search'],
   data() {
     return {
       
       headersDecaissements: [
-        {
-          text: 'ID',
-          align: 'start',
-          sortable: false,
-          value: 'id',
-        },
-        { text: 'Date', value: 'date' },
-        { text: 'Montant', value: 'montant' },
-        { text: 'Livrable', value: 'livrable' },
-      ],
-      decaissements: [
-        {
-          id: 11110,
-          livrable: '2022-01-19',
-          montant: 12849585.94,
-          date: '2021-12-19',
-        },
-        {
-          id: 3221,
-          livrable: '2022-01-19',
-          montant: 12849585.94,
-          date: '2021-12-19',
-        },
-        {
-          id: 543,
-          livrable: '2022-01-19',
-          montant: 12849585.94,
-          date: '2021-12-19',
-        },
+        { text: 'Date', value: 'dec_date' },
+        { text: 'Montant', value: 'amount_dec' },
+        { text: 'Livrable', value: 'deliverable' },
       ],
     }
   },
+  computed:{
+      ...mapState('project', {
+        amounts: state=> state.amounts,
+        errors: state=> state.errors
+      })
+    },
 }
 </script>

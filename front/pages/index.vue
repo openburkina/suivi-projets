@@ -62,5 +62,6 @@ export default {
     return {
     }
   },
+  layout: 'home'
 }
 </script>

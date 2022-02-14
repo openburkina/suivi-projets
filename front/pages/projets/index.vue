@@ -13,7 +13,7 @@
           hide-details
         ></v-text-field>
       </v-card-title>
-      <DatatableProjets :search="search"/>
+      <DatatableProjets :search="search" />
     </v-card>
   </div>
 </template>
@@ -24,18 +24,9 @@ export default {
       search: '',
     }
   },
-  methods: {
-    getColor(statut) {
-      if (statut < 1) return '#00E396'
-      else return '#008FFB'
-    },
-    getValue(statut) {
-      if (statut < 1) return 'mdi-close'
-      else return 'mdi-check'
-    },
-    createEditLink(item) {
-      return this.$router.push({ path: '/projets/detail/' + item.id })
-    },
+  async asyncData({ store }) {
+    await Promise.all([store.dispatch('project/getProjectsData')])
+    return
   },
 }
 </script>

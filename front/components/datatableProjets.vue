@@ -6,16 +6,19 @@
     class="elevation-1"
     @click:row="createEditLink"
   >
-    <template v-slot:[`item.statut`]="{ item }">
-      <v-chip :color="getColor(item.statut)" dark>
+    <template v-slot:[`item.activity_status`]="{ item }">
+      <v-chip :color="getColor(item.activity_status)" dark>
         <v-icon size="24px">
-          {{ getValue(item.statut) }}
+          {{ getValue(item.activity_status) }}
         </v-icon>
       </v-chip>
     </template>
   </v-data-table>
 </template>
 <script>
+import {mapState} from 'vuex'
+import { global } from '~/mixins/global.js'
+
 export default {
   props: ['search'],
   data() {
@@ -25,47 +28,15 @@ export default {
           text: 'ID',
           align: 'start',
           sortable: false,
-          value: 'id',
+          value: 'project_id',
         },
-        { text: 'Bailleur', value: 'bailleur' },
-        { text: 'Exécutant', value: 'executant' },
-        { text: 'Secteur', value: 'secteur' },
-        { text: 'Région', value: 'région' },
-        { text: 'Statut', value: 'statut' },
-        { text: 'Budget', value: 'budget' },
-        { text: 'Date de dernière mise à jour', value: 'dateDerniereMAJ' },
-      ],
-      projets: [
-        {
-          id: 78366,
-          bailleur: 'UNSFC',
-          executant: 'EXC 780',
-          secteur: 'Santé',
-          région: 'Iraq',
-          statut: 1,
-          budget: 12849585.94,
-          dateDerniereMAJ: '2021-12-12',
-        },
-        {
-          id: 88466,
-          bailleur: 'JIJN',
-          executant: 'LONM 754',
-          secteur: 'Agricutlure',
-          région: 'Afghanistan',
-          statut: -1,
-          budget: 8779344.94,
-          dateDerniereMAJ: '2021-11-23',
-        },
-        {
-          id: 90475,
-          bailleur: 'NJDD',
-          executant: 'OLNM 098',
-          secteur: 'Sécurité',
-          région: 'Iraq',
-          statut: -1,
-          budget: 78578.94,
-          dateDerniereMAJ: '2021-09-12',
-        },
+        { text: 'Bailleur', value: 'org_name' },
+        { text: 'Exécutant', value: 'operating_unit' },
+        { text: 'Secteur', value: 'sector' },
+        { text: 'Région', value: 'region' },
+        { text: 'Statut', value: 'activity_status' },
+        { text: 'Budget', value: 'budgetT' },
+        // { text: 'Date de dernière mise à jour', value: 'dateDerniereMAJ' },
       ],
     }
   },
@@ -79,8 +50,14 @@ export default {
       else return 'mdi-check'
     },
     createEditLink(item) {
-      return this.$router.push({ path: '/projets/detail/' + item.id })
+      return this.$router.push({ path: '/projets/detail/' + item.project_id })
     },
+  },
+  computed: {
+    ...mapState('project', {
+      projets: (state) => state.projects,
+      errors: (state) => state.errors,
+    }),
   },
 }
 </script>

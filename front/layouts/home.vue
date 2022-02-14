@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Caroussel />
 
     <v-navigation-drawer
       v-model="drawer"
@@ -16,7 +17,7 @@
       fixed
       height="90"
       v-bind:elevation="scrollPosition > 28 ? 4 : 0"
-      v-bind:color="'indigo lighten-1'"
+      v-bind:color="scrollPosition < 28 ? 'transparent' : 'indigo lighten-1'"
       dark
     >
       <img :src="require('~/assets/img/logo.png')" height="60" width="50" />

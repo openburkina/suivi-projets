@@ -18,6 +18,7 @@ let store = {};
   store.modules = store.modules || {}
 
   resolveStoreModules(require('..\\store\\bailleur.js'), 'bailleur.js')
+  resolveStoreModules(require('..\\store\\project.js'), 'project.js')
   resolveStoreModules(require('..\\store\\region.js'), 'region.js')
 
   // If the environment supports hot reloading...
@@ -26,6 +27,7 @@ let store = {};
     // Whenever any Vuex module is updated...
     module.hot.accept([
       '..\\store\\bailleur.js',
+      '..\\store\\project.js',
       '..\\store\\region.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
