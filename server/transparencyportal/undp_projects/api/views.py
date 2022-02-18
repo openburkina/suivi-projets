@@ -10,8 +10,8 @@ from rest_framework.viewsets import GenericViewSet
 from undp_projects.models import Project, ProjectActivity, ProjectDec, ProjectIndicator,\
     ProjectParticipatingOrganisations
 from .serializers import ProjectSerializer, ProjectInfoSerializer, ProjectActivitySerializer, ProjectDecSerializer, \
-    ProjectIndicatorSerializer, RegionProjectListSerializer, Project1Serializer, Project2Serializer, ProjectTSerializer, \
-    ProjectRSerializer, RegionBudgetSerializer
+    ProjectIndicatorSerializer, RegionProjectListSerializer, OrgProjectListSerializer, \
+    Project1Serializer, Project2Serializer, ProjectTSerializer, ProjectRSerializer, RegionBudgetSerializer
 from django.views.generic import DetailView
 from undp_donors.models import DonorFundSplitUp
 from undp_outputs.models import Output
@@ -114,6 +114,24 @@ class RegionProjectListViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMi
         serializer = RegionProjectListSerializer(request.project, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
+
+class OrgProjectListViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+
+    serializer_class = OrgProjectListSerializer
+    lookup_field = "organisation"
+
+    def get_queryset(self):
+        if self.request.method == 'GET':
+            queryset = Project.objects.all()
+            pk = self.request.GET.get('q', None)
+            if pk is not None:
+                queryset = queryset.filter(organisation=pk)
+            return queryset
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = OrgProjectListSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 class Project1ViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
     serializer_class = Project1Serializer

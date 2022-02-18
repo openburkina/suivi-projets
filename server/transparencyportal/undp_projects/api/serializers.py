@@ -74,11 +74,23 @@ class RegionProjectListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ["project_id", "beneficiary", "title", "sector","organisation", "budgetT", "stage", "start_date",
+        fields = ["project_id", "beneficiary", "title", "sector", "organisation", "budgetT", "stage", "start_date",
                   "finish_date"]
 
         extra_kwargs = {
             "url": {"view_name": "api:region-project-list", "lookup_field": "region"}
+        }
+
+
+class OrgProjectListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Project
+        fields = ["project_id", "beneficiary", "title", "sector", "region", "budgetT", "stage", "start_date",
+                  "finish_date"]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:org-project-list", "lookup_field": "organisation"}
         }
 
 # class ProjetSerializer(serializers.ModelSerializer):
