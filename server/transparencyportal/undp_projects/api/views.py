@@ -10,7 +10,8 @@ from rest_framework.viewsets import GenericViewSet
 from undp_projects.models import Project, ProjectActivity, ProjectDec, ProjectIndicator,\
     ProjectParticipatingOrganisations
 from .serializers import ProjectSerializer, ProjectInfoSerializer, ProjectActivitySerializer, ProjectDecSerializer, \
-    ProjectIndicatorSerializer, RegionProjectListSerializer, OrgProjectListSerializer, \
+    ProjectIndicatorSerializer, RegionProjectListSerializer, OrgProjectListSerializer, ProjectsBudgetRegionSerializer,\
+    ProjectsBudgetSectorSerializer,\
     Project1Serializer, Project2Serializer, ProjectTSerializer, ProjectRSerializer, RegionBudgetSerializer
 from django.views.generic import DetailView
 from undp_donors.models import DonorFundSplitUp
@@ -131,6 +132,28 @@ class OrgProjectListViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin
     @action(detail=False, methods=["GET"])
     def me(self, request):
         serializer = OrgProjectListSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsBudgetRegionViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsBudgetRegionSerializer
+    queryset = Project.objects.values('region').annotate(sum=Sum('budgetT'))
+    lookup_field = "region"
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsBudgetRegionSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsBudgetSectorViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsBudgetSectorSerializer
+    queryset = Project.objects.values('sector').annotate(sum=Sum('budgetT'))
+    lookup_field = "sector"
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsBudgetSectorSerializer(request.project, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 class Project1ViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):

@@ -4,7 +4,8 @@ from rest_framework.routers import DefaultRouter, SimpleRouter
 from django.urls import path
 from transparencyportal.users.api.views import UserViewSet
 from transparencyportal.undp_projects.api.views import ProjectViewSet, ProjectInfoViewSet, ProjectActivityViewSet, \
-    ProjectDecViewSet, ProjectIndicatorViewSet, RegionProjectListViewSet, OrgProjectListViewSet
+    ProjectDecViewSet, ProjectIndicatorViewSet, RegionProjectListViewSet, OrgProjectListViewSet, \
+    ProjectsBudgetRegionViewSet, ProjectsBudgetSectorViewSet
 from transparencyportal.undp_projects.api.views import Project1ViewSet, Project2ViewSet, ProjectTViewSet, \
     ProjectRViewSet, RegionBudgetViewSet
 from transparencyportal.undp_donors.api.views import DonorFundSplitUpViewSet
@@ -26,6 +27,8 @@ router.register("project-dec", ProjectDecViewSet, basename="ProjectDec")
 router.register("project-ind", ProjectIndicatorViewSet, basename="ProjectIndicator")
 router.register("region-project-list", RegionProjectListViewSet, basename="RegionProjectList")
 router.register("org-project-list", OrgProjectListViewSet, basename="OrgProjectList")
+router.register("projects-budget-region", ProjectsBudgetRegionViewSet)
+router.register("projects-budget-sector", ProjectsBudgetSectorViewSet)
 router.register("project-list-T", Project1ViewSet)
 router.register("project-list-E", Project2ViewSet)
 router.register("project_aggregate", ProjectTViewSet)

@@ -93,6 +93,16 @@ class OrgProjectListSerializer(serializers.ModelSerializer):
             "url": {"view_name": "api:org-project-list", "lookup_field": "organisation"}
         }
 
+
+class ProjectsBudgetRegionSerializer(serializers.Serializer):
+    region = serializers.CharField(max_length=20)
+    sum = serializers.CharField(max_length=20)
+
+
+class ProjectsBudgetSectorSerializer(serializers.Serializer):
+    sector = serializers.CharField(max_length=20)
+    sum = serializers.CharField(max_length=20)
+
 # class ProjetSerializer(serializers.ModelSerializer):
 #   class Meta:
 #       model = Project
