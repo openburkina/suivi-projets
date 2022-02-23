@@ -15,7 +15,7 @@ class Region(models.Model):
     bureau = models.ForeignKey(Bureau, on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return "%s" % self.name
+        return self.name
 
 
 class OperatingUnit(models.Model):
@@ -60,7 +60,7 @@ class Sector(models.Model):
     color = models.CharField(max_length=7, default=None, blank=True, null=True)
 
     def __str__(self):
-        return "%s" % self.sector
+        return self.sector
 
 
 class DocumentCategory(models.Model):

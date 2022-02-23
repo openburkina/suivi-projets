@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from master_tables.models import Region, Organisation
+from master_tables.models import Region, Organisation, Sector
 
 
 class RegionSerializer(serializers.ModelSerializer):
@@ -13,6 +13,14 @@ class RegionSerializer(serializers.ModelSerializer):
         }
 
 
+class RegionNameSerializer(serializers.ModelSerializer):
+    name = serializers.ReadOnlyField()
+
+    class Meta:
+        model = Region
+        fields = ["name"]
+
+
 class OrganisationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organisation
@@ -21,3 +29,12 @@ class OrganisationSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "url": {"view_name": "api:organisation-detail", "lookup_field": "org_name"}
         }
+
+
+class SectorNameSerializer(serializers.ModelSerializer):
+    sector = serializers.ReadOnlyField()
+
+    class Meta:
+        model = Sector
+        fields = ["sector"]
+
