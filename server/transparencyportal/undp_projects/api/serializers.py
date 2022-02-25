@@ -123,9 +123,9 @@ class ProjectsBudgetSectorByYearSerializer(serializers.Serializer):
         fields = '__all__'
 
 
-class ProjectsBudgetStatusByYearSerializer(serializers.Serializer):
+class ProjectsStatusByYearSerializer(serializers.Serializer):
     activity_status = serializers.CharField(max_length=20)
-    sum = serializers.CharField(max_length=20)
+    count = serializers.CharField(max_length=20)
     year = serializers.CharField(max_length=20)
 
     class Meta:

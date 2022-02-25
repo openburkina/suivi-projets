@@ -5,7 +5,7 @@ from django.urls import path
 from transparencyportal.users.api.views import UserViewSet
 from transparencyportal.undp_projects.api.views import ProjectViewSet, ProjectInfoViewSet, ProjectActivityViewSet, \
     ProjectDecViewSet, ProjectIndicatorViewSet, RegionProjectListViewSet, OrgProjectListViewSet, \
-    ProjectsBudgetRegionViewSet, ProjectsBudgetSectorViewSet, ProjectsBudgetRegionByYearViewSet, ProjectsBudgetSectorByYearViewSet, ProjectsBudgetStatusByYearViewSet
+    ProjectsBudgetRegionViewSet, ProjectsBudgetSectorViewSet, ProjectsBudgetRegionByYearViewSet, ProjectsBudgetSectorByYearViewSet, ProjectsStatusByYearViewSet
 
 from transparencyportal.undp_projects.api.views import Project1ViewSet, Project2ViewSet, ProjectTViewSet, \
     ProjectRViewSet, RegionBudgetViewSet
@@ -35,7 +35,7 @@ router.register("projects-budget-region", ProjectsBudgetRegionViewSet)
 router.register("projects-budget-sector", ProjectsBudgetSectorViewSet)
 router.register("projects-budget-region-year", ProjectsBudgetRegionByYearViewSet)
 router.register("projects-budget-sector-year", ProjectsBudgetSectorByYearViewSet)
-router.register("projects-budget-status-year", ProjectsBudgetStatusByYearViewSet)
+router.register("projects-status-year", ProjectsStatusByYearViewSet)
 router.register("project-list-T", Project1ViewSet)
 router.register("project-list-E", Project2ViewSet)
 router.register("project_aggregate", ProjectTViewSet)

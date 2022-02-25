@@ -13,7 +13,7 @@ from undp_projects.models import Project, ProjectActivity, ProjectDec, ProjectIn
 from .serializers import ProjectSerializer, ProjectInfoSerializer, ProjectActivitySerializer, ProjectDecSerializer, \
     ProjectIndicatorSerializer, RegionProjectListSerializer, OrgProjectListSerializer, ProjectsBudgetRegionSerializer,\
     ProjectsBudgetSectorSerializer, ProjectsBudgetRegionByYearSerializer, \
-    ProjectsBudgetSectorByYearSerializer, ProjectsBudgetStatusByYearSerializer,\
+    ProjectsBudgetSectorByYearSerializer, ProjectsStatusByYearSerializer,\
     Project1Serializer, Project2Serializer, ProjectTSerializer, ProjectRSerializer, RegionBudgetSerializer
 
 from django.views.generic import DetailView
@@ -181,14 +181,14 @@ class ProjectsBudgetSectorByYearViewSet(RetrieveModelMixin, ListModelMixin, Upda
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 
-class ProjectsBudgetStatusByYearViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
-    serializer_class = ProjectsBudgetStatusByYearSerializer
-    queryset = Project.objects.values('activity_status').annotate(year=ExtractYear('start_date'), sum=Sum('budgetT'))
+class ProjectsStatusByYearViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsStatusByYearSerializer
+    queryset = Project.objects.values('activity_status').annotate(year=ExtractYear('start_date'), count=Count('project_id'))
     lookup_field = "name"
 
     @action(detail=False, methods=["GET"])
     def me(self, request):
-        serializer = ProjectsBudgetStatusByYearSerializer(request.project, context={"request": request})
+        serializer = ProjectsStatusByYearSerializer(request.project, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 
