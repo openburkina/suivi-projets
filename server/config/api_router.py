@@ -5,12 +5,13 @@ from django.urls import path
 from transparencyportal.users.api.views import UserViewSet
 from transparencyportal.undp_projects.api.views import ProjectViewSet, ProjectInfoViewSet, ProjectActivityViewSet, \
     ProjectDecViewSet, ProjectIndicatorViewSet, RegionProjectListViewSet, OrgProjectListViewSet, \
-    ProjectsBudgetRegionViewSet, ProjectsBudgetSectorViewSet, ProjectsBudgetRegionByYearViewSet, ProjectsBudgetSectorByYearViewSet, ProjectsStatusByYearViewSet
+    ProjectsBudgetRegionViewSet, ProjectsBudgetSectorViewSet, ProjectsBudgetRegionByYearViewSet, \
+    ProjectsBudgetSectorByYearViewSet, ProjectsStatusByYearViewSet
 
 from transparencyportal.undp_projects.api.views import Project1ViewSet, Project2ViewSet, ProjectTViewSet, \
     ProjectRViewSet, RegionBudgetViewSet
 from transparencyportal.undp_donors.api.views import DonorFundSplitUpViewSet
-from transparencyportal.master_tables.api.views import RegionViewSet, OrganisationViewSet, RegionNameViewSet, \
+from transparencyportal.master_tables.api.views import RegionViewSet, OrganisationViewSet, RegionDetailViewSet, \
     SectorNameViewSet
 
 
@@ -22,7 +23,7 @@ else:
 router.register("users", UserViewSet)
 router.register("project-list", ProjectViewSet)
 router.register("region-list", RegionViewSet)
-router.register("region-name", RegionNameViewSet)
+router.register("region-detail", RegionDetailViewSet)
 router.register("organisation-list", OrganisationViewSet)
 router.register("sector-name", SectorNameViewSet)
 router.register("project-info", ProjectInfoViewSet)

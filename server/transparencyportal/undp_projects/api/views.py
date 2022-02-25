@@ -150,7 +150,7 @@ class ProjectsBudgetRegionViewSet(RetrieveModelMixin, ListModelMixin, UpdateMode
 
 class ProjectsBudgetSectorViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
     serializer_class = ProjectsBudgetSectorSerializer
-    queryset = Project.objects.all().select_related('sector').annotate(sum=Sum('budgetT'))
+    queryset = Project.objects.all().select_related('sector').annotate(year=ExtractYear('start_date'), sum=Sum('budgetT'))
     lookup_field = "sector"
 
     @action(detail=False, methods=["GET"])

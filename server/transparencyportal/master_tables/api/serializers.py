@@ -13,12 +13,12 @@ class RegionSerializer(serializers.ModelSerializer):
         }
 
 
-class RegionNameSerializer(serializers.ModelSerializer):
+class RegionDetailSerializer(serializers.ModelSerializer):
     name = serializers.ReadOnlyField()
 
     class Meta:
         model = Region
-        fields = ["name"]
+        fields = ["name", "longitude", "latitude"]
 
 
 class OrganisationSerializer(serializers.ModelSerializer):

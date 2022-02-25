@@ -136,6 +136,7 @@ class ProjectsStatusByYearSerializer(serializers.Serializer):
 class ProjectsBudgetSectorSerializer(serializers.Serializer):
     sector = serializers.StringRelatedField()
     sum = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
 
     class Meta:
         model = Project

@@ -4,7 +4,7 @@ from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateMode
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 from master_tables.models import Region, Organisation, Sector
-from .serializers import RegionSerializer, OrganisationSerializer, RegionNameSerializer, SectorNameSerializer
+from .serializers import RegionSerializer, OrganisationSerializer, RegionDetailSerializer, SectorNameSerializer
 
 
 class RegionViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
@@ -19,15 +19,15 @@ class RegionViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, Generi
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 
-class RegionNameViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+class RegionDetailViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
 
-    serializer_class = RegionNameSerializer
+    serializer_class = RegionDetailSerializer
     queryset = Region.objects.all()
     lookup_field = "region_code"
 
     @action(detail=False, methods=["GET"])
     def me(self, request):
-        serializer = RegionNameSerializer(request.region, context={"request": request})
+        serializer = RegionDetailSerializer(request.region, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 
