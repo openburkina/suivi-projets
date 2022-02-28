@@ -36,5 +36,5 @@ class SectorNameSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sector
-        fields = ["sector"]
+        fields = ["code", "sector"]
 
