@@ -1,26 +1,17 @@
 <template>
-  <BarChart :options="options" :series="series" />
+  <BarChart  :options="montants.options" :series="montants.series" />
 </template>
 <script>
+
+import {mapState} from 'vuex'
+
 export default {
-  data() {
-    return {
-     options: {
-        chart: {
-          id: 'bar-chart-montant-region',
-        },
-        xaxis: {
-          categories: ['Iraq', 'Afghanistan', 'Tunisie', 'Afrique du Sud'],
-        },
-        colors: '#008FFB',
-      },
-      series: [
-        {
-          name: 'Pays',
-          data: [30, 40, 35, 50],
-        },
-      ],
-    }
+  computed: {
+    ...mapState('region', {
+      montants: (state) => state.montants,
+      errors: (state) => state.errors
+    }),
   },
+
 }
 </script>

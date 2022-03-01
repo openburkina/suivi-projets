@@ -32,7 +32,7 @@
 
       <v-tabs-items v-model="tab" class="mb-9">
         <v-tab-item value="tab-1" class="mb-9">
-          <TabInfoProjet :projet="getProjet()" />
+          <TabInfoProjet />
         </v-tab-item>
         <v-tab-item value="tab-2">
           <TabActiviteProjet  :search="search" />
@@ -54,46 +54,11 @@ export default {
       search: '',
       idProjet: this.$route.params.id,
       tab: null,
-      projets: [
-        {
-          id: 78366,
-          bailleur: 'UNSFC',
-          executant: 'EXC 780',
-          secteur: 'Santé',
-          région: 'Iraq',
-          statut: 1,
-          budget: 12849585.94,
-          dateDerniereMAJ: '2021-12-12',
-        },
-        {
-          id: 88466,
-          bailleur: 'JIJN',
-          executant: 'LONM 754',
-          secteur: 'Agricutlure',
-          région: 'Afghanistan',
-          statut: -1,
-          budget: 8779344.94,
-          dateDerniereMAJ: '2021-11-23',
-        },
-        {
-          id: 90475,
-          bailleur: 'NJDD',
-          executant: 'OLNM 098',
-          secteur: 'Sécurité',
-          région: 'Iraq',
-          statut: -1,
-          budget: 78578.94,
-          dateDerniereMAJ: '2021-09-12',
-        },
-      ],
     }
   },
   methods: {
     getTitle(message) {
       return `${message} sur le projet : ${this.idProjet}`
-    },
-    getProjet() {
-      return this.projets.find((p) => p.id == this.idProjet)
     },
     getColor(statut) {
       if (statut < 1) return '#00E396'

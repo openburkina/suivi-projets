@@ -3,56 +3,54 @@
     "name": "bailleurs",
     "path": "/bailleurs",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\bailleurs\\\\index.vue",
-    "chunkName": "pages/bailleurs/index",
-    "_name": "_b235e138"
+    "chunkName": "pages/bailleurs/index"
   },
   {
     "name": "error",
     "path": "/error",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\error.vue",
-    "chunkName": "pages/error",
-    "_name": "_1c00f76b"
+    "chunkName": "pages/error"
   },
   {
     "name": "projets",
     "path": "/projets",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projets\\\\index.vue",
-    "chunkName": "pages/projets/index",
-    "_name": "_8308ee10"
+    "chunkName": "pages/projets/index"
   },
   {
     "name": "regions",
     "path": "/regions",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\regions\\\\index.vue",
-    "chunkName": "pages/regions/index",
-    "_name": "_042c6720"
+    "chunkName": "pages/regions/index"
   },
   {
     "name": "test",
     "path": "/test",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\test.vue",
-    "chunkName": "pages/test",
-    "_name": "_507f21ff"
+    "chunkName": "pages/test"
+  },
+  {
+    "name": "bailleurs-projets-id",
+    "path": "/bailleurs/projets/:id?",
+    "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\bailleurs\\\\projets\\\\_id.vue",
+    "chunkName": "pages/bailleurs/projets/_id"
   },
   {
     "name": "projets-detail-id",
     "path": "/projets/detail/:id?",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\projets\\\\detail\\\\_id.vue",
-    "chunkName": "pages/projets/detail/_id",
-    "_name": "_13e532af"
+    "chunkName": "pages/projets/detail/_id"
   },
   {
     "name": "regions-projets-id",
     "path": "/regions/projets/:id?",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\regions\\\\projets\\\\_id.vue",
-    "chunkName": "pages/regions/projets/_id",
-    "_name": "_37216d15"
+    "chunkName": "pages/regions/projets/_id"
   },
   {
     "name": "index",
     "path": "/",
     "component": "F:\\\\stage\\\\pnud\\\\all_repository\\\\suivi-projets-hemmy\\\\front\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_4f8a4d96"
+    "chunkName": "pages/index"
   }
 ]

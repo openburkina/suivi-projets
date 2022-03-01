@@ -77,7 +77,7 @@ export default {
       else return '#008FFB'
     },
     getValue(statut) {
-      if (statut < 1) return 'mdi-close'
+      if (statut < 1) return 'mdi-selection-ellipse'
       else return 'mdi-check'
     },
   },

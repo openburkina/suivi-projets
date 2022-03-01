@@ -62,6 +62,14 @@ export default {
     return {
     }
   },
-  layout: 'home'
+  layout: 'home',
+
+  async asyncData({ store }) {
+    await Promise.all([
+      store.dispatch('secteur/getMontantSecteursDataForChart'),
+      store.dispatch('region/getMontantRegionsDataForChart'),
+    ])
+    return
+  },
 }
 </script>

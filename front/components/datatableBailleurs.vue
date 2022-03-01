@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="headers"
-    :items="regions"
+    :items="baillleurs"
     :search="search"
     class="elevation-1"
     @click:row="createEditLink"
@@ -17,19 +17,19 @@ export default {
   data() {
     return {
       headers: [
-        { text: 'Code de la région', value: 'region_code' },
-        { text: 'Nom de la région', value: 'name' },
+        { text: 'Code du bailleur', value: 'ref_id' },
+        { text: 'Nom du bailleur', value: 'org_name' },
       ],
     }
   },
   methods: {
     createEditLink(item) {
-      return this.$router.push({ path: '/regions/projets/' + item.region_code })
+      return this.$router.push({ path: '/bailleurs/projets/' + item.ref_id })
     },
   },
   computed: {
-    ...mapState('region', {
-      regions: (state) => state.regions,
+    ...mapState('bailleur', {
+      baillleurs: (state) => state.baillleurs,
       errors: (state) => state.errors,
     }),
   },

@@ -14,6 +14,7 @@ You can directly use them in pages and other components without the need to impo
 - `<BarChartMontantParSecteurParBailleur>` | `<bar-chart-montant-par-secteur-par-bailleur>` (components/barChartMontantParSecteurParBailleur.vue)
 - `<BarChartMontantParSecteurParRegion>` | `<bar-chart-montant-par-secteur-par-region>` (components/barChartMontantParSecteurParRegion.vue)
 - `<Caroussel>` | `<caroussel>` (components/caroussel.vue)
+- `<DatatableBailleurs>` | `<datatable-bailleurs>` (components/datatableBailleurs.vue)
 - `<DatatableProjets>` | `<datatable-projets>` (components/datatableProjets.vue)
 - `<DatatableRegions>` | `<datatable-regions>` (components/datatableRegions.vue)
 - `<DonutChart>` | `<donut-chart>` (components/donutChart.vue)

@@ -18,18 +18,6 @@
           Statistiques
           <v-icon>mdi-chart-bar</v-icon>
         </v-tab>
-        <v-spacer></v-spacer>
-        <v-select
-          :items="bailleurs"
-          v-model="bailleur"
-          label="Selectionnez un bailleur"
-          item-text="org_name"
-          item-value="ref_id"
-          bottom
-          autocomplete
-          v-on:change="changeBailleur"
-        >
-        </v-select>
       </v-tabs>
 
       <v-tabs-items v-model="tab" class="mb-9">
@@ -49,7 +37,7 @@
             </v-row>
             <v-row>
               <v-col cols="6">
-                <BarChartMontantParRegionParBailleur />
+                <BarChartMontantParBailleur />
               </v-col>
               <v-col cols="6">
                 <BarChartMontantParSecteurParBailleur />
@@ -63,17 +51,8 @@
 </template>
 <script>
 export default {
-   props: {
-    bailleurs: Array,
-  },
   data() {
     return {
-      bailleur: null,
-      // bailleurs: [
-      //   { id: '1111', nom: 'BAI 1' },
-      //   { id: '2222', nom: 'BAI 2' },
-      //   { id: '3333', nom: 'BAI 3' },
-      // ],
       search: '',
 
       idBailleur: '-',
@@ -82,15 +61,7 @@ export default {
   },
   methods: {
     getTitle(message) {
-      return `${message}  des projets sur le bailleur : ${this.idBailleur}`
-    },
-    getColor(statut) {
-      if (statut < 1) return '#00E396'
-      else return '#008FFB'
-    },
-    getValue(statut) {
-      if (statut < 1) return 'mdi-close'
-      else return 'mdi-check'
+      return `${message}  des projets sur la région : ${this.idBailleur}`
     },
     changeBailleur(a) {
       this.idBailleur = a

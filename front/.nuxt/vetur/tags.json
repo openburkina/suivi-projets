@@ -23,6 +23,9 @@
   "Caroussel": {
     "description": "Auto imported from components/caroussel.vue"
   },
+  "DatatableBailleurs": {
+    "description": "Auto imported from components/datatableBailleurs.vue"
+  },
   "DatatableProjets": {
     "description": "Auto imported from components/datatableProjets.vue"
   },
