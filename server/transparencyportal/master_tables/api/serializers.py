@@ -27,7 +27,7 @@ class OrganisationSerializer(serializers.ModelSerializer):
         fields = ["org_name", "ref_id"]
 
         extra_kwargs = {
-            "url": {"view_name": "api:organisation-detail", "lookup_field": "org_name"}
+            "url": {"view_name": "api:organisation-detail", "lookup_field": "ref_id"}
         }
 
 

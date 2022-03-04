@@ -142,10 +142,38 @@ class ProjectsBudgetSectorSerializer(serializers.Serializer):
         model = Project
         fields = ['sector', 'sum']
 
-# class ProjetSerializer(serializers.ModelSerializer):
-#   class Meta:
-#       model = Project
-#       fields = '__all__'
+
+class ProjectsStatusByYearByOrgSerializer(serializers.Serializer):
+    organisation = serializers.CharField(max_length=100)
+    activity_status = serializers.CharField(max_length=20)
+    count = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class ProjectsBudgetSectorByYearByOrgSerializer(serializers.Serializer):
+    organisation = serializers.CharField(max_length=100)
+    sector = serializers.StringRelatedField()
+    sum = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class ProjectsBudgetRegionByYearByOrgSerializer(serializers.Serializer):
+    organisation = serializers.CharField(max_length=100)
+    region = serializers.StringRelatedField()
+    sum = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
 
 
 class Project1Serializer(serializers.ModelSerializer):
@@ -208,3 +236,8 @@ class RegionBudgetSerializer(serializers.Serializer):
         model = Project
         fields = ["project_id", "title", "org_name", "operating_unit", "sector", "region", "activity_status",
                   "budgetT"]
+
+# class ProjetSerializer(serializers.ModelSerializer):
+#   class Meta:
+#       model = Project
+#       fields = '__all__'

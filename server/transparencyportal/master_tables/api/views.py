@@ -35,7 +35,7 @@ class OrganisationViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, 
 
     serializer_class = OrganisationSerializer
     queryset = Organisation.objects.all()
-    lookup_field = "org_name"
+    lookup_field = "ref_id"
 
 
     @action(detail=False, methods=["GET"])
