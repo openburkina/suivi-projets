@@ -18,7 +18,7 @@ class RegionDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Region
-        fields = ["name", "longitude", "latitude"]
+        fields = ["region_code", "name", "longitude", "latitude"]
 
 
 class OrganisationSerializer(serializers.ModelSerializer):
