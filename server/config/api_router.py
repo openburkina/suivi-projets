@@ -7,7 +7,8 @@ from transparencyportal.undp_projects.api.views import ProjectViewSet, ProjectIn
     ProjectDecViewSet, ProjectIndicatorViewSet, RegionProjectListViewSet, OrgProjectListViewSet, \
     ProjectsBudgetRegionViewSet, ProjectsBudgetSectorViewSet, ProjectsBudgetRegionByYearViewSet, \
     ProjectsBudgetSectorByYearViewSet, ProjectsStatusByYearViewSet, ProjectsStatusByYearByOrgViewSet, \
-    ProjectsBudgetSectorByYearByOrgViewSet,ProjectsBudgetRegionByYearByOrgViewSet
+    ProjectsBudgetSectorByYearByOrgViewSet, ProjectsBudgetRegionByYearByOrgViewSet, \
+    ProjectsStatusByYearByRegionViewSet, ProjectsBudgetSectorByYearByRegionViewSet, ProjectsBudgetOrgByYearByRegionViewSet
 
 from transparencyportal.undp_projects.api.views import Project1ViewSet, Project2ViewSet, ProjectTViewSet, \
     ProjectRViewSet, RegionBudgetViewSet
@@ -41,6 +42,9 @@ router.register("projects-status-year", ProjectsStatusByYearViewSet)
 router.register("projects-status-year-org", ProjectsStatusByYearByOrgViewSet)
 router.register("projects-budget-sector-year-org", ProjectsBudgetSectorByYearByOrgViewSet)
 router.register("projects-budget-region-year-org", ProjectsBudgetRegionByYearByOrgViewSet)
+router.register("projects-status-year-region", ProjectsStatusByYearByRegionViewSet)
+router.register("projects-budget-sector-year-region", ProjectsBudgetSectorByYearByRegionViewSet)
+router.register("projects-budget-org-year-region", ProjectsBudgetOrgByYearByRegionViewSet)
 router.register("project-list-T", Project1ViewSet)
 router.register("project-list-E", Project2ViewSet)
 router.register("project_aggregate", ProjectTViewSet)
