@@ -71,6 +71,8 @@ class ProjectIndicatorSerializer(serializers.ModelSerializer):
 
 
 class RegionProjectListSerializer(serializers.ModelSerializer):
+    sector = serializers.ReadOnlyField(source='sector.sector')
+    organisation = serializers.ReadOnlyField(source='organisation.org_name')
 
     class Meta:
         model = Project
@@ -83,6 +85,8 @@ class RegionProjectListSerializer(serializers.ModelSerializer):
 
 
 class OrgProjectListSerializer(serializers.ModelSerializer):
+    sector = serializers.ReadOnlyField(source='sector.sector')
+    region = serializers.ReadOnlyField(source='region.name')
 
     class Meta:
         model = Project
