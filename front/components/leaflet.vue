@@ -25,7 +25,7 @@
                   <template v-slot:default>
                     <tbody>
                       <tr>
-                        <td>Projet</td>
+                        <td>Montant</td>
                         <td>{{ d.sum }}</td>
                       </tr>
                     </tbody>
