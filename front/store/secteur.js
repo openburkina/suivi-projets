@@ -12,38 +12,6 @@ export const mutations = {
   },
 }
 
-const getYears = (data) => {
-  return [...new Set(data.map(x => x.year))].sort();
-}
-
-const getSectors= (data) => {
-  return [...new Set(data.map(x => x.sector))];
-}
-
-const myFilter = (data, sector, year) => {
-  let val = 0;
-  data.map(d => {
-    if (d.sector==sector && d.year==year){
-      val = parseInt(d.sum);
-    }
-  });
-  return val;
-}
-
-const getSeries = (data) => {
-  let tab = [];
-  getSectors(data).map(sector => {
-    let value = {name: sector};
-    let temp = [];
-    getYears(data).map(year => {
-      let sum = myFilter(data, sector, year);
-      temp.push(sum);
-    });
-    value = {...value, data: temp};
-    tab.push(value);
-  });
-  return tab;
-}
 export const actions = {
   getMontantSecteursDataForChart({ commit }, payload) {
     return new Promise((resolve, reject) => {
@@ -51,17 +19,19 @@ export const actions = {
         .get(`/projects-budget-sector`)
         .then((response) => {
           const data = response.data;
-          
+          const jsonHelper = require('./../utils/jsonHelper');
+          const amountsSectors = jsonHelper.amountsSectors(data);
+
           const final = {
             options: {
               chart: {
                 id: 'line-chart-montant-secteur',
               },
               xaxis: {
-                categories: getYears(data),
+                categories: amountsSectors.categories,
               }
             },
-            series: getSeries(data),
+            series: amountsSectors.series,
           }
           commit('SET_MONTANTS_DATA', final)
           resolve()
@@ -91,4 +61,5 @@ export const actions = {
         })
     })
   },
+
 }

@@ -1,7 +1,6 @@
 <template>
   <div>
     <Title value="Liste des projets du bailleur"></Title>
-    <v-card class="mx-auto px-3">
       <v-data-table
         :headers="headersProjets"
         :items="projects"
@@ -9,7 +8,6 @@
         @click:row="createEditLink"
       >
       </v-data-table>
-    </v-card>
   </div>
 </template>
 <script>

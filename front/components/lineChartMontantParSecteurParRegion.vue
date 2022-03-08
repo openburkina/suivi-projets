@@ -1,37 +1,26 @@
 <template>
-  <LineChart :options="options" :series="series" />
+  <LineChart :options="montantSecteur.options" :series="montantSecteur.series" />
 </template>
 <script>
+
+import {mapState} from 'vuex'
+
 export default {
-  data() {
-    return {
-      options: {
-        chart: {
-          id: 'line-chart-montant-secteur',
-        },
-        xaxis: {
-          categories: ['Sécurité', 'Santé', 'Éducation', 'Agriculture'],
-        },
+  computed: {
+    ...mapState('region', {
+      montantSecteurParRegion: (state) => state.montantSecteurParRegion,
+      secteurs: (state) => state.secteurs,
+      montantSecteur: (state) => {
+        let opt = JSON.parse(JSON.stringify(state.montantSecteurParRegion));
+        const sects = state.secteurs;
+        opt['series'].map(serie => {
+          const val = sects.find(se => se.code == serie.name)
+          serie.name = val.sector;
+        })
+        return opt;
       },
-      series: [
-        {
-          name: 'Sécurité',
-          data: [10, 20, 30, 40],
-        },
-        {
-          name: 'Santé',
-          data: [15, 25, 35, 50],
-        },
-        {
-          name: 'Éducation',
-          data: [9, 7, 13, 20],
-        },
-        {
-          name: 'Agriculture',
-          data: [5, 3, 8, 26],
-        },
-      ],
-    }
+      errors: (state) => state.errors
+    }),
   },
 }
 </script>

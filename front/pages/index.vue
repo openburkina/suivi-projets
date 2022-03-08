@@ -68,6 +68,10 @@ export default {
     await Promise.all([
       store.dispatch('secteur/getMontantSecteursDataForChart'),
       store.dispatch('region/getMontantRegionsDataForChart'),
+      store.dispatch('region/getRegionsData'),
+      store.dispatch('region/getDetailsData'),
+      store.dispatch('region/getSumProjetByCountriesData'),
+      store.dispatch('region/getMontantParStatus'),
     ])
     return
   },

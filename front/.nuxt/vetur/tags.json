@@ -2,14 +2,14 @@
   "BarChart": {
     "description": "Auto imported from components/barChart.vue"
   },
+  "BarChartMontantParBailleurParRegion": {
+    "description": "Auto imported from components/barChartMontantParBailleurParRegion.vue"
+  },
   "BarChartMontantParRegion": {
     "description": "Auto imported from components/barChartMontantParRegion.vue"
   },
   "BarChartMontantParRegionParBailleur": {
     "description": "Auto imported from components/barChartMontantParRegionParBailleur.vue"
-  },
-  "BarChartMontantParRegionParRegion": {
-    "description": "Auto imported from components/barChartMontantParRegionParRegion.vue"
   },
   "BarChartMontantParSecteur": {
     "description": "Auto imported from components/barChartMontantParSecteur.vue"
@@ -19,6 +19,9 @@
   },
   "BarChartMontantParSecteurParRegion": {
     "description": "Auto imported from components/barChartMontantParSecteurParRegion.vue"
+  },
+  "BarChartRegion": {
+    "description": "Auto imported from components/barChartRegion.vue"
   },
   "Caroussel": {
     "description": "Auto imported from components/caroussel.vue"

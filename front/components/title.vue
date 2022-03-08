@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="display-2 text-center font-weight-bold mb-5">
+    <p class="display-2 text-center font-weight-bold mb-5 mt-3">
       <span class="dark--text">{{ this.value }} </span> 
       <span id="explore" class="primary"></span>
     </p>

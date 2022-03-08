@@ -10,15 +10,15 @@
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
         ></l-tile-layer>
         <l-marker
-          v-for="d in projectCountry"
-          :lat-lng= "lat"
+          v-for="d in leafletData"
+          :lat-lng= "d.lat_long"
           @mouseenter="hovering(d.region)"
           @mouseleave="notHovering(d.region)"
           :ref="d.region"
           :key="d.region"
         >
           <l-popup ref="popup">
-            <p class="display-1">{{ d.dra }} {{ d.region }}</p>
+            <p class="display-1">{{ d.title }}</p>
             <v-card>
               <template>
                 <v-simple-table>
@@ -46,7 +46,7 @@ import {mapState} from 'vuex'
 export default {
   data() {
     return {
-         lat: [8.592724737747833, 16.074241050333463],
+      lat: [8.592724737747833, 16.074241050333463],
       open: null,
       mock: [
         {
@@ -57,50 +57,6 @@ export default {
           budget: '$45M',
           expense: '100XAF',
           lat: [8.592724737747833, 16.074241050333463],
-        },
-        {
-          id: 1,
-          projet: '45',
-          budget: '$45M',
-          name: 'adams',
-          dra: '🇳🇬',
-          expense: '100XAF',
-          lat: [9.548624660911141, 7.804160193482599],
-        },
-        {
-          id: 2,
-          projet: '12',
-          budget: '$45M',
-          name: 'ndja',
-          dra: '🇹🇩',
-          expense: '100XAF',
-          lat: [12.125553758062672, 15.055388119977],
-        },
-        {
-          id: 3,
-          projet: '75',
-          budget: '$4.3M',
-          name: 'adam',
-          dra: '🇹🇩',
-          lat: [12.125553758062672, 15.055388119977],
-        },
-        {
-          id: 4,
-          projet: '55',
-          budget: '$5M',
-          name: 'nig',
-          dra: '🇳🇬',
-          expense: '100XAF',
-          lat: [11.125553758062672, 12.055388119977],
-        },
-        {
-          id: 5,
-          projet: '54',
-          budget: '$4M',
-          name: 'nigs',
-          dra: '🇧🇫',
-          expense: '100XAF',
-          lat: [12.2383, 1.5616],
         },
       ],
     }
@@ -121,8 +77,19 @@ export default {
 
   computed: {
     ...mapState('region', {
-      projectCountry: (state) => state.sumProjectByCountry,
+      sumProjectByCountry: (state) => state.sumProjectByCountry,
+      details: (state) => state.details,
       errors: (state) => state.errors,
+      leafletData: (state) => {
+        let projects = JSON.parse(JSON.stringify(state.sumProjectByCountry));
+        const regions = state.details;
+        projects.map(project => {
+          const val = regions.find(region => region.region_code == project.region);
+          project.title = val.name;
+          project.lat_long = [val.longitude, val.latitude];
+        })
+        return projects;
+      },
     }),
   },
 }

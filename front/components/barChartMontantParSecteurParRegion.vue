@@ -1,26 +1,26 @@
 <template>
-  <BarChart :options="options" :series="series" />
+  <BarChart :options="montantSecteur.options" :series="montantSecteur.series" />
 </template>
 <script>
+
+import {mapState} from 'vuex'
+
 export default {
-  data() {
-    return {
-     options: {
-        chart: {
-          id: 'bar-chart-montant-secteur',
-        },
-        xaxis: {
-          categories: ['Sécurité', 'Santé', 'Éducation', 'Agriculture'],
-        },
-        colors: '#00E396',
+  computed: {
+    ...mapState('region', {
+      montantSecteurParRegion: (state) => state.montantSecteurParRegion,
+      secteurs: (state) => state.secteurs,
+      montantSecteur: (state) => {
+        let opt = JSON.parse(JSON.stringify(state.montantSecteurParRegion));
+        const sects = state.secteurs;
+        opt['series'].map(serie => {
+          const val = sects.find(se => se.code == serie.name)
+          serie.name = val.sector;
+        })
+        return opt;
       },
-      series: [
-        {
-          name: 'Secteurs',
-          data: [30, 40, 35, 50],
-        },
-      ],
-    }
+      errors: (state) => state.errors,
+    }),
   },
 }
 </script>

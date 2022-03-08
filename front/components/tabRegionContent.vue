@@ -22,28 +22,60 @@
 
       <v-tabs-items v-model="tab" class="mb-9">
         <v-tab-item value="tab-1" class="mb-9">
-          <TabRegionListeProjet :search="search"/>
+          <TabRegionListeProjet :search="search" />
         </v-tab-item>
         <v-tab-item value="tab-2">
-          <Title :value="getTitle(`Stastistique`)"></Title>
-          <v-card class="mx-auto px-3">
-            <v-row>
-              <v-col cols="6">
+          <!-- CHART : Statistiques sur les projets -->
+          <Title value="Statistiques" />
+          <v-row class="px-3 py-3">
+            <v-col cols="6">
+              <v-card class="mx-auto">
+                <v-card-title class="text-h5">Statut des projets</v-card-title>
+                <v-card-subtitle
+                  >Pourcentage des projes t&eacute;rmin&eacute;s et en
+                  cours</v-card-subtitle
+                >
+                <v-divider></v-divider>
                 <DonutChartStatutProjetParRegion />
-              </v-col>
-              <v-col cols="6">
+              </v-card>
+            </v-col>
+            <v-col cols="6">
+              <v-card class="mx-auto">
+                <v-card-title class="text-h5"
+                  >Montant par secteurs</v-card-title
+                >
+                <v-card-subtitle
+                  >Evolutions des montants par secteurs</v-card-subtitle
+                >
+                <v-divider></v-divider>
                 <LineChartMontantParSecteurParRegion />
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="6">
-                <BarChartMontantParRegionParRegion />
-              </v-col>
-              <v-col cols="6">
-                <BarChartMontantParSecteurParRegion />
-              </v-col>
-            </v-row>
-          </v-card>
+              </v-card>
+            </v-col>
+          </v-row>
+          <v-row class="px-3 py-3">
+            <v-col cols="6"
+              ><v-card class="mx-auto">
+                <v-card-title class="text-h5"
+                  >Montant par bailleurs</v-card-title
+                >
+                <v-card-subtitle
+                  >Montant des projets par bailleurs</v-card-subtitle
+                >
+                <v-divider></v-divider>
+                <BarChartMontantParBailleurParRegion /> </v-card
+            ></v-col>
+            <v-col cols="6"
+              ><v-card class="mx-auto">
+                <v-card-title class="text-h5"
+                  >Montant par secteurs</v-card-title
+                >
+                <v-card-subtitle
+                  >Montant des projets par secteurs</v-card-subtitle
+                >
+                <v-divider></v-divider>
+                <BarChartMontantParSecteurParRegion /> </v-card
+            ></v-col>
+          </v-row>
         </v-tab-item>
       </v-tabs-items>
     </v-card>

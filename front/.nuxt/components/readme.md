@@ -7,12 +7,13 @@ You can directly use them in pages and other components without the need to impo
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
 - `<BarChart>` | `<bar-chart>` (components/barChart.vue)
+- `<BarChartMontantParBailleurParRegion>` | `<bar-chart-montant-par-bailleur-par-region>` (components/barChartMontantParBailleurParRegion.vue)
 - `<BarChartMontantParRegion>` | `<bar-chart-montant-par-region>` (components/barChartMontantParRegion.vue)
 - `<BarChartMontantParRegionParBailleur>` | `<bar-chart-montant-par-region-par-bailleur>` (components/barChartMontantParRegionParBailleur.vue)
-- `<BarChartMontantParRegionParRegion>` | `<bar-chart-montant-par-region-par-region>` (components/barChartMontantParRegionParRegion.vue)
 - `<BarChartMontantParSecteur>` | `<bar-chart-montant-par-secteur>` (components/barChartMontantParSecteur.vue)
 - `<BarChartMontantParSecteurParBailleur>` | `<bar-chart-montant-par-secteur-par-bailleur>` (components/barChartMontantParSecteurParBailleur.vue)
 - `<BarChartMontantParSecteurParRegion>` | `<bar-chart-montant-par-secteur-par-region>` (components/barChartMontantParSecteurParRegion.vue)
+- `<BarChartRegion>` | `<bar-chart-region>` (components/barChartRegion.vue)
 - `<Caroussel>` | `<caroussel>` (components/caroussel.vue)
 - `<DatatableBailleurs>` | `<datatable-bailleurs>` (components/datatableBailleurs.vue)
 - `<DatatableProjets>` | `<datatable-projets>` (components/datatableProjets.vue)
