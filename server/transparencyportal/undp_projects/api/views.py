@@ -1,3 +1,4 @@
+from django.db.models.functions import ExtractYear
 from django.views.generic import ListView
 from django.db.models import Count, Sum
 from django.shortcuts import render
@@ -10,8 +11,12 @@ from rest_framework.viewsets import GenericViewSet
 from undp_projects.models import Project, ProjectActivity, ProjectDec, ProjectIndicator,\
     ProjectParticipatingOrganisations
 from .serializers import ProjectSerializer, ProjectInfoSerializer, ProjectActivitySerializer, ProjectDecSerializer, \
-    ProjectIndicatorSerializer, RegionProjectListSerializer, Project1Serializer, Project2Serializer, ProjectTSerializer, \
-    ProjectRSerializer, RegionBudgetSerializer
+    ProjectIndicatorSerializer, RegionProjectListSerializer, OrgProjectListSerializer, ProjectsBudgetRegionSerializer,\
+    ProjectsBudgetSectorSerializer, ProjectsBudgetRegionByYearSerializer, ProjectsBudgetSectorByYearSerializer, \
+    ProjectsStatusByYearSerializer, ProjectsStatusByYearByOrgSerializer, ProjectsBudgetSectorByYearByOrgSerializer,\
+    ProjectsBudgetRegionByYearByOrgSerializer,\
+    Project1Serializer, Project2Serializer, ProjectTSerializer, ProjectRSerializer, RegionBudgetSerializer
+
 from django.views.generic import DetailView
 from undp_donors.models import DonorFundSplitUp
 from undp_outputs.models import Output
@@ -112,6 +117,113 @@ class RegionProjectListViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMi
     @action(detail=False, methods=["GET"])
     def me(self, request):
         serializer = RegionProjectListSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class OrgProjectListViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+
+    serializer_class = OrgProjectListSerializer
+    lookup_field = "organisation"
+
+    def get_queryset(self):
+        if self.request.method == 'GET':
+            queryset = Project.objects.all()
+            pk = self.request.GET.get('q', None)
+            if pk is not None:
+                queryset = queryset.filter(organisation=pk)
+            return queryset
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = OrgProjectListSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsBudgetRegionViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsBudgetRegionSerializer
+    queryset = Project.objects.values('region').annotate(sum=Sum('budgetT'))
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsBudgetRegionSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsBudgetSectorViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsBudgetSectorSerializer
+    queryset = Project.objects.all().select_related('sector').annotate(year=ExtractYear('start_date'), sum=Sum('budgetT'))
+    lookup_field = "sector"
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsBudgetSectorSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsBudgetRegionByYearViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsBudgetRegionByYearSerializer
+    queryset = Project.objects.values('region').annotate(year=ExtractYear('start_date'), sum=Sum('budgetT'))
+    lookup_field = "name"
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsBudgetRegionByYearSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsBudgetSectorByYearViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsBudgetSectorByYearSerializer
+    queryset = Project.objects.values('sector').annotate(year=ExtractYear('start_date'), sum=Sum('budgetT'))
+    lookup_field = "name"
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsBudgetSectorByYearSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsStatusByYearViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsStatusByYearSerializer
+    queryset = Project.objects.values('activity_status').annotate(year=ExtractYear('start_date'), count=Count('project_id'))
+    lookup_field = "name"
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsStatusByYearSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsStatusByYearByOrgViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsStatusByYearByOrgSerializer
+    queryset = Project.objects.values('activity_status', 'organisation').annotate(year=ExtractYear('start_date'),
+                                                                                  count=Count('project_id'))
+    lookup_field = "organisation"
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsStatusByYearByOrgSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsBudgetSectorByYearByOrgViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsBudgetSectorByYearByOrgSerializer
+    queryset = Project.objects.values('sector', 'organisation').annotate(year=ExtractYear('start_date'), sum=Sum('budgetT'))
+    lookup_field = "organisation"
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsBudgetSectorByYearByOrgSerializer(request.project, context={"request": request})
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
+
+
+class ProjectsBudgetRegionByYearByOrgViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+    serializer_class = ProjectsBudgetRegionByYearByOrgSerializer
+    queryset = Project.objects.values('region', 'organisation').annotate(year=ExtractYear('start_date'), sum=Sum('budgetT'))
+    lookup_field = "organisation"
+
+    @action(detail=False, methods=["GET"])
+    def me(self, request):
+        serializer = ProjectsBudgetRegionByYearByOrgSerializer(request.project, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 
 

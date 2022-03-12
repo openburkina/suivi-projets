@@ -11,6 +11,7 @@ const _a293bc84 = () => interopDefault(import('../pages/regions/index.vue' /* we
 const _54d8c846 = () => interopDefault(import('../pages/test.vue' /* webpackChunkName: "pages/test" */))
 const _3ea42456 = () => interopDefault(import('../pages/regions/test.vue' /* webpackChunkName: "pages/regions/test" */))
 const _eed78878 = () => interopDefault(import('../pages/projets/details/_id/index.vue' /* webpackChunkName: "pages/projets/details/_id/index" */))
+const _91354a84 = () => interopDefault(import('../pages/regions/projets/_id.vue' /* webpackChunkName: "pages/regions/projets/_id" */))
 const _5f15fbce = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -52,6 +53,10 @@ export const routerOptions = {
     path: "/projets/details/:id",
     component: _eed78878,
     name: "projets-details-id"
+  }, {
+    path: "/regions/projets/:id?",
+    component: _91354a84,
+    name: "regions-projets-id"
   }, {
     path: "/",
     component: _5f15fbce,

@@ -4,6 +4,7 @@ export const state = ()=> ({
     activities: [],
     amounts: [],
     indicators: [],
+    status_data: [],
     errors: []
   })
   
@@ -11,6 +12,14 @@ export const state = ()=> ({
     SET_PROJECT_DATA(state, payload){
       state.projects = payload
     },
+
+    SET_PROJECTS_STATUS(state, payload){
+      for (let i = 0; i < payload.length; i++) {
+        state.status_data[i] = parseInt(payload[i].count);
+        console.log(state.status_data[i])
+      }
+    },
+
     SET_DATA(state, payload){
       state.project = payload
     },
@@ -23,6 +32,7 @@ export const state = ()=> ({
     SET_INDICATORS(state, payload){
       state.indicators = payload
     },
+
     SET_ERRORS(state, payload){
       state.errors = payload
     }
@@ -32,9 +42,9 @@ export const state = ()=> ({
       let search = payload ? payload : ''
       return new Promise((resolve, reject)=> {
         this.$axios.get('/project-list').then((response)=> {
-          commit('SET_PROJECT_DATA', response.data)
+          commit('SET_PROJECT_DATA', response.data),
           resolve()
-           //console.log(response.data)
+          // console.log(response.data)
         })
       })
     }, 
@@ -59,7 +69,6 @@ export const state = ()=> ({
         this.$axios.get(`/project-act/?q=${payload}`).then((response)=> {
           commit('SET_ACTIVITIES', response.data)
           resolve()
-          // console.log(response.data)
         }).catch((error)=> {
           if(error.response){
             console.log("Error in Patient Data process...!")
@@ -74,7 +83,6 @@ export const state = ()=> ({
         this.$axios.get(`/project-dec/?q=${payload}`).then((response)=> {
           commit('SET_AMOUNTS', response.data)
           resolve()
-          // console.log(response.data)
         }).catch((error)=> {
           if(error.response){
             console.log("Error in Patient Data process...!")
@@ -89,7 +97,6 @@ export const state = ()=> ({
         this.$axios.get(`/project-ind/?q=${payload}`).then((response)=> {
           commit('SET_INDICATORS', response.data)
           resolve()
-          // console.log(response.data)
         }).catch((error)=> {
           if(error.response){
             console.log("Error in Patient Data process...!")
@@ -98,5 +105,13 @@ export const state = ()=> ({
         })
       })
     },
-  
+
+    getProjectStatus({commit},){
+      return new Promise((resolve)=> {
+        this.$axios.get('/projects-status-year').then((response)=> {
+          commit('SET_PROJECTS_STATUS', response.data)
+          resolve()
+        })
+      })
+    }, 
   }

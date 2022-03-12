@@ -1,15 +1,30 @@
 <template>
-  <DonutChart :options="options" :series="series" />
+<div>
+ <!--  {{bailleurs_label}} -->
+  <DonutChart :options="options" :series="bailleurs_count" />
+</div>
 </template>
 <script>
+
+import {mapState} from 'vuex'
+
+
 export default {
   data() {
     return {
       options: {
-        labels: ['Términé', 'En cours'],
+       // labels: this.bailleurs_label,
+       labels: ['Términé', 'En cours'],
       },
-      series: [34, 66],
     }
+  },
+
+   computed:{
+      ...mapState('bailleur', {
+        bailleurs_count: state => state.bailleurs_count,
+        bailleurs_label: state => state.bailleurs_label,
+        errors: state => state.errors,
+      })
   },
 }
 </script>

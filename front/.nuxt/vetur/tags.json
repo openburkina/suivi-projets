@@ -1,4 +1,10 @@
 {
+  "DonutChart": {
+    "description": "Auto imported from components/DonutChart.vue"
+  },
+  "DonutChartStatutProjet": {
+    "description": "Auto imported from components/DonutChartStatutProjet.vue"
+  },
   "BarChart": {
     "description": "Auto imported from components/barChart.vue"
   },
@@ -26,11 +32,8 @@
   "DatatableProjets": {
     "description": "Auto imported from components/datatableProjets.vue"
   },
-  "DonutChart": {
-    "description": "Auto imported from components/donutChart.vue"
-  },
-  "DonutChartStatutProjet": {
-    "description": "Auto imported from components/donutChartStatutProjet.vue"
+  "DatatableRegions": {
+    "description": "Auto imported from components/datatableRegions.vue"
   },
   "DonutChartStatutProjetParBailleur": {
     "description": "Auto imported from components/donutChartStatutProjetParBailleur.vue"

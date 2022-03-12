@@ -1,7 +1,13 @@
 <template>
+<div>
+ 
   <LineChart :options="options" :series="series" />
+</div>
 </template>
 <script>
+
+import {mapState} from 'vuex'
+
 export default {
   data() {
     return {
@@ -31,7 +37,14 @@ export default {
           data: [5, 3, 8, 26],
         },
       ],
+
+         computed:{
+      ...mapState('bailleur', {
+        secteurs: state => state.secteurs,
+        errors: state => state.errors,
+      })
+  },
     }
   },
 }
-</script>
+</script>     

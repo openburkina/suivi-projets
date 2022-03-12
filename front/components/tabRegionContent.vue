@@ -18,23 +18,11 @@
           Statistiques
           <v-icon>mdi-chart-bar</v-icon>
         </v-tab>
-        <v-spacer></v-spacer>
-        <v-select
-          :items="regions"
-          v-model="region"
-          label="Selectionnez une région"
-          item-text="name"
-          item-value="region_code"
-          bottom
-          autocomplete
-          v-on:change="changeRegion"
-        >
-        </v-select>
       </v-tabs>
 
       <v-tabs-items v-model="tab" class="mb-9">
         <v-tab-item value="tab-1" class="mb-9">
-          <TabRegionListeProjet :search="search"/>
+         <TabRegionListeProjet :search="search"/>
         </v-tab-item>
         <v-tab-item value="tab-2">
           <Title :value="getTitle(`Stastistique`)"></Title>
@@ -63,17 +51,8 @@
 </template>
 <script>
 export default {
-  props: {
-    regions: Array,
-  },
   data() {
     return {
-      region: null,
-      // regions: [
-      //   { id: '1111', nom: 'BAI 1' },
-      //   { id: '2222', nom: 'BAI 2' },
-      //   { id: '3333', nom: 'BAI 3' },
-      // ],
       search: '',
 
       idRegion: '-',

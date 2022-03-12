@@ -1,5 +1,8 @@
 <template>
+<div>
+ 
   <BarChart :options="options" :series="series" />
+  </div>
 </template>
 <script>
 export default {
@@ -20,6 +23,7 @@ export default {
           data: [30, 40, 35, 50],
         },
       ],
+
     }
   },
 }

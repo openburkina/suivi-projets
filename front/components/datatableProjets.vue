@@ -1,4 +1,5 @@
 <template>
+<div>
   <v-data-table
     :headers="headers"
     :items="projets"
@@ -14,8 +15,8 @@
         </v-icon>
       </v-chip>
     </template>
-    
   </v-data-table>
+  </div>
 </template>
 <script>
 
@@ -46,7 +47,7 @@ export default {
 
  async asyncData({store}){
       await Promise.all([
-        store.dispatch('project/getProjectsData')
+        store.dispatch('project/getProjectsData'),
       ])
       return
     },

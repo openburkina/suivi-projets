@@ -49,6 +49,13 @@
     "_name": "_eed78878"
   },
   {
+    "name": "regions-projets-id",
+    "path": "/regions/projets/:id?",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/regions/projets/_id.vue",
+    "chunkName": "pages/regions/projets/_id",
+    "_name": "_91354a84"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/home/wenaklabs/dev/suivi-projets/front/pages/index.vue",

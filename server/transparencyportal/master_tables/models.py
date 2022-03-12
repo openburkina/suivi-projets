@@ -13,9 +13,11 @@ class Region(models.Model):
     name = models.CharField(max_length=50)
     region_code = models.CharField(max_length=10, primary_key=True)
     bureau = models.ForeignKey(Bureau, on_delete=models.DO_NOTHING)
+    longitude = models.DecimalField(max_digits=22, decimal_places=16, null=True)
+    latitude = models.DecimalField(max_digits=22, decimal_places=16, null=True)
 
     def __str__(self):
-        return "%s" % self.name
+        return self.name
 
 
 class OperatingUnit(models.Model):
@@ -60,7 +62,7 @@ class Sector(models.Model):
     color = models.CharField(max_length=7, default=None, blank=True, null=True)
 
     def __str__(self):
-        return "%s" % self.sector
+        return self.sector
 
 
 class DocumentCategory(models.Model):

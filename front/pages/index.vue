@@ -12,7 +12,7 @@
     <Title value="Statistiques" />
     <v-row>
       <v-col cols="6">
-        <v-card class="mx-auto">
+        <v-card class="mx-auto" style="height: 520px">
           <v-card-title class="text-h5">Statut des projets</v-card-title>
           <v-card-subtitle
             >Pourcentage des projes t&eacute;rmin&eacute;s et en
@@ -23,7 +23,7 @@
         </v-card>
       </v-col>
       <v-col cols="6">
-        <v-card class="mx-auto">
+        <v-card class="mx-auto" style="height: 520px">
           <v-card-title class="text-h5">Montant par secteurs</v-card-title>
           <v-card-subtitle
             >Evolutions des montants par secteurs</v-card-subtitle
@@ -63,7 +63,16 @@
   </no-ssr>
 </template>
 <script>
+
 export default {
+ 
+ async asyncData({store}){
+      await Promise.all([
+        store.dispatch('project/getProjectStatus')
+      ])
+      return
+},
+
   data() {
     return {
     }

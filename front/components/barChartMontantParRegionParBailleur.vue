@@ -1,7 +1,10 @@
 <template>
-  <BarChart :options="options" :series="series" />
+  <BarChart :options="options" :series="series_regions" />
 </template>
 <script>
+
+import {mapState} from 'vuex'
+
 export default {
   data() {
     return {
@@ -14,13 +17,14 @@ export default {
         },
         colors: '#008FFB',
       },
-      series: [
-        {
-          name: 'Pays',
-          data: [30, 40, 35, 50],
-        },
-      ],
     }
+  },
+
+  computed:{
+      ...mapState('bailleur', {
+        series_regions: state => state.series_regions,
+        errors: state => state.errors,
+      })
   },
 }
 </script>

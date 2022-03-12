@@ -6,6 +6,8 @@ You can directly use them in pages and other components without the need to impo
 
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
+- `<DonutChart>` | `<donut-chart>` (components/DonutChart.vue)
+- `<DonutChartStatutProjet>` | `<donut-chart-statut-projet>` (components/DonutChartStatutProjet.vue)
 - `<BarChart>` | `<bar-chart>` (components/barChart.vue)
 - `<BarChartMontantParRegion>` | `<bar-chart-montant-par-region>` (components/barChartMontantParRegion.vue)
 - `<BarChartMontantParRegionParBailleur>` | `<bar-chart-montant-par-region-par-bailleur>` (components/barChartMontantParRegionParBailleur.vue)
@@ -15,8 +17,7 @@ You can directly use them in pages and other components without the need to impo
 - `<BarChartMontantParSecteurParRegion>` | `<bar-chart-montant-par-secteur-par-region>` (components/barChartMontantParSecteurParRegion.vue)
 - `<Caroussel>` | `<caroussel>` (components/caroussel.vue)
 - `<DatatableProjets>` | `<datatable-projets>` (components/datatableProjets.vue)
-- `<DonutChart>` | `<donut-chart>` (components/donutChart.vue)
-- `<DonutChartStatutProjet>` | `<donut-chart-statut-projet>` (components/donutChartStatutProjet.vue)
+- `<DatatableRegions>` | `<datatable-regions>` (components/datatableRegions.vue)
 - `<DonutChartStatutProjetParBailleur>` | `<donut-chart-statut-projet-par-bailleur>` (components/donutChartStatutProjetParBailleur.vue)
 - `<DonutChartStatutProjetParRegion>` | `<donut-chart-statut-projet-par-region>` (components/donutChartStatutProjetParRegion.vue)
 - `<Error>` | `<error>` (components/error.vue)

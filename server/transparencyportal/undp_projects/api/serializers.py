@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from undp_projects.models import Project, ProjectActivity, ProjectDec, ProjectIndicator
+from undp_projects.models import Project, ProjectActivity, ProjectDec, ProjectIndicator, Sector, Region
 
 
 class ProjectSerializer(serializers.ModelSerializer):
@@ -74,17 +74,106 @@ class RegionProjectListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ["project_id", "beneficiary", "title", "sector","organisation", "budgetT", "stage", "start_date",
+        fields = ["project_id", "beneficiary", "title", "sector", "organisation", "budgetT", "stage", "start_date",
                   "finish_date"]
 
         extra_kwargs = {
             "url": {"view_name": "api:region-project-list", "lookup_field": "region"}
         }
 
-# class ProjetSerializer(serializers.ModelSerializer):
-#   class Meta:
-#       model = Project
-#       fields = '__all__'
+
+class OrgProjectListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Project
+        fields = ["project_id", "beneficiary", "title", "sector", "region", "budgetT", "stage", "start_date",
+                  "finish_date"]
+
+        extra_kwargs = {
+            "url": {"view_name": "api:org-project-list", "lookup_field": "organisation"}
+        }
+
+
+class ProjectsBudgetRegionSerializer(serializers.Serializer):
+    region = serializers.StringRelatedField()
+    sum = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class ProjectsBudgetRegionByYearSerializer(serializers.Serializer):
+    region = serializers.StringRelatedField()
+    sum = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class ProjectsBudgetSectorByYearSerializer(serializers.Serializer):
+    sector = serializers.StringRelatedField()
+    sum = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class ProjectsStatusByYearSerializer(serializers.Serializer):
+    activity_status = serializers.CharField(max_length=20)
+    count = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class ProjectsBudgetSectorSerializer(serializers.Serializer):
+    sector = serializers.StringRelatedField()
+    sum = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = ['sector', 'sum']
+
+
+class ProjectsStatusByYearByOrgSerializer(serializers.Serializer):
+    organisation = serializers.CharField(max_length=100)
+    activity_status = serializers.CharField(max_length=20)
+    count = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class ProjectsBudgetSectorByYearByOrgSerializer(serializers.Serializer):
+    organisation = serializers.CharField(max_length=100)
+    sector = serializers.StringRelatedField()
+    sum = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class ProjectsBudgetRegionByYearByOrgSerializer(serializers.Serializer):
+    organisation = serializers.CharField(max_length=100)
+    region = serializers.StringRelatedField()
+    sum = serializers.CharField(max_length=20)
+    year = serializers.CharField(max_length=20)
+
+    class Meta:
+        model = Project
+        fields = '__all__'
 
 
 class Project1Serializer(serializers.ModelSerializer):
@@ -139,3 +228,16 @@ class ProjectRSerializer(serializers.Serializer):
 class RegionBudgetSerializer(serializers.Serializer):
     operating_unit = serializers.CharField(max_length=20)
     sum = serializers.CharField(max_length=20)
+    region = serializers.ReadOnlyField(source='region.name')
+    sector = serializers.ReadOnlyField(source='sector.sector')
+    org_name = serializers.ReadOnlyField(source='organisation.org_name')
+
+    class Meta:
+        model = Project
+        fields = ["project_id", "title", "org_name", "operating_unit", "sector", "region", "activity_status",
+                  "budgetT"]
+
+# class ProjetSerializer(serializers.ModelSerializer):
+#   class Meta:
+#       model = Project
+#       fields = '__all__'

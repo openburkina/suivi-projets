@@ -8,8 +8,9 @@ export default {
       options: {
         labels: ['Términé', 'En cours'],
       },
-      series: [34, 66],
+      series: [50, 66],
     }
   },
+  
 }
 </script>

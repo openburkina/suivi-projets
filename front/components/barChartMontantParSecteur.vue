@@ -1,5 +1,7 @@
 <template>
+<div>
   <BarChart :options="options" :series="series" />
+  </div>
 </template>
 <script>
 export default {
