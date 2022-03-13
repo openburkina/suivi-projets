@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Title value="Liste des projets du bailleur"></Title>
       <v-data-table
         :headers="headersProjets"
         :items="projects"

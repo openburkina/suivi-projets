@@ -15,9 +15,13 @@ export const state = () => ({
   secteurs: [],
   bailleurs: [],
   montantsStatus: [],
+  name: "",
 })
 
 export const mutations = {
+  SET_NAME(state, payload) {
+    state.name = payload
+  },
   SET_MONTANT_STATUS(state, payload) {
     state.montantsStatus = payload
   },
@@ -263,6 +267,25 @@ export const actions = {
         })
     })
   },
+
+  getName({ commit }, payload) {
+    let search = payload ? payload : ''
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .get(`/region-detail/${payload}`)
+        .then((response) => {
+          commit('SET_NAME', response.data.name)
+          resolve()
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log('Error in Patient Data process...!')
+          }
+          commit('SET_ERRORS', 'Error in Patient Data process...!')
+        })
+    })
+  },
+
 
   getDetailsData({ commit }, payload) {
     let search = payload ? payload : ''

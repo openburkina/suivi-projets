@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Title value="Liste des projets de la région"></Title>
     <v-card class="mx-auto px-3">
       <v-data-table
         :headers="headersProjets"

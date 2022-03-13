@@ -22,11 +22,12 @@
 
       <v-tabs-items v-model="tab" class="mb-9">
         <v-tab-item value="tab-1" class="mb-9">
+          <Title :value="titleList"></Title>
           <TabRegionListeProjet :search="search" />
         </v-tab-item>
         <v-tab-item value="tab-2">
           <!-- CHART : Statistiques sur les projets -->
-          <Title value="Statistiques" />
+          <Title :value="titleStatistique" />
           <v-row class="px-3 py-3">
             <v-col cols="6">
               <v-card class="mx-auto">
@@ -82,6 +83,9 @@
   </div>
 </template>
 <script>
+
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return {
@@ -98,6 +102,14 @@ export default {
     changeRegion(a) {
       this.idRegion = a
     },
+  },
+
+  computed: {
+    ...mapState('region', {
+      titleList: (state) => `Liste des projets de la région : ${state.name}`,
+      titleStatistique: (state) =>
+        `Statistiques des projets de la région : ${state.name}`,
+    }),
   },
 }
 </script>

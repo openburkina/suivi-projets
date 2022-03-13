@@ -14,6 +14,7 @@ export default {
       store.dispatch('region/getMontantParStatusParRegion', params.id),
       store.dispatch('region/getSecteurs'),
       store.dispatch('region/getBailleurs'),
+      store.dispatch('region/getName', params.id),
     ])
     return
   },

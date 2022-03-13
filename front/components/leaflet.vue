@@ -11,28 +11,27 @@
         ></l-tile-layer>
         <l-marker
           v-for="d in leafletData"
-          :lat-lng= "d.lat_long"
+          :lat-lng="d.lat_long"
           @mouseenter="hovering(d.region)"
           @mouseleave="notHovering(d.region)"
           :ref="d.region"
           :key="d.region"
         >
-          <l-popup ref="popup">
-            <p class="display-1">{{ d.title }}</p>
-            <v-card>
-              <template>
-                <v-simple-table>
-                  <template v-slot:default>
-                    <tbody>
-                      <tr>
-                        <td>Montant</td>
-                        <td>{{ d.sum }}</td>
-                      </tr>
-                    </tbody>
-                  </template>
-                </v-simple-table>
+          <l-popup ref="popup" style="width: 250px">
+            <v-simple-table>
+              <template v-slot:default>
+                <tbody>
+                  <tr>
+                    <th>Pays</th>
+                    <td>{{ d.title }}</td>
+                  </tr>
+                  <tr>
+                    <th>Montant total des projets</th>
+                    <td>{{ d.sum }}</td>
+                  </tr>
+                </tbody>
               </template>
-            </v-card>
+            </v-simple-table>
           </l-popup>
         </l-marker>
       </l-map>
@@ -40,8 +39,7 @@
   </div>
 </template>
 <script>
-
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -81,14 +79,16 @@ export default {
       details: (state) => state.details,
       errors: (state) => state.errors,
       leafletData: (state) => {
-        let projects = JSON.parse(JSON.stringify(state.sumProjectByCountry));
-        const regions = state.details;
-        projects.map(project => {
-          const val = regions.find(region => region.region_code == project.region);
-          project.title = val.name;
-          project.lat_long = [val.longitude, val.latitude];
+        let projects = JSON.parse(JSON.stringify(state.sumProjectByCountry))
+        const regions = state.details
+        projects.map((project) => {
+          const val = regions.find(
+            (region) => region.region_code == project.region
+          )
+          project.title = val.name
+          project.lat_long = [val.longitude, val.latitude]
         })
-        return projects;
+        return projects
       },
     }),
   },

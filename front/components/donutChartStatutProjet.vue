@@ -1,6 +1,6 @@
 <template>
   <v-row class="mx-auto">
-    <v-col cols="6" v-for="t in montantsStatus" :key="t"
+    <v-col cols="6" v-for="(t, index) in montantsStatus" :key="index"
       ><DonutChart :options="t.options" :series="t.series"
     /></v-col>
   </v-row>
