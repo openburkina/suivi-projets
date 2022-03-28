@@ -9,7 +9,11 @@ export default {
   async asyncData({ store, params }) {
     await Promise.all([
       store.dispatch('region/getProjectsData', params.id),
-    ])
+
+      store.dispatch('region/getRegionsProjectStatus')
+
+
+      ])
     return
   },
 }

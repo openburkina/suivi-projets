@@ -5,6 +5,8 @@ export const state = () => ({
   bailleurs_count: [],
   bailleurs_label: [],
   errors: [],
+  count_end : 0,
+  count_going : 0,
 
   series_secteurs: [
     {
@@ -30,7 +32,7 @@ export const mutations = {
   SET_BAILLLEUR_PROJECT_DATA(state, payload) {
     state.bailleurs = payload
   },
-
+/* 
   SET_BAILLLEUR_PROJECT_STATUS(state, payload) {
      // console.log(payload)
     for (let i = 0; i < payload.length; i++) {
@@ -40,9 +42,27 @@ export const mutations = {
     // console.log("The List: " + state.bailleurs_label);
     for (let i = 0; i < payload.length; i++) {
       state.bailleurs_count.push(parseInt(payload[i].activity_status));
-      //console.log("The List: " + state.bailleurs_count);
     }
+    console.log("The List: " + state.bailleurs_count);
   },
+ */
+
+  SET_BAILLLEUR_PROJECT_STATUS(state, payload) {
+    for (let i = 0; i < payload.length; i++) {
+      if(payload[i].activity_status == 1){
+        // console.log('Console: ' + parseInt(payload[i].count))
+       state.count_end += parseInt(payload[i].count) 
+      } else if(payload[i].activity_status == 0){
+        // console.log('Console: ' + parseInt(payload[i].count))
+       state.count_going += parseInt(payload[i].count) 
+      }
+    }
+    state.bailleurs_count[0] = state.count_end
+    state.bailleurs_count[1] = state.count_going
+    console.log(state.bailleurs_count)
+  },  
+
+
 
   SET_BAILLLEUR_SECTEUR_DATA(state, payload) {
     for (let i = 0; i < payload.length; i++) {
@@ -57,11 +77,12 @@ export const mutations = {
       // console.log("The List: " + state.bailleurs_count);
     }
   },
+
   
+
   SET_ERRORS(state, payload) {
     state.errors = payload
   },
-
 }
 export const actions = {
   getBailleursData({ commit }, payload) {
@@ -103,7 +124,7 @@ export const actions = {
       this.$axios.get('/projects-budget-sector-year').then((response) => {
         commit('SET_BAILLLEUR_SECTEUR_DATA', response.data)
         resolve()
-        // console.log(response.data)
+         // console.log(response.data)
       })
     })
   },

@@ -1,8 +1,6 @@
 <template>
 <no-ssr>
   
-
-
   <div>
     <!-- MAP : Montant totaux des projets par régions -->
     <Title value="Carte" />
