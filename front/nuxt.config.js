@@ -58,7 +58,7 @@ export default {
   axios: {
     // baseURL: 'http://localhost:4000/api',
     // baseProjectsURL: 'https://api.open.undp.org/api/v1/project/list/?budget_sources=&keyword=&limit=100&offset=0&operating_units=&sectors=&year=2021&budget_type=&sdgs=&signature_solution=',
-    baseURL: process.env.API_URL,
+    baseURL: 'https://djangosp.herokuapp.com/api',
    },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
