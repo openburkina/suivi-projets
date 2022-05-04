@@ -56,7 +56,8 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
 
   axios: {
-    baseURL: 'http://0.0.0.0:8000/api'
+    baseURL: 'https://djangosp.herokuapp.com/api'
+    //baseURL: 'http://0.0.0.0:8000/api'
     // baseURL: process.env.API_URL,
    },
 
