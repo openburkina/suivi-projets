@@ -1,0 +1,57 @@
+<template>
+  <div>
+    <Title value="Décaissements du projet"></Title>
+    <v-card class="mx-auto px-3">
+      <v-data-table
+        :headers="headersDecaissements"
+        :items="amounts"
+        :search="search"
+        class="elevation-0"
+      >
+      </v-data-table>
+    </v-card>
+  </div>
+</template>
+<script>
+
+import {  mapState } from 'vuex'
+
+export default {
+  props: ['search'],
+  data() {
+    return {
+      
+      headersDecaissements: [
+        {
+          text: 'ID',
+          align: 'start',
+          sortable: false,
+          value: 'project_id',
+        },
+        { text: 'Titre', value: 'title' },
+        { text: 'Date', value: 'dec_date' },
+        { text: 'Montant', value: 'amount_dec' },
+        { text: 'Livrable', value: 'deliverable' },
+      ],
+    }
+  },
+  computed:{
+      ...mapState('project', {
+        amounts: state=> state.amounts,
+        errors: state=> state.errors
+      })
+    },
+
+    methods: {
+      getColor(statut) {
+        if (statut < 1) return '#00E396'
+        else return '#008FFB'
+      },
+      getValue(statut) {
+        if (statut < 1) return 'mdi-close'
+        else return 'mdi-check'
+      }
+  },
+
+}
+</script>

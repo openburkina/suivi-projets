@@ -1,0 +1,65 @@
+[
+  {
+    "name": "bailleurs",
+    "path": "/bailleurs",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/bailleurs/index.vue",
+    "chunkName": "pages/bailleurs/index",
+    "_name": "_e025428c"
+  },
+  {
+    "name": "error",
+    "path": "/error",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/error.vue",
+    "chunkName": "pages/error",
+    "_name": "_ba47cbf8"
+  },
+  {
+    "name": "projets",
+    "path": "/projets",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projets/index.vue",
+    "chunkName": "pages/projets/index",
+    "_name": "_0f8f64e6"
+  },
+  {
+    "name": "regions",
+    "path": "/regions",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/regions/index.vue",
+    "chunkName": "pages/regions/index",
+    "_name": "_a293bc84"
+  },
+  {
+    "name": "test",
+    "path": "/test",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/test.vue",
+    "chunkName": "pages/test",
+    "_name": "_54d8c846"
+  },
+  {
+    "name": "regions-test",
+    "path": "/regions/test",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/regions/test.vue",
+    "chunkName": "pages/regions/test",
+    "_name": "_3ea42456"
+  },
+  {
+    "name": "projets-details-id",
+    "path": "/projets/details/:id",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/projets/details/_id/index.vue",
+    "chunkName": "pages/projets/details/_id/index",
+    "_name": "_eed78878"
+  },
+  {
+    "name": "regions-projets-id",
+    "path": "/regions/projets/:id?",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/regions/projets/_id.vue",
+    "chunkName": "pages/regions/projets/_id",
+    "_name": "_91354a84"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/wenaklabs/dev/suivi-projets/front/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_5f15fbce"
+  }
+]
