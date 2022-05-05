@@ -56,9 +56,9 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
 
   axios: {
-    // baseURL: 'http://localhost:4000/api',
-    // baseProjectsURL: 'https://api.open.undp.org/api/v1/project/list/?budget_sources=&keyword=&limit=100&offset=0&operating_units=&sectors=&year=2021&budget_type=&sdgs=&signature_solution=',
+    // baseURL: 'http://localhost:8000/api',
     baseURL: 'https://djangosp.herokuapp.com/api',
+    // baseProjectsURL: 'https://api.open.undp.org/api/v1/project/list/?budget_sources=&keyword=&limit=100&offset=0&operating_units=&sectors=&year=2021&budget_type=&sdgs=&signature_solution=',
    },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
