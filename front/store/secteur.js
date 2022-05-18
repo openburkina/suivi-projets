@@ -16,23 +16,31 @@ export const actions = {
   getMontantSecteursDataForChart({ commit }, payload) {
     return new Promise((resolve, reject) => {
       this.$axios
-        .get(`/projects-budget-sector`)
+        .get(`/projects-budget-sector-year`)
         .then((response) => {
-          const data = response.data;
-          // const jsonHelper = require('./../utils/jsonHelper');
-          // const amountsSectors = jsonHelper.amountsSectors(data);
-
-          // const final = {
-          //   options: {
-          //     chart: {
-          //       id: 'line-chart-montant-secteur',
-          //     },
-          //     xaxis: {
-          //       categories: amountsSectors.categories,
-          //     }
-          //   },
-          //   series: amountsSectors.series,
-          // }
+          const data = response.data
+          let sectorList = [...new Set(data.map((x) => x.sector))]
+          sectorList = sectorList.filter((x) => x != null && x != undefined)
+          let amountsSectors = []
+          sectorList.map((sector) => {
+            let val = { x: sector, y: 0 }
+            data.map((d) => {
+              if (d.sector == sector) val.y += parseInt(d.sum)
+            })
+            // val.y = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(val.y)
+            amountsSectors.push(val)
+          })
+          const final = {
+            options: {
+              chart: {
+                id: 'line-chart-montant-secteur',
+              },
+              xaxis: {
+                categories: sectorList,
+              }
+            },
+            series: [{data:amountsSectors}],
+          }
           commit('SET_MONTANTS_DATA', final)
           resolve()
         })
@@ -61,5 +69,4 @@ export const actions = {
         })
     })
   },
-
 }

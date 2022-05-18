@@ -120,7 +120,7 @@ export const actions = {
               labels: labels,
             },
           }
-          console.log('reponse', reponse)
+          // console.log('reponse', reponse)
           commit('SET_MONTANT_STATUS', reponse)
           resolve()
         })
@@ -221,18 +221,27 @@ export const actions = {
         .get(`/projects-budget-region-year`)
         .then((response) => {
           const data = response.data
-          const jsonHelper = require('./../utils/jsonHelper')
-          const amountsCoutries = jsonHelper.amountsCoutries(data)
+          let regionList = [...new Set(data.map((x) => x.region))]
+          regionList = regionList.filter((x) => x != null && x != undefined)
+          let amountsSectors = []
+          regionList.map((region) => {
+            let val = { x: region, y: 0 }
+            data.map((d) => {
+              if (d.region == sector) val.y += parseInt(d.sum)
+            })
+            // val.y = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(val.y)
+            amountsSectors.push(val)
+          })
           const final = {
             options: {
               chart: {
                 id: 'bar-chart-montant-region',
               },
               xaxis: {
-                categories: amountsCoutries.categories,
+                categories: regionList,
               },
             },
-            series: amountsCoutries.series,
+            series: [{data:amountsSectors}],
           }
           commit('SET_MONTANTS_DATA', final)
           resolve()

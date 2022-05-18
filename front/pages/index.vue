@@ -15,7 +15,7 @@
             cours</v-card-subtitle
           >
           <v-divider></v-divider>
-          <DonutChartStatutProjet/>
+          <!-- <DonutChartStatutProjet/> -->
         </v-card>
       </v-col>
       <v-col cols="6">
@@ -25,7 +25,7 @@
             >Evolutions des montants par secteurs</v-card-subtitle
           >
           <v-divider></v-divider>
-          <LineChartMontantParSecteur/>
+          <!-- <LineChartMontantParSecteur/> -->
         </v-card>
       </v-col>
     </v-row>
