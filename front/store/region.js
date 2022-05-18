@@ -15,7 +15,7 @@ export const state = () => ({
   secteurs: [],
   bailleurs: [],
   montantsStatus: [],
-  name: "",
+  name: '',
 })
 
 export const mutations = {
@@ -101,10 +101,27 @@ export const actions = {
       this.$axios
         .get(`/projects-status-year`)
         .then((response) => {
-          let data = response.data.filter((d) => d.region == payload)
-          const jsonHelper = require('./../utils/jsonHelper');
-          const amounts = jsonHelper.amountsStatus(data);
-          commit('SET_MONTANT_STATUS', amounts)
+          let d1 = response.data
+          let sumProject = d1.reduce((a, b) => a + parseInt(b['count']), 0)
+          let labels = ['En cours', 'Términer']
+          let sumScheduleProject = 0,
+            sumDoneProject = 0
+          d1.map((x) => {
+            if (x.activity_status == '0' || x.activity_status == null)
+              sumScheduleProject += parseInt(x.count)
+            else sumDoneProject += parseInt(x.count)
+          })
+          const reponse = {
+            series: [
+              parseInt((sumScheduleProject * 100) / sumProject),
+              parseInt((sumDoneProject * 100) / sumProject),
+            ],
+            options: {
+              labels: labels,
+            },
+          }
+          console.log('reponse', reponse)
+          commit('SET_MONTANT_STATUS', reponse)
           resolve()
         })
         .catch((error) => {
@@ -121,8 +138,8 @@ export const actions = {
         .get(`/projects-status-year-region`)
         .then((response) => {
           let data = response.data.filter((d) => d.region == payload)
-          const jsonHelper = require('./../utils/jsonHelper');
-          const amounts = jsonHelper.amountsStatus(data);
+          const jsonHelper = require('./../utils/jsonHelper')
+          const amounts = jsonHelper.amountsStatus(data)
           commit('SET_MONTANT_STATUS_PAR_REGION', amounts)
           resolve()
         })
@@ -140,8 +157,8 @@ export const actions = {
         .get(`/projects-budget-org-year-region`)
         .then((response) => {
           let data = response.data.filter((d) => d.region == payload)
-          const jsonHelper = require('./../utils/jsonHelper');
-          const amountsSectors = jsonHelper.amountsOrganisations(data);
+          const jsonHelper = require('./../utils/jsonHelper')
+          const amountsSectors = jsonHelper.amountsOrganisations(data)
 
           const final = {
             options: {
@@ -150,7 +167,7 @@ export const actions = {
               },
               xaxis: {
                 categories: amountsSectors.categories,
-              }
+              },
             },
             series: amountsSectors.series,
           }
@@ -172,8 +189,8 @@ export const actions = {
         .get(`/projects-budget-sector-year-region`)
         .then((response) => {
           let data = response.data.filter((d) => d.region == payload)
-          const jsonHelper = require('./../utils/jsonHelper');
-          const amountsSectors = jsonHelper.amountsSectors(data);
+          const jsonHelper = require('./../utils/jsonHelper')
+          const amountsSectors = jsonHelper.amountsSectors(data)
 
           const final = {
             options: {
@@ -182,7 +199,7 @@ export const actions = {
               },
               xaxis: {
                 categories: amountsSectors.categories,
-              }
+              },
             },
             series: amountsSectors.series,
           }
@@ -285,7 +302,6 @@ export const actions = {
         })
     })
   },
-
 
   getDetailsData({ commit }, payload) {
     let search = payload ? payload : ''

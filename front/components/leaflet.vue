@@ -60,17 +60,17 @@ export default {
                 {
                     "key": 1,
                     "value": "< 100.000",
-                    "color": "#D72638"
+                    "color": "#dcfce7"
                 },
                 {
                     "key": 2,
                     "value": "< 1.000.000",
-                    "color": "#FFD97D"
+                    "color": "#86efac"
                 },
                 {
                     "key": 3,
                     "value": "> 1.000.000",
-                    "color": "#60D394"
+                    "color": "#22c55e"
                 },
             ],
             
@@ -97,11 +97,11 @@ export default {
      getRegionColor(title) {
             try {
                 let region = this.leafletData.find((region) => region.title == title);
-                let color = "#FFF087"
+                let color = "#86efac"
                 if (region != undefined){
-                    if (region.sum > 1000000000) color = "#60D394"
-                    else if (region.sum > 100000000) color = "#FFD97D"
-                    else if (region.sum > 0) color = "#D72638"
+                    if (region.sum > 1000000000) color = "#22c55e"
+                    else if (region.sum > 100000000) color = "#86efac"
+                    else if (region.sum > 0) color = "#dcfce7"
                 }
                 return color
             } catch (e) {

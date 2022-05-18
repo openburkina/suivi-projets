@@ -19,20 +19,20 @@ export const actions = {
         .get(`/projects-budget-sector`)
         .then((response) => {
           const data = response.data;
-          const jsonHelper = require('./../utils/jsonHelper');
-          const amountsSectors = jsonHelper.amountsSectors(data);
+          // const jsonHelper = require('./../utils/jsonHelper');
+          // const amountsSectors = jsonHelper.amountsSectors(data);
 
-          const final = {
-            options: {
-              chart: {
-                id: 'line-chart-montant-secteur',
-              },
-              xaxis: {
-                categories: amountsSectors.categories,
-              }
-            },
-            series: amountsSectors.series,
-          }
+          // const final = {
+          //   options: {
+          //     chart: {
+          //       id: 'line-chart-montant-secteur',
+          //     },
+          //     xaxis: {
+          //       categories: amountsSectors.categories,
+          //     }
+          //   },
+          //   series: amountsSectors.series,
+          // }
           commit('SET_MONTANTS_DATA', final)
           resolve()
         })

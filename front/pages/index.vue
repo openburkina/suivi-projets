@@ -39,8 +39,9 @@
             >Montant des projets par r&eacute;gions</v-card-subtitle
           >
           <v-divider></v-divider>
-          <BarChartMontantParRegion/> </v-card
-      ></v-col>
+          <!-- <BarChartMontantParRegion/>  -->
+          </v-card>
+          </v-col>
       <v-col cols="6"
         ><v-card class="mx-auto">
           <v-card-title class="text-h5"
@@ -50,7 +51,7 @@
             >Montant des projets par secteurs</v-card-subtitle
           >
           <v-divider></v-divider>
-          <BarChartMontantParSecteur/>
+          <!-- <BarChartMontantParSecteur/> -->
           </v-card
       ></v-col>
     </v-row>
