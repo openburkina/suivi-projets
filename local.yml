@@ -6,6 +6,7 @@ volumes:
 
 services:
   nuxt:
+    restart: always
     build:
       context: ./front
       dockerfile: Dockerfile
@@ -18,13 +19,14 @@ services:
     depends_on:
       - django
     ports:
-      - "3000:3000"
+      - "81:80"
   django:
+    restart: always
     build:
       context: ./server
       dockerfile: ./compose/local/django/Dockerfile
     image: transparencyportal_local_django
-    container_name: undp_django
+    container_name: django
     depends_on:
       - postgres
     volumes:
@@ -37,11 +39,12 @@ services:
     command: /start
 
   postgres:
+    restart: always
     build:
       context: ./server
       dockerfile: ./compose/production/postgres/Dockerfile
     image: transparencyportal_production_postgres
-    container_name: undp_postgres
+    container_name: postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data:Z
       - local_postgres_data_backups:/backups:z
@@ -49,8 +52,9 @@ services:
       - ./server/.envs/.local/.postgres
 
   docs:
+    restart: always
     image: transparencyportal_local_docs
-    container_name: undp_docs
+    container_name: docs
     build:
       context: ./server
       dockerfile: ./compose/local/docs/Dockerfile

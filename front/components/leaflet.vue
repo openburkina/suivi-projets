@@ -58,6 +58,7 @@ export default {
             try {
                 let region = this.activeRegions.find((region) => region.identifiant == id);
                 if (region != undefined){
+                    
                     if (region.montant > 1000000) return "#FF0000"
                     if (region.montant > 100000) return "#8B0000"
                     if (region.montant > 0) return "#B22222"

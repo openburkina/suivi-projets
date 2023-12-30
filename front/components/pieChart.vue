@@ -19,7 +19,7 @@
     </v-card-subtitle>
     <v-divider></v-divider>
     <div v-if="pieChartData[0]==0 && pieChartData[1]==0 && pieChartData[2]==0 && pieChartData[3]==0 && pieChartData[4]==0 && pieChartData[5]==0">
-        <P style="height: 300px;text-align: center;color: crimson;">Pas de donnée</P>
+        <P style="height: 300;text-align: center;color: crimson;">Pas de donnée</P>
     </div>    
     <div v-else>
         <apexchart
@@ -27,6 +27,7 @@
         :options="pieOptions"
         :series="pieChartData"
         :height="300"
+        :width="500"
         >   
         </apexchart>
     </div>

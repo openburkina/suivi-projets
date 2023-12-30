@@ -4,7 +4,7 @@ from import_export.admin import ImportExportModelAdmin
 from iati_referentiel.models import CollaborationType, Country, DefaultAidType, DefaultFinanceType, \
 HumanitarianScope, Location, Organization, Region, Sector, Tag, Condition
 
-from iati_activities.admin import Contactline,Period,TargetComment2,TargetDimension,Comment,Dimension,DocumentLink,ContactInfo
+from iati_activities.admin import Contactline,Period,TargetComment2,Comment,Dimension,DocumentLink,ContactInfo
 
 class CollaborationTypeAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     empty_value_display = '-empty-'

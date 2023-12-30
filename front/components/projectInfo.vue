@@ -1,55 +1,45 @@
 <template>
-<div>
+<div v-if="info.title!=null">
     <Titre title="A propos du projets" />
   <v-card class="mx-auto" max-width="900">
     <v-list-item>
       <v-list-item-title>Titre</v-list-item-title>
-      <v-list-item-subtitle>{{ info[0].titre }}</v-list-item-subtitle>
+      <v-list-item-subtitle>{{ info.title }}</v-list-item-subtitle>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-title>Bailleur</v-list-item-title>
-      <v-list-item-subtitle>{{ info[0].bailleur }}</v-list-item-subtitle>
-    </v-list-item>
-    <v-divider></v-divider>
-    <v-list-item>
-      <v-list-item-title>Executant</v-list-item-title>
-      <v-list-item-subtitle>{{ info[0].executant }}</v-list-item-subtitle>
-    </v-list-item>
-    <v-divider></v-divider>
-    <v-list-item>
-      <v-list-item-title>Budget</v-list-item-title>
-      <v-list-item-subtitle>{{ info.budget }}</v-list-item-subtitle>
+      <v-list-item-subtitle>{{ info.organizationid.narrative }}</v-list-item-subtitle>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-title>Région</v-list-item-title>
-      <v-list-item-subtitle>{{ info[0].region }}</v-list-item-subtitle>
+      <v-list-item-subtitle>{{ info.locationid.name }}</v-list-item-subtitle>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-title>Secteur</v-list-item-title>
-      <v-list-item-subtitle>{{ info[0].secteur }}</v-list-item-subtitle>
-    </v-list-item>
-    <v-divider></v-divider>
-    <v-list-item>
-      <v-list-item-title>Conditions</v-list-item-title>
-      <v-list-item-subtitle>{{ info[0].conditions }}</v-list-item-subtitle>
+      <v-list-item-subtitle>{{ info.sectorid.narrative }}</v-list-item-subtitle>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-title>Statut</v-list-item-title>
-      <v-list-item-subtitle>{{ info[0].statut }}</v-list-item-subtitle>
+      <v-list-item-subtitle>{{ info.activity_status }}</v-list-item-subtitle>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-title>Date debut</v-list-item-title>
-      <v-list-item-subtitle>{{ info[0].datedebut }}</v-list-item-subtitle>
+      <v-list-item-subtitle>{{ info.planned_start }}</v-list-item-subtitle>
     </v-list-item>
     <v-divider></v-divider>
     <v-list-item>
       <v-list-item-title>Date fin</v-list-item-title>
-      <v-list-item-subtitle>{{ info[0].datefin }}</v-list-item-subtitle>
+      <v-list-item-subtitle>{{ info.planned_end }}</v-list-item-subtitle>
+    </v-list-item>
+    <v-divider></v-divider>
+    <v-list-item>
+      <v-list-item-title>Dernière Mise à jour</v-list-item-title>
+      <v-list-item-subtitle>{{ info.last_updated_datetime }}</v-list-item-subtitle>
     </v-list-item>
     <v-divider></v-divider>
   </v-card>

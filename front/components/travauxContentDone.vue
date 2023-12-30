@@ -23,7 +23,8 @@
       "{sortBy: []}"
       :footer-props="{
         'items-per-page-text':'Liste de projet'
-      }">
+      }"
+      @click:row="createEditLink">
    
     </v-data-table>
   </v-card>
@@ -50,13 +51,14 @@ export default {
             sortable: false,
             value: 'name',
           },
-          { text: 'Codage IATI', value: 'activityid.iati_identifier' },
-          { text: 'Pays', value: 'activityid.countryid3.name' },
-          { text: 'Region', value: 'activityid.regionid3.name' },
-          { text: 'Titre', value: 'activityid.title' },
-          { text: 'Dévise', value: 'activityid.default_currency' },
-          { text: 'Etape', value: 'activityid.activity_status' },
-          { text: 'Dernière mise à jour', value: 'activityid.last_updated_datetime' },
+          { text: 'ID', value: 'identifiant' },
+          { text: 'Nom', value: 'titre' },
+          { text: 'Bailleur', value: 'bailleur' },
+          { text: 'Secteur', value: 'secteur' },
+          { text: 'Budget', value: 'montant' },
+          { text: 'Date de Debut', value: 'datedebut' },
+          { text: 'Date de Fin', value: 'datefin' },
+          { text: 'Structure Executante', value: 'executant' },
         ],
     }
   },
@@ -72,6 +74,9 @@ export default {
        console.log(this.$store.state.idRegion)
       //  this.$store.dispatch('',this.$store.state.idRegion)
      }
+    },
+    createEditLink(projet) {
+      return  this.$router.push({ path: '/projets/' + projet.identifiant})
     }
   }
 }

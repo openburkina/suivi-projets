@@ -1,5 +1,6 @@
 <template>
     <div>
+        <v-col>
         <v-row>
             <v-col order="6">
                 <PieChart
@@ -21,7 +22,6 @@
         </v-row>
         <v-row>
             <v-col order="6">
-                <v-col order="6">
                     <BarChart 
                     :title="barOneTitle" 
                     :chartOptionsBar="barChartOne.options" 
@@ -29,10 +29,8 @@
                     :verif="barChartOne.test"
                     v-on:year-change="barOneYearChange"
                     />
-                </v-col>
             </v-col>
             <v-col order="6">
-                <v-col order="6">
                     <BarChart 
                     :title="barTwoTitle" 
                     :chartOptionsBar="barChartTwo.options" 
@@ -40,9 +38,9 @@
                     :verif="barChartTwo.test"                  
                     v-on:year-change="barTwoYearChange"
                     />
-                </v-col>
             </v-col>
         </v-row>
+    </v-col>
     </div>
 </template>
 
@@ -61,11 +59,6 @@ export default {
                     labels: this.pieChartLabels
                 },
                 series : this.pieChartData,
-                noData: {
-                    text: "No data text",
-                    align: "center",
-                    verticalAlign: "middle",
-                },
             }
         },
         lineChart() {

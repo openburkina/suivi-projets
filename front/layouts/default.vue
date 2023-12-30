@@ -11,7 +11,7 @@
         <v-list-item>
           <v-list-item-content>
               <img
-                :src="require('~/assets/img/logo.jpg')" height="100"
+                :src="require('~/assets/img/logo_projet.jpg')" height="100"
               >
           </v-list-item-content>
         </v-list-item>
@@ -33,23 +33,23 @@
             <v-list-item-title>Accueil</v-list-item-title>
           </v-list-item>
 
-          <v-list-item to="/projects">
+          <v-list-item to="/projets">
             <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
+              <v-icon>mdi-domain</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Projets</v-list-item-title>
           </v-list-item>
           
-          <v-list-item to="/buyers">
+          <v-list-item to="/bailleurs">
             <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
+              <v-icon>mdi-cash</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Bailleurs</v-list-item-title>
           </v-list-item>
 
           <v-list-item to="/regions">
             <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
+              <v-icon>mdi-map</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Régions</v-list-item-title>
           </v-list-item>
@@ -67,7 +67,7 @@
         
         <a href="/">
         <img
-          :src="require('~/assets/img/logo.jpg')" height="60" width="50"
+          :src="require('~/assets/img/projets.png')" height="90" width="100"
         >
         </a>
   
@@ -83,13 +83,12 @@
         <v-btn to="/" text>
           <span class="mr-2 white--text">Accueil</span>
         </v-btn>
-         <v-btn to="/projects" text>
+         <v-btn to="/projets" text>
           <span class="mr-2 white--text">Projets</span>
         </v-btn>
-        <v-btn text to="/buyers">
+        <v-btn text to="/bailleurs">
           <span class="mr-2  white--text">Bailleurs</span>
         </v-btn>
-        <!-- More menu -->
         <v-btn text to="/regions">
           <span class="mr-2  white--text">Régions</span>
         </v-btn>
@@ -139,8 +138,6 @@ export default {
     },
     
   },
-  
- 
   mounted() {
     this.onResize();
     window.addEventListener("resize", this.onResize, { passive: true });

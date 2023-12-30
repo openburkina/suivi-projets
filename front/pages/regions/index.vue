@@ -3,7 +3,7 @@
     <Titre title="Régions" />
     <v-card color="indigo lighten-5 elevation-4 mx-4 mt-4 mb-16">
       <v-card-title>
-        Liste des régions
+        Liste des régions du pays
         
         <v-spacer></v-spacer>
         <v-text-field
@@ -49,11 +49,7 @@ export default {
          
           },
         { text: 'ID', value: 'id' },
-        { text: 'Pays', value: 'countryid3.name' },
-        { text: 'Localité Parente', value: 'locationid.name' },
         { text: 'Localité', value: 'name' },
-        { text: 'Code Administratif', value: 'administrative_code' },
-        
       ],
     }
   },

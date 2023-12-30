@@ -31,8 +31,10 @@ services:
     volumes:
       - local_postgres_data:/var/lib/postgresql/data:Z
       - local_postgres_data_backups:/backups:z
+      - ./custom_postgresql.conf:/etc/postgresql/postgresql.conf:ro
     env_file:
       - ./.envs/.local/.postgres
+    restart: always
 
   docs:
     image: transparencyportal_local_docs
@@ -49,3 +51,4 @@ services:
     ports:
       - "7000:7000"
     command: /start-docs
+    

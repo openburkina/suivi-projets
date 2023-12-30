@@ -1,6 +1,6 @@
 <template>
-  <div style="
-position: relative; bottom: 0; left: 0; right: 0">
+  <!-- <div style="
+position: relative; bottom: 0; left: 0; right: 0"> -->
     <v-card
       flat
       tile
@@ -29,7 +29,7 @@ position: relative; bottom: 0; left: 0; right: 0">
         text
         rounded
         class="my-2"
-        to="/"
+        to="/about"
         >
        A propos
       </v-btn>
@@ -69,7 +69,7 @@ position: relative; bottom: 0; left: 0; right: 0">
         {{ new Date().getFullYear() }} — <strong>Cafdo</strong>
       </v-card-text>
     </v-card>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>

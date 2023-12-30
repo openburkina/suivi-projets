@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Titre title="Indicateurs Resultats liées au projets" />
+    <Titre title="Indicateurs liées au projets" />
     <v-card class="container mx-auto px-3">
       <v-data-table
         :headers="headersDecaissements"

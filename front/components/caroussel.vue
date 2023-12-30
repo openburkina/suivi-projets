@@ -12,45 +12,6 @@
         width="100%"
       >
       <v-img
-         :src="require('~/assets/img/image5.jpg')"
-        ></v-img>
-        <v-row
-          class="fill-height"
-          align="center"
-          justify="center"
-        >
-          <div class="text-h2">
-          </div>
-        </v-row>
-      </v-sheet>
-    </v-carousel-item>
-
-    <v-carousel-item
-    >
-      <v-sheet
-        height="100%"
-        width="100%"
-      >
-      <v-img
-         :src="require('~/assets/img/image6.png')"
-        ></v-img>
-        <v-row
-          class="fill-height"
-          align="center"
-          justify="center"
-        >
-          <div class="text-h2">
-          </div>
-        </v-row>
-      </v-sheet>
-    </v-carousel-item>
-    <v-carousel-item
-    >
-      <v-sheet
-        height="100%"
-        width="100%"
-      >
-      <v-img
          :src="require('~/assets/img/image7.jpg')"
         ></v-img>
         <v-row

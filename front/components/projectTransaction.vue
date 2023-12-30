@@ -32,11 +32,5 @@ export default {
       ],
     }
   },
-//   computed:{
-//       ...mapState('project', {
-//         amounts: state=> state.amounts,
-//         errors: state=> state.errors
-//       })
-//     },
 }
 </script>

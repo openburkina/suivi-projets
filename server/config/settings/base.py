@@ -162,13 +162,14 @@ JAZZMIN_SETTINGS = {
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    #"django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
@@ -334,5 +335,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 #     r"^http(s{0,1}):\/\/(.+):3000(\/{0,1})$",
 # ]
 # Your stuff...
+
 # ------------------------------------------------------------------------------
 USE_THOUSAND_SEPARATOR = True

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Titre title="Travaux" />
+    <Titre title="Liste des travaux financés par la banque Mondiale et la BAD" />
     <v-card color="indigo lighten-5 elevation-4 mx-4 mt-4 mb-16">
       <v-card-title>
         Liste des Travaux

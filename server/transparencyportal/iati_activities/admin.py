@@ -3,19 +3,13 @@ from import_export.admin import ImportExportModelAdmin
 from import_export import resources
 
 
-from iati_activities.models import Activity,ActivityCollaborationType,ActivityDate,ActivityHumanitarianScope, \
-    ActivityLocation, ActivityOrganization, ActivityParticipatingOrg, ActivitySector, ActivityTag, ActualDimension, \
-        Actual, ActualDocumentLink, Baseline, Budget, BaselineDocumentLink, Comment, ConditionActivity, \
+from iati_activities.models import Activity, \
+        ActivityParticipatingOrg, ActualDimension, \
+        Actual, ActualDocumentLink, Baseline, Budget, BaselineDocumentLink, Comment, \
         ContactInfo, Dimension, DocumentLink, DocumentLinkIndicator, DocumentLinkResults, Indicator, Period, PlannedDisbursement,  \
-        Results, Target, TargetComment2, TargetDimension, Transaction, TransactionSector,DefaultAidTypeActivity, \
+        Results, Target, TargetComment2, Transaction,DefaultAidTypeActivity, \
         DefaultFinanceTypeActivity
 
-class ActivityRessouces(resources.ModelResource):
-    class Meta:
-        model = ActivityOrganization
-        fields = ('activityid','organizationid','activityid__regionid3','activityid__countryid3','activityid__activityid','activityid__contact_infoid','activityid__last_updated_datetime','activityid__lang','activityid__default_currency',
-        'activityid__humanitarian','activityid__hierarchy','activityid__budget_not_provided','activityid__iati_identifier','activityid__title','activityid__description','activityid__activity_status','activityid__activity_scope',
-        'activityid__type_relationship','activityid__transaction__organizationid2')
 
 class Actualline(admin.StackedInline):
     model = Actual
@@ -76,10 +70,6 @@ class TargetComment2line(admin.StackedInline):
     model = TargetComment2
     extra = 0
 
-class TargetDimensionline(admin.StackedInline):
-    model = TargetDimension
-    extra = 0
-
 class DefaultAidTypeActivityline(admin.StackedInline):
     model = DefaultAidTypeActivity
     extra = 0
@@ -88,28 +78,8 @@ class DefaultFinanceTypeActivityline(admin.StackedInline):
     model = DefaultFinanceTypeActivity
     extra = 0
 
-class ActivityCollaborationTypeline(admin.StackedInline):
-    model = ActivityCollaborationType
-    extra = 0
-
-class ActivityHumanitarianScopeline(admin.StackedInline):
-    model = ActivityHumanitarianScope
-    extra = 0
-
 class ActivityParticipatingOrgline(admin.StackedInline):
     model = ActivityParticipatingOrg
-    extra = 0
-
-class ActivitySectorline(admin.StackedInline):
-    model = ActivitySector
-    extra = 2
-
-class ActivityDateline(admin.StackedInline):
-    model = ActivityDate
-    extra = 0
-
-class ActivityLocationline(admin.StackedInline):
-    model = ActivityLocation
     extra = 0
 
 class Resultsline(admin.TabularInline):
@@ -117,25 +87,8 @@ class Resultsline(admin.TabularInline):
 
     extra = 0
 
-
-class ActivityOrganizationline(admin.StackedInline):
-    model = ActivityOrganization
-    extra = 0
-
-class ActivityTagline(admin.StackedInline):
-    model = ActivityTag
-    extra = 0
-
 class Budgetline(admin.StackedInline):
     model = Budget
-    extra = 0
-
-class ConditionActivityline(admin.StackedInline):
-    model = ConditionActivity
-    extra = 0
-
-class TransactionSectorline(admin.StackedInline):
-    model = TransactionSector
     extra = 0
 
 class Transactionline(admin.StackedInline):
@@ -148,14 +101,12 @@ class Contactline(admin.StackedInline):
 
 @admin.register(Activity)
 class ActivityAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    resource_classes = [ActivityRessouces]
-    list_display = ('iati_identifier','title','regionid3','countryid3','humanitarian')
-    search_fields = ('regionid3','countryid3','iati_identifier')
+    search_fields = ('regionid3','countryid3','locationid','iati_identifier')
     list_filter = ('humanitarian','regionid3','countryid3','iati_identifier')
     list_per_page=10
     inlines = [
-        ActivityLocationline, ActivitySectorline, ActivityOrganizationline, Budgetline, ActivityTagline, ActivityParticipatingOrgline, ActivityDateline,\
-             Resultsline, ActivityCollaborationTypeline, ActivityHumanitarianScopeline, ConditionActivityline, DefaultFinanceTypeActivityline, \
+             Budgetline, ActivityParticipatingOrgline,\
+             Resultsline, DefaultFinanceTypeActivityline, \
                 DefaultAidTypeActivityline, DocumentLinkline, PlannedDisbursementline
     ]
 
@@ -176,7 +127,7 @@ class TargetAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_filter = ('locationid','value')
     list_per_page=10
     inlines = [
-        TargetComment2line, TargetDimensionline
+        TargetComment2line
     ]
 
 @admin.register(Actual)
@@ -191,10 +142,28 @@ class ActualAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 @admin.register(Transaction)
 class TransactionAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ('activityid','organizationid2','organizationid','ref','transaction_type','transaction_date','value','currency')
-    search_fields = ('activityid','organizationid2','organizationid','ref','transaction_type','transaction_date','value','currency')
-    list_filter = ('activityid','organizationid2','organizationid','ref','transaction_type','transaction_date','value','currency')
+    list_display = ('activityid','organizationid2','organizationid','sectorid','ref','transaction_type','transaction_date','value','currency')
+    search_fields = ('activityid','organizationid2','organizationid','sectorid','ref','transaction_type','transaction_date','value','currency')
+    list_filter = ('activityid','organizationid2','organizationid','sectorid','ref','transaction_type','transaction_date','value','currency')
     list_per_page=10
-    inlines = [
-        TransactionSectorline
-    ]
+
+@admin.register(Results)
+class ResultsAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+     list_display = ('activityid','type','aggregation_status','title','description')
+     search_fields = ('activityid','type','aggregation_status','title','description')
+     list_filter = ('activityid','type','aggregation_status','title','description')
+     list_per_page=10
+
+@admin.register(Budget)
+class ActivityBudgetAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+     list_display = ('activityid','type','statut','period_start','period_end','value','currency','value_date')
+     search_fields = ('activityid','type','statut','period_start','period_end','value','currency','value_date')
+     list_filter = ('activityid','type','statut','period_start','period_end','value','currency','value_date')
+     list_per_page=10
+
+@admin.register(ActivityParticipatingOrg)
+class ActivityActivityParticipatingOrgAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+     list_display = ('activityid','organizationid','role')
+     search_fields = ('activityid','role')
+     list_filter = ('activityid','role')
+     list_per_page=10

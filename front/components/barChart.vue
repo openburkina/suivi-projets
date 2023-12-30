@@ -18,14 +18,15 @@
     </v-card-subtitle>
     <v-divider></v-divider>
     <div v-if="verif.length==0">
-        <P style="height: 300px;text-align: center;color: crimson;">Pas de donnée</P>
+        <P style="height: 300px;text-align: center;color: crimson;">Pas de données</P>
     </div>
     <div v-else>  
     <apexchart 
         type="bar"
         :options="chartOptionsBar"
         :series="seriesBar"
-        :height="300">
+        :height="300"
+        :width="500">
     </apexchart>
     </div>
     </v-card>
